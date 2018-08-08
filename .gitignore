@@ -1,0 +1,14 @@
+# Created by .ignore support plugin (hsz.mobi)
+/data_raw/
+/data_processing/
+/databases/prediction/Cape Coral, FL.csv
+/databases/prediction/New York, NY.csv
+/databases/prediction/Miami, FL.csv
+/databases/prediction/Washington, DC.csv
+/databases/prediction/Detroit, MI.csv
+/databases/prediction/San Francisco, CA.csv
+/databases/prediction/Seattle, WA.csv
+/databases/prediction/Philadelphia, PA.csv
+/databases/prediction/Los Angeles, CA.csv
+/databases/prediction/Chicago, IL.csv
+/_old/
