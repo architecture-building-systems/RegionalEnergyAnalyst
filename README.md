@@ -1,5 +1,3 @@
-# Forecasting the effects of climate change on builiding energy consumption across U.S.A
-
 This repository stores the statistical models of the project.
 It Includes a sub-set of the original training and testing database.
 It Includes a sub-set of the original database for predictions.
