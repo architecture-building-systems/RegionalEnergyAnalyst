@@ -21,5 +21,5 @@ DATA_RAW_BUILDING_TODAY_HDD_FOLDER = os.path.join(os.getcwd(), "data_raw", "toda
 #indicate folders to store the results (I ADVISE TO KEEP THEM AS IT IS)
 HIERARCHICAL_MODEL_INFERENCE_FOLDER = os.path.join(os.getcwd(), "results", "hierarchical", "inference")
 HIERARCHICAL_MODEL_PERFORMANCE_FOLDER = os.path.join(os.getcwd(), "results", "hierarchical", "performance")
-HIERARCHICAL_MODEL_PREDICTION_FOLDER = os.path.join(os.getcwd(), "results", "hierarchical", "performance")
-HIERARCHICAL_MODEL_COEFFICIENT_PLOTS = os.path.join(os.getcwd(), "analysis", "plots", "hierarchical")
+HIERARCHICAL_MODEL_PREDICTION_FOLDER = os.path.join(os.getcwd(), "results", "hierarchical", "predictions")
+HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER = os.path.join(os.getcwd(), "analysis", "plots", "hierarchical")

@@ -2,8 +2,7 @@ import os
 
 import matplotlib.pyplot as plt
 import pandas as pd
-import seaborn as sns
-from pandas.plotting import scatter_matrix, parallel_coordinates
+from configuration import HIERARCHICAL_MODEL_PREDICTION_FOLDER, HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER, CONFIG_FILE
 
 
 def main(data_path, output_path, cities):
@@ -30,10 +29,10 @@ def main(data_path, output_path, cities):
         plt.savefig(os.path.join(output_path, city+".png"))
 
 if __name__ == "__main__":
-    name_model = "log_neural_net_wide_deep_4L_453%_3%" #"log_log_all_standard_10000"
-    data_path = os.path.join(os.path.dirname(os.getcwd()), "results", "predictions", name_model)
-    output_path = os.path.join(os.path.dirname(os.getcwd()), "results", "predictions", name_model, "plots")
-    cities = pd.read_excel(os.path.join(os.path.dirname(os.getcwd()), "cities.xlsx"), sheet_name='test_cities')['City']
+    name_model = "log_log_all_standard_10000"
+    data_path = os.path.join(HIERARCHICAL_MODEL_PREDICTION_FOLDER, name_model)
+    output_path = os.path.join(HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER, name_model)
+    cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City']
 
     main(data_path, output_path, cities)
 

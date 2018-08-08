@@ -6,7 +6,7 @@ os.environ["MKL_THREADING_LAYER"] = "GNU"
 import matplotlib.pyplot as plt
 import numpy as np
 import pickle
-from configuration import HIERARCHICAL_MODEL_INFERENCE_FOLDER, HIERARCHICAL_MODEL_COEFFICIENT_PLOTS, CONFIG_FILE
+from configuration import HIERARCHICAL_MODEL_INFERENCE_FOLDER, HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER, CONFIG_FILE
 import pymc3 as pm
 import pandas as pd
 import theano
@@ -62,6 +62,6 @@ if __name__ == "__main__":
 
     name_model = "log_log_all_standard_10000"
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER, name_model + ".pkl")
-    output_graphs = os.path.join(HIERARCHICAL_MODEL_COEFFICIENT_PLOTS, name_model)
+    output_graphs = os.path.join(HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER, name_model)
     main_cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City'].values
     main(output_trace_path, output_graphs, main_cities)
