@@ -47,8 +47,9 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
 
     with pm.Model() as hierarchical_model:
 
-        # log(y) = a + b*log(floor) + g*HDD + e*CDD
-        # Hyperpriors for group nodes
+        # log(y) = alpha + beta*log(GFA*HDD) + gamma*log(GFA*CDD) + eps
+        
+        # Coefficients of all population
         global_a = pm.Uniform('global_a', lower=0., upper=5) # pm.Normal('global_a', mu=0., sd=100 ** 2)
         sigma_a = pm.HalfCauchy('sigma_a', 5)
 
@@ -58,7 +59,7 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
         global_c = pm.Uniform('global_c', lower=0., upper=5) # pm.Normal('global_c', mu=0., sd=100 ** 2) #pm.StudentT('global_d', nu = 5, mu=0, sd=100**2)
         sigma_c = pm.HalfCauchy('sigma_c', 5)
 
-        # Intercept for each county, distributed around group mean mu_a
+        # Coefficients for each city, distributed around the group means
         a_offset = pm.HalfCauchy('a_offset', 5, shape=n_counties)# pm.Normal('a_offset', mu=0, sd=10, shape=n_counties)
         alpha = pm.Deterministic("alpha", global_a + a_offset * sigma_a)
 
@@ -73,6 +74,7 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
         y_obs = Xy_training[response_variable]
         x1 = Xy_training[predictor_variables[0]].values
         x2 = Xy_training[predictor_variables[1]].values
+
         model = alpha[county_idx] + beta[county_idx] * x1 + gamma[county_idx] * x2
 
         # Data likelihood
