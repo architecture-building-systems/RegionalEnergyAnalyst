@@ -8,6 +8,7 @@ CONFIG_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "configur
 #indicate relative or absolute path to training, testing and prediction datasets and folders
 DATA_TRAINING_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "databases", "training_and_testing", "training_database.csv")
 DATA_TESTING_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "databases", "training_and_testing", "testing_database.csv")
+DATA_ALLDATA_FILE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "databases", "training_and_testing", "all_database.csv")
 DATA_PREDICTION_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "databases", "prediction")
 
 
@@ -24,3 +25,4 @@ HIERARCHICAL_MODEL_PERFORMANCE_FOLDER = os.path.join(os.path.abspath(os.path.dir
 HIERARCHICAL_MODEL_PREDICTION_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical", "predictions")
 HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "hierarchical")
 DATA_ANALYSIS_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "other_analysis")
+DATA_HDD_CDD_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "IPCC-scenarios")
