@@ -50,7 +50,7 @@ fields = ["LOG_SITE_ENERGY_MWh_yr", "LOG_HDD_FLOOR_18_5_C_m2", "LOG_CDD_FLOOR_18
 #                          palette="PuBuGn_d")
 
 
-df = df[df["CITY"] == "New York, NY"] #"Seattle, WA"
+df = df[df["CITY"] == "Seattle, WA"] #"Seattle, WA"
 
 import matplotlib as mpl
 mpl.rcParams['mathtext.fontset'] = 'cm'
@@ -65,15 +65,15 @@ yaxis_2 = r'$\log(y_{i,j})$'
 yaxis_3 = r'$\log(y_{i,j})$'
 # "rgb(255,209,29)","rgb(126,199,143)","rgb(245,131,69)","rgb(240,75,91)"
 # df["LOG_SITE_ENERGY_MWh_yr"].plot(ax=axes[0,0], kind='hist', bins=200, color=color); axes[0,0].set_title('(a)');
-df[df["BUILDING_CLASS"] == "Residential"]["LOG_SITE_ENERGY_MWh_yr"].plot(ax=axes[0], kind='hist', bins=200, color=residential,); axes[0].set_title('(a)')
+df[df["BUILDING_CLASS"] == "Residential"]["LOG_SITE_ENERGY_MWh_yr"].plot(ax=axes[0], kind='hist', bins=200, color=residential,)
 df[df["BUILDING_CLASS"] == "Commercial"]["LOG_SITE_ENERGY_MWh_yr"].plot(ax=axes[0], kind='hist', bins=200, color=commercial)
 
 
 # df.plot.scatter(ax=axes[1,0], x="LOG_HDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=color); axes[1,0].set_title('(d)')
-df[df["BUILDING_CLASS"] == "Commercial"].plot.scatter(ax=axes[1], x="LOG_HDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=commercial); axes[1].set_title('(b)')
+df[df["BUILDING_CLASS"] == "Commercial"].plot.scatter(ax=axes[1], x="LOG_HDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=commercial)
 df[df["BUILDING_CLASS"] == "Residential"].plot.scatter(ax=axes[1], x="LOG_HDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=residential)
 
-df[df["BUILDING_CLASS"] == "Commercial"].plot.scatter(ax=axes[2], x="LOG_CDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=commercial); axes[2].set_title('(c)')
+df[df["BUILDING_CLASS"] == "Commercial"].plot.scatter(ax=axes[2], x="LOG_CDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=commercial)
 df[df["BUILDING_CLASS"] == "Residential"].plot.scatter(ax=axes[2], x="LOG_CDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=residential)
 
 axes[0].set_xlabel(xaxis_1, fontsize=14)
@@ -82,6 +82,10 @@ axes[1].set_xlabel(xaxis_2, fontsize=14)
 axes[2].set_xlabel(xaxis_3, fontsize=14)
 axes[1].set_ylabel(yaxis_2, fontsize=14)
 axes[2].set_ylabel(yaxis_3, fontsize=14)
+
+# axes[0].set_title('(a)')
+axes[1].set_title('All 96 cities', fontsize=18, y=1.08)
+# axes[2].set_title('(c)')
 
 # df.plot.scatter(ax=axes[2,0], x="LOG_HDD_FLOOR_18_5_C_m2", y ="LOG_SITE_ENERGY_MWh_yr", color=color); axes[2,0].set_title('(g)')
 

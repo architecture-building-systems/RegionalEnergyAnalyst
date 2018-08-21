@@ -2,59 +2,83 @@ from __future__ import division
 from __future__ import print_function
 
 import plotly.graph_objs as go
+from  plotly  import  tools
+
 import os
 from plotly.offline import plot
 import pandas as pd
 from configuration import CONFIG_FILE, DATA_HDD_CDD_PLOTS_FOLDER, DATA_RAW_BUILDING_IPCC_SCENARIOS_FILE, DATA_RAW_BUILDING_TODAY_HDD_FOLDER
 
 
-def main(data_path, output_path, future_hdd_cdd_file, cities):
+
+def calc_graph(data_frame, analysis_fields, output_path, field_names, colors, i, fig):
+
+    # CALCULATE GRAPH
+    traces_graph = []
+    for field, name, color in zip(analysis_fields, field_names, colors):
+        x = data_frame.index
+        y = data_frame[field]
+        trace = go.Bar(x=x, y=y, name=name, orientation='v',
+                       marker=dict(color=color))
+
+        fig.append_trace(trace, 1, i + 1)
+
+        # # PLOT GRAPH
+        # layout = go.Layout(barmode='relative')
+        # fig = go.Figure(data=traces_graph, layout=layout)
+        # plot(fig, auto_open=False, filename=output_path + '//' + str(year) + ".html")
+
+    return fig
+
+def main(years_to_map, output_path, future_hdd_cdd_file, analysis_fields, field_names, colors, cities):
     # get data from every city and transform into data per scenario
     scenarios = future_hdd_cdd_file["Scenario"].unique()
-    data_table = pd.DataFrame()
-    for city in cities:
-        data_current = pd.read_csv(os.path.join(DATA_RAW_BUILDING_TODAY_HDD_FOLDER, city + ".csv")).set_index("site_year")
-        data_new = future_hdd_cdd_file[future_hdd_cdd_file['City'] == city]
-        data_new2 = data_new.set_index("Scenario")
+    fig = tools.make_subplots(rows=1, cols=len(cities), shared_yaxes=True)
 
-        # HEATING CASE
-        HDD_18_5_C = data_current.loc[2010, "hdd_18.5C"]
-        CDD_18_5_C = data_current.loc[2010, "cdd_18.5C"]
-        data_new["YEAR"] = [x.split("_", 1)[1] for x in data_new["Scenario"].values]
-        data_new.set_index("YEAR", inplace=True)
-        data_new["CHANGE"] = ((data_new["HDD_18_5_C"] - HDD_18_5_C) / HDD_18_5_C) * 100
-        data_new["SCENARIO_CLASS"] = [x.split("_", 1)[0] for x in data_new["Scenario"].values]
-        data_final = pd.DataFrame()
-        for scenario in scenarios:
-            scenario_type = scenario.split("_", 1)[1]
-            df = data_new[data_new.index == scenario_type]
-            # df[scenario_type] =
-            data_final[scenario_type] = pd.DataFrame({scenario_type: df["HDD_18_5_C"].values})
+    for i, city in enumerate(cities):
+        data_current = pd.read_csv(os.path.join(DATA_RAW_BUILDING_TODAY_HDD_FOLDER, city + ".csv")).set_index(
+            "site_year")
+        HDD_baseline = data_current.loc[2010, "hdd_18.5C"]
+        CDD_baseline = data_current.loc[2010, "cdd_18.5C"]
 
-        fig, ax = plt.subplots()
-        data_final[['2020', '2030', '2040', '2050']].plot.box(title=city, figsize=(4, 4), ax=ax)
+        data_future_HDD_CDD = future_hdd_cdd_file[future_hdd_cdd_file['City'] == city]
+        df_super_final = pd.DataFrame()
+        for year in years_to_map:
+            # HEATING CASE
+            data_future_HDD_CDD["YEAR"] = [x.split("_", 1)[1] for x in data_future_HDD_CDD["Scenario"].values]
+            data_future_HDD_CDD[year] = data_future_HDD_CDD["HDD_18_5_C"]
+            data_future_HDD_CDD["SCENARIO_CLASS"] = [x.split("_", 1)[0] for x in data_future_HDD_CDD["Scenario"].values]
+            data_future_HDD_CDD.set_index("SCENARIO_CLASS", inplace =True)
+            df_heating = data_future_HDD_CDD[data_future_HDD_CDD.YEAR == str(year)]
+            df_heating = df_heating[[year]]
+            df_heating = df_heating.T
 
-        # COOLING CASE
-        data_new["YEAR"] = [x.split("_", 1)[1] for x in data_new["Scenario"].values]
-        data_new.set_index("YEAR", inplace=True)
-        data_new["CHANGE"] = ((data_new["CDD_18_5_C"] - CDD_18_5_C) / CDD_18_5_C) * 100
-        data_new["SCENARIO_CLASS"] = [x.split("_", 1)[0] for x in data_new["Scenario"].values]
-        data_final = pd.DataFrame()
-        for scenario in scenarios:
-            scenario_type = scenario.split("_", 1)[1]
-            df = data_new[data_new.index == scenario_type]
-            # df[scenario_type] =
-            data_final[scenario_type] = pd.DataFrame({scenario_type: df["CDD_18_5_C"].values})
+            # scenarios_extremes = ["A1B", "A2"]
+            # for scenario in scenarios_extremes:
+            #     df_heating[scenario] = df_heating[scenario] - df_heating["B1"]
 
-        data_final[['2020', '2030', '2040', '2050']].plot.box(title=city, figsize=(4, 4), ax=ax)
-        plt.ylim((0, 3500))
-        plt.savefig(os.path.join(output_path, city + ".png"))
-        #
-        #     data_final['scenario'] = df["SCENARIO_CLASS"].values
-        #     data_final['city'] = city
-        #
-        #     data_table = data_table.append(data_final)
-        # data_table.to_csv(os.path.join(output_path, cooling_heating, cooling_heating+".csv"))
+            # COOLING CASE
+            data_future_HDD_CDD[year] = -data_future_HDD_CDD["CDD_18_5_C"]
+            data_future_HDD_CDD["SCENARIO_CLASS"] = [x.split("_", 1)[0]+"_CDD" for x in data_future_HDD_CDD["Scenario"].values]
+            data_future_HDD_CDD.set_index("SCENARIO_CLASS", inplace=True)
+            df_cooling = data_future_HDD_CDD[data_future_HDD_CDD.YEAR == str(year)]
+            df_cooling = df_cooling[[year]]
+            df_cooling = df_cooling.T
+
+            # scenarios_extremes = ["A1B_CDD", "A2_CDD"]
+            # for scenario in scenarios_extremes:
+            #     df_cooling[scenario] = df_cooling[scenario] - df_cooling["B1_CDD"]
+
+            df_final = pd.concat([df_heating, df_cooling], axis=1)
+            df_super_final = df_super_final.append(df_final)
+
+        fig = calc_graph(df_super_final, analysis_fields, output_path, field_names, colors, i, fig)
+
+    fig['layout'].update(height=400, width=600, title='Multiple Subplots with Shared Y-Axes', barmode='relative',
+                         )
+    plot(fig, auto_open=False, filename=output_path + '//' + str(year) + ".html")
+
+
 
 
 if __name__ == "__main__":
@@ -62,44 +86,9 @@ if __name__ == "__main__":
     cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City'].values
     output_path = DATA_HDD_CDD_PLOTS_FOLDER
     future_hdd_cdd_file = pd.read_csv(DATA_RAW_BUILDING_IPCC_SCENARIOS_FILE)
+    analysis_fields = ["A1B", "A1B_CDD"] #["B1", "A1B", "A2", "B1_CDD", "A1B_CDD", "A2_CDD"]
+    field_names = ["Change in HDD [%]", "Change in CDD [%]"]
+    colors = ["rgb(240,75,91)", "rgb(63,192,194)"] #["rgb(240,75,91)","rgb(246,148,143)","rgb(252,217,210)", "rgb(63,192,194)", "rgb(171,221,222)", "rgb(225,242,242)"]
+    years_to_map = [2020, 2030, 2040, 2050]
 
-    main(data_path, output_path, future_hdd_cdd_file, cities)
-
-
-
-
-cities_energy_data = pd.read_excel(CONFIG_FILE, sheet_name="cities_with_energy_data")
-data_hdd = pd.read_csv(DATA_RAW_BUILDING_TODAY_HDD_FOLDER)
-
-trace1 = go.Bar(
-    y=['giraffes', 'orangutans', 'monkeys'],
-    x=[20, 14, 23],
-    name='SF Zoo',
-    orientation = 'h',
-    marker = dict(
-        color = 'rgba(246, 78, 139, 0.6)',
-        line = dict(
-            color = 'rgba(246, 78, 139, 1.0)',
-            width = 3)
-    )
-)
-trace2 = go.Bar(
-    y=['giraffes', 'orangutans', 'monkeys'],
-    x=[12, 18, 29],
-    name='LA Zoo',
-    orientation = 'h',
-    marker = dict(
-        color = 'rgba(58, 71, 80, 0.6)',
-        line = dict(
-            color = 'rgba(58, 71, 80, 1.0)',
-            width = 3)
-    )
-)
-
-data = [trace1, trace2]
-layout = go.Layout(
-    barmode='stack'
-)
-
-fig = go.Figure(data=data, layout=layout)
-py.iplot(fig, filename='marker-h-bar')
+    main(years_to_map, output_path, future_hdd_cdd_file, analysis_fields, field_names, colors, cities)

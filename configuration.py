@@ -25,4 +25,4 @@ HIERARCHICAL_MODEL_PERFORMANCE_FOLDER = os.path.join(os.path.abspath(os.path.dir
 HIERARCHICAL_MODEL_PREDICTION_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical", "predictions")
 HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "hierarchical")
 DATA_ANALYSIS_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "other_analysis")
-DATA_HDD_CDD_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "IPCC-scenarios")
+DATA_HDD_CDD_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "IPCC_scenarios")
