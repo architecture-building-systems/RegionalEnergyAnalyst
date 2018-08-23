@@ -42,6 +42,8 @@ def main(years_to_map, output_path, future_hdd_cdd_file, analysis_fields, field_
         CDD_baseline = data_current.loc[2010, "cdd_18.5C"]
 
         data_future_HDD_CDD = future_hdd_cdd_file[future_hdd_cdd_file['City'] == city]
+        # HDD_baseline = data_future_HDD_CDD.loc["A1B_2020", "HDD_18_5_C"]
+        # CDD_baseline = data_future_HDD_CDD.loc["A1B_2020", "CDD_18_5_C"]
         df_super_final = pd.DataFrame()
         for year in years_to_map:
             # HEATING CASE

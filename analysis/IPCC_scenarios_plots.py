@@ -1,12 +1,12 @@
 import os
 import matplotlib.pyplot as plt
 import pandas as pd
-from configuration import DATA_RAW_BUILDING_TODAY_HDD_FOLDER, HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER, CONFIG_FILE
+from configuration import DATA_RAW_BUILDING_TODAY_HDD_FOLDER, HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER, CONFIG_FILE, DATA_RAW_BUILDING_IPCC_SCENARIOS_FILE
 
 
 def main(data_path, data_path_current, output_path, cities, temperature):
     # get data from every city and transform into data per scenario
-    data = pd.read_csv(os.path.join(data_path, "future_degree_days.csv"))
+    data = pd.read_csv(DATA_RAW_BUILDING_IPCC_SCENARIOS_FILE)
     scenarios = data["Scenario"].unique()
     data_table = pd.DataFrame()
     for city in cities:

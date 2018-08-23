@@ -43,6 +43,8 @@ def main(years_to_map, output_path, future_hdd_cdd_file, analysis_fields, colors
         CDD_baseline = data_current.loc[2010, "cdd_18.5C"]
 
         data_future_HDD_CDD = future_hdd_cdd_file[future_hdd_cdd_file['City'] == city]
+        HDD_baseline = data_future_HDD_CDD.loc[data_future_HDD_CDD["Scenario"]=="A1B_2020"]["HDD_18_5_C"].values[0]
+        CDD_baseline = data_future_HDD_CDD.loc[data_future_HDD_CDD["Scenario"]=="A1B_2020"]["CDD_18_5_C"].values[0]
 
         # heating case
         data_future_HDD_CDD["YEAR"] = [x.split("_", 1)[1] for x in data_future_HDD_CDD["Scenario"].values]
