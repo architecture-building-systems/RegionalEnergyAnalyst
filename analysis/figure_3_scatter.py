@@ -12,7 +12,7 @@ from configuration import CONFIG_FILE, DATA_ANALYSIS_PLOTS_FOLDER, DATA_ALLDATA_
 
 
 
-def calc_graph(data_frame, output_path, cities, analysis_field):
+def calc_graph(data_frame, output_path, cities, y_var, x_var):
 
     fig = tools.make_subplots(rows=2, cols=5, shared_yaxes=True,  shared_xaxes=True,
                               subplot_titles=cities)
@@ -29,8 +29,8 @@ def calc_graph(data_frame, output_path, cities, analysis_field):
             yaxis = 'y'
         for color, scenario in zip(["rgb(144,202,249)", "rgb(66,165,245)"],["Commercial", "Residential"]):
             data2 = data[data["BUILDING_CLASS"] == scenario]
-            x = data2["LOG_CDD_FLOOR_18_5_C_m2"]
-            y = data2[analysis_field]
+            x = data2[x_var]
+            y = data2[y_var]
             trace = go.Scatter(x=x, y=y, name=scenario, yaxis = yaxis,  mode = 'markers', marker=dict(color=color))
             print(cols)
             fig.append_trace(trace, row, cols)
@@ -46,18 +46,20 @@ def calc_graph(data_frame, output_path, cities, analysis_field):
     fig['layout'].update( plot_bgcolor= "rgb(236,243,247)",
                          font=dict(family='Helvetica, monospace', size=18)
                          )
-    plot(fig, auto_open=False, filename=output_path + '//' + "scatter2" + ".html")
+    plot(fig, auto_open=False, filename=output_path + '//' + "scatter" + ".html")
 
     return fig
 
-def main(data, output_path, cities, analysis_field):
+def main(data, output_path, cities, y, x):
     # get data from every city and transform into data per scenario
 
-    calc_graph(data, output_path, cities, analysis_field)
+    calc_graph(data, output_path, cities, y, x)
 
 if __name__ == "__main__":
     cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City']
     output_path = DATA_ANALYSIS_PLOTS_FOLDER
-    analysis_field = "LOG_SITE_ENERGY_MWh_yr"
+    y = "LOG_SITE_ENERGY_MWh_yr"
+    x = "LOG_HDD_FLOOR_18_5_C_m2"
+
     data  = pd.read_csv(DATA_ALLDATA_FILE)
-    main(data, output_path, cities, analysis_field)
+    main(data, output_path, cities, y, x)
