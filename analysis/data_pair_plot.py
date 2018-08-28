@@ -24,7 +24,7 @@ fields = ["LOG_SITE_ENERGY_MWh_yr", "LOG_HDD_FLOOR_18_5_C_m2", "LOG_HDD/CDD_FLOO
 # fields_SCALE = ["LOG_CDD_FLOOR_18_5_C_m2"],
 # scaler = StandardScaler()
 # df[fields_SCALE] = pd.DataFrame(scaler.fit_transform(df[fields_SCALE]),columns=df[fields_SCALE].columns)
-df = df[df["CITY"] == "Seattle, WA"]
+#df = df[df["CITY"] == "Seattle, WA"]
 scatter_matrix(df[fields], alpha=0.2, marker='o', figsize=(10, 10), diagonal='hist', hist_kwds={'bins': 224})
 # sns.pairplot(df, size=4, aspect=1,
 #                          hue="BUILDING_CLASS",

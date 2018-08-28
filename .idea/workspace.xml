@@ -2,14 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ead128b6-9cd5-4896-8ddf-7371aab32405" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/great-american-cities.iml" afterPath="$PROJECT_DIR$/.idea/great-american-cities.iml" />
-      <change beforePath="$PROJECT_DIR$/.idea/other.xml" afterPath="" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/analysis/figure_3_histogram.py" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines_percentage.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/analysis/IPCC_scenarios_plots.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/analysis/data_pair_plot.py" afterPath="$PROJECT_DIR$/analysis/data_pair_plot.py" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_3_scatter.py" afterPath="$PROJECT_DIR$/analysis/figure_3_scatter.py" />
-      <change beforePath="$PROJECT_DIR$/analysis/plots/other_analysis/scatter.html" afterPath="$PROJECT_DIR$/analysis/plots/other_analysis/scatter.html" />
-      <change beforePath="$PROJECT_DIR$/analysis/plots/other_analysis/scatter2.html" afterPath="$PROJECT_DIR$/analysis/plots/other_analysis/scatter2.html" />
-      <change beforePath="$PROJECT_DIR$/configuration.xlsx" afterPath="$PROJECT_DIR$/configuration.xlsx" />
+      <change beforePath="$PROJECT_DIR$/analysis/figure_3_boxplot_data.py" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py" afterPath="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py" />
+      <change beforePath="$PROJECT_DIR$/analysis/plots/IPCC_scenarios/lines.html" afterPath="$PROJECT_DIR$/analysis/plots/IPCC_scenarios/lines.html" />
+      <change beforePath="$PROJECT_DIR$/analysis/plots/other_analysis/boxplot_all_data.html" afterPath="$PROJECT_DIR$/analysis/plots/other_analysis/boxplot_all_data.html" />
+      <change beforePath="$PROJECT_DIR$/analysis/plots/other_analysis/histrogram_all_data.html" afterPath="$PROJECT_DIR$/analysis/plots/other_analysis/histrogram_all_data.html" />
+      <change beforePath="$PROJECT_DIR$/analysis/t-test.py" afterPath="" />
       <change beforePath="$PROJECT_DIR$/databases/training_and_testing/testing_database.csv" afterPath="$PROJECT_DIR$/databases/training_and_testing/testing_database.csv" />
       <change beforePath="$PROJECT_DIR$/databases/training_and_testing/training_database.csv" afterPath="$PROJECT_DIR$/databases/training_and_testing/training_database.csv" />
     </list>
@@ -25,16 +28,19 @@
     <SUITE FILE_PATH="coverage/great_american_cities$count_records_city.coverage" NAME="count-records-city Coverage Results" MODIFIED="1534396718052" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/_old" />
     <SUITE FILE_PATH="coverage/great_american_cities$figure_cities_across_U_S_A.coverage" NAME="figure_cities_across_U.S.A Coverage Results" MODIFIED="1534410892061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$test.coverage" NAME="test Coverage Results" MODIFIED="1535345566026" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/great_american_cities$figure_hdd_cdd_evolution_lines__1_.coverage" NAME="figure_hdd_cdd_evolution_lines (1) Coverage Results" MODIFIED="1535440824392" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$1_training_and_testing_database.coverage" NAME="1_training_and_testing_database Coverage Results" MODIFIED="1535101380682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/great_american_cities$building_geometry_cleaner.coverage" NAME="building_geometry_cleaner Coverage Results" MODIFIED="1535425709238" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_raw/building_geometry" />
     <SUITE FILE_PATH="coverage/great_american_cities$figure_hdd_cdd_evolution_box.coverage" NAME="figure_hdd_cdd_evolution_box Coverage Results" MODIFIED="1535103056453" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$figure_cities_across_U_S_A_.coverage" NAME="figure_cities_across_U.S.A. Coverage Results" MODIFIED="1534391368844" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
-    <SUITE FILE_PATH="coverage/great_american_cities$figure_3_boxplot_data.coverage" NAME="figure_3_boxplot_data Coverage Results" MODIFIED="1535359271584" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/great_american_cities$figure_hdd_cdd_evolution_lines_percentage.coverage" NAME="figure_hdd_cdd_evolution_lines_percentage Coverage Results" MODIFIED="1535440428575" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/great_american_cities$figure_3_boxplot_data.coverage" NAME="figure_3_boxplot_data Coverage Results" MODIFIED="1535445056856" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$figure_trend_surface_volume.coverage" NAME="figure_trend_surface_volume Coverage Results" MODIFIED="1534478686896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$figure_3_scatter.coverage" NAME="figure_3_scatter Coverage Results" MODIFIED="1535366487055" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
-    <SUITE FILE_PATH="coverage/great_american_cities$IPCC_scenarios_cleaner.coverage" NAME="IPCC_scenarios_cleaner Coverage Results" MODIFIED="1535098737874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_raw/IPCC_scenarios" />
+    <SUITE FILE_PATH="coverage/great_american_cities$IPCC_scenarios_cleaner.coverage" NAME="IPCC_scenarios_cleaner Coverage Results" MODIFIED="1535440591440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_raw/IPCC_scenarios" />
     <SUITE FILE_PATH="coverage/great_american_cities$1_definition_and_inference.coverage" NAME="1_definition_and_inference Coverage Results" MODIFIED="1534391183019" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical" />
-    <SUITE FILE_PATH="coverage/great_american_cities$figure_hdd_cdd_evolution_lines.coverage" NAME="figure_hdd_cdd_evolution_lines Coverage Results" MODIFIED="1535348746526" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/great_american_cities$figure_hdd_cdd_evolution_lines.coverage" NAME="figure_hdd_cdd_evolution_lines Coverage Results" MODIFIED="1535436732448" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/great_american_cities$figure_3_histogram.coverage" NAME="figure_3_histogram Coverage Results" MODIFIED="1535446876334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$data_pair_plot.coverage" NAME="data_pair_plot Coverage Results" MODIFIED="1534820131279" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$figure_hdd_cdd_evolution.coverage" NAME="figure_hdd_cdd_evolution Coverage Results" MODIFIED="1534827481664" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/great_american_cities$IPCC_scenarios_plots.coverage" NAME="IPCC_scenarios_plots Coverage Results" MODIFIED="1534834348912" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
@@ -42,58 +48,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="data_pair_plot.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="22" column="118" lean-forward="false" selection-start-line="22" selection-start-column="95" selection-end-line="22" selection-end-column="118" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="1_definition_and_inference.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/hierarchical/1_definition_and_inference.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="building_geometry_cleaner.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_raw/building_geometry/building_geometry_cleaner.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="12" column="55" lean-forward="false" selection-start-line="12" selection-start-column="55" selection-end-line="12" selection-end-column="55" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="figure_hdd_cdd_evolution_lines.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="figure_hdd_cdd_evolution_lines.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="70" column="62" lean-forward="false" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="469">
+              <caret line="69" column="62" lean-forward="false" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="figure_3_scatter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/figure_3_scatter.py">
+      <file leaf-file-name="figure_hdd_cdd_evolution_lines_percentage.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines_percentage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="731">
-              <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="595">
+              <caret line="60" column="67" lean-forward="false" selection-start-line="60" selection-start-column="67" selection-end-line="60" selection-end-column="67" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -138,13 +108,15 @@
         <option value="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_box.py" />
         <option value="$PROJECT_DIR$/data_processing/test.py" />
         <option value="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution.py" />
-        <option value="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py" />
         <option value="$PROJECT_DIR$/figure_3_boxplot_data.py" />
         <option value="$PROJECT_DIR$/analysis/figure_3_scatter.py" />
-        <option value="$PROJECT_DIR$/data_raw/IPCC_scenarios/IPCC_scenarios_cleaner.py" />
-        <option value="$PROJECT_DIR$/data_processing/1_training_and_testing_database.py" />
-        <option value="$PROJECT_DIR$/analysis/data_pair_plot.py" />
         <option value="$PROJECT_DIR$/models/hierarchical/1_definition_and_inference.py" />
+        <option value="$PROJECT_DIR$/analysis/data_pair_plot.py" />
+        <option value="$PROJECT_DIR$/data_processing/1_training_and_testing_database.py" />
+        <option value="$PROJECT_DIR$/data_raw/IPCC_scenarios/IPCC_scenarios_cleaner.py" />
+        <option value="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py" />
+        <option value="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines_percentage.py" />
+        <option value="$PROJECT_DIR$/analysis/figure_3_histogram.py" />
       </list>
     </option>
   </component>
@@ -185,33 +157,12 @@
             <path>
               <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
               <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
+              <item name="_old" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
               <item name="analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
-              <item name="data_processing" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
-              <item name="data_raw" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
-              <item name="databases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
-              <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="hierarchical" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -228,10 +179,11 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\GitHub\great-american-cities\analysis" />
+      <recent name="E:\GitHub\great-american-cities\data_raw\IPCC_scenarios" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\GitHub\great-american-cities\analysis" />
       <recent name="E:\GitHub\great-american-cities\_old" />
+      <recent name="E:\GitHub\great-american-cities\analysis" />
       <recent name="E:\GitHub\great-american-cities\data_raw\IPCC_scenarios" />
       <recent name="E:\GitHub\great-american-cities\data_raw\building_geometry" />
       <recent name="C:\Users\Jimeno\Documents\GitHub\great-american-cities\analysis\plots" />
@@ -249,24 +201,23 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.data_pair_plot">
-    <configuration name="1_training_and_testing_database" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.figure_3_histogram">
+    <configuration name="IPCC_scenarios_cleaner" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="PYDEVD_LOAD_VALUES_ASYNC" value="True" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_raw/IPCC_scenarios" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="great-american-cities" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/1_training_and_testing_database.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_raw/IPCC_scenarios/IPCC_scenarios_cleaner.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
@@ -289,71 +240,11 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="building_geometry_cleaner" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_raw/building_geometry" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="great-american-cities" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_raw/building_geometry/building_geometry_cleaner.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="data_pair_plot" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="PYDEVD_LOAD_VALUES_ASYNC" value="True" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="great-american-cities" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/data_pair_plot.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
     <configuration name="figure_3_boxplot_data" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="PYDEVD_LOAD_VALUES_ASYNC" value="True" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="great-american-cities" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\GitHub\great-american-cities\analysis\figure_3_boxplot_data.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
-    <configuration name="figure_3_scatter" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="PYDEVD_LOAD_VALUES_ASYNC" value="True" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
@@ -362,9 +253,66 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="great-american-cities" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/figure_3_scatter.py" />
+      <option name="SCRIPT_NAME" value="E:\GitHub\great-american-cities\_old\figure_3_boxplot_data.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="figure_3_histogram" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="great-american-cities" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/figure_3_histogram.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="figure_hdd_cdd_evolution_lines (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="great-american-cities" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="figure_hdd_cdd_evolution_lines_percentage" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="great-american-cities" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines_percentage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
@@ -497,19 +445,19 @@
       <envs />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.figure_3_boxplot_data" />
-      <item index="1" class="java.lang.String" itemvalue="Python.data_pair_plot" />
-      <item index="2" class="java.lang.String" itemvalue="Python.1_training_and_testing_database" />
-      <item index="3" class="java.lang.String" itemvalue="Python.figure_3_scatter" />
-      <item index="4" class="java.lang.String" itemvalue="Python.building_geometry_cleaner" />
+      <item index="0" class="java.lang.String" itemvalue="Python.figure_hdd_cdd_evolution_lines (1)" />
+      <item index="1" class="java.lang.String" itemvalue="Python.figure_hdd_cdd_evolution_lines_percentage" />
+      <item index="2" class="java.lang.String" itemvalue="Python.IPCC_scenarios_cleaner" />
+      <item index="3" class="java.lang.String" itemvalue="Python.figure_3_boxplot_data" />
+      <item index="4" class="java.lang.String" itemvalue="Python.figure_3_histogram" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.data_pair_plot" />
-        <item index="1" class="java.lang.String" itemvalue="Python.1_training_and_testing_database" />
-        <item index="2" class="java.lang.String" itemvalue="Python.figure_3_scatter" />
-        <item index="3" class="java.lang.String" itemvalue="Python.building_geometry_cleaner" />
-        <item index="4" class="java.lang.String" itemvalue="Python.figure_3_boxplot_data" />
+        <item index="0" class="java.lang.String" itemvalue="Python.figure_3_histogram" />
+        <item index="1" class="java.lang.String" itemvalue="Python.figure_3_boxplot_data" />
+        <item index="2" class="java.lang.String" itemvalue="Python.figure_hdd_cdd_evolution_lines (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.IPCC_scenarios_cleaner" />
+        <item index="4" class="java.lang.String" itemvalue="Python.figure_hdd_cdd_evolution_lines_percentage" />
       </list>
     </recent_temporary>
   </component>
@@ -546,15 +494,15 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37987012" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18290043" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23400854" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SciView" active="false" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="false" weight="0.21108742" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1499" y="75" width="396" height="924" />
+      <window_info id="SciView" active="true" anchor="right" auto_hide="true" internal_type="DOCKED" type="FLOATING" visible="true" show_stripe_button="true" weight="0.21108742" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1888" y="75" width="7" height="924" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40151516" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3300866" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -619,29 +567,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="103" />
+      <option name="time" value="107" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/analysis/IPCC_scenarios_plots.py" />
-    <entry file="file://$PROJECT_DIR$/analysis/plots_predictions.py" />
-    <entry file="file://$PROJECT_DIR$/models/hierarchical/2_performance_check.py" />
-    <entry file="file://$PROJECT_DIR$/models/hierarchical/1_definition_and_inference.py" />
-    <entry file="file://$PROJECT_DIR$/configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/IPCC_scenarios_plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1037">
-          <caret line="61" column="68" lean-forward="false" selection-start-line="61" selection-start-column="68" selection-end-line="61" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/plots_predictions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -735,7 +665,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/t-test.py">
+    <entry file="file://$PROJECT_DIR$/_old/t-test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
@@ -807,15 +737,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data_raw/IPCC_scenarios/data/future_degree_days.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="58" lean-forward="false" selection-start-line="1" selection-start-column="21" selection-end-line="1" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/IPCC_scenarios_plots.py">
+    <entry file="file://$PROJECT_DIR$/_old/IPCC_scenarios_plots.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
           <caret line="23" column="34" lean-forward="true" selection-start-line="23" selection-start-column="34" selection-end-line="23" selection-end-column="34" />
@@ -870,46 +792,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="70" column="62" lean-forward="false" selection-start-line="70" selection-start-column="62" selection-end-line="70" selection-end-column="62" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/databases/prediction/Boston, MA.csv">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="0">
           <caret line="0" column="115" lean-forward="true" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="115" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/figure_3_scatter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_raw/IPCC_scenarios/IPCC_scenarios_cleaner.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="17" column="80" lean-forward="false" selection-start-line="17" selection-start-column="80" selection-end-line="17" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processing/1_training_and_testing_database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-838">
-          <caret line="39" column="40" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="40" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -918,28 +804,118 @@
         <state relative-caret-position="153">
           <caret line="9" column="134" lean-forward="false" selection-start-line="9" selection-start-column="134" selection-end-line="9" selection-end-column="134" />
           <folding>
-            <element signature="e#0#63#0" expanded="true" />
+            <element signature="e#0#63#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/figure_3_boxplot_data.py">
+    <entry file="file://$PROJECT_DIR$/data_raw/IPCC_scenarios/data/future_degree_days.csv">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="310">
-          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        <state relative-caret-position="17">
+          <caret line="1" column="104" lean-forward="true" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="104" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical/1_definition_and_inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="53" lean-forward="false" selection-start-line="85" selection-start-column="53" selection-end-line="85" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="76" lean-forward="false" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
+          <folding>
+            <element signature="e#0#9#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/plotly/tools.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="1341" column="0" lean-forward="false" selection-start-line="1341" selection-start-column="0" selection-end-line="1341" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/IPCC_scenarios/data_B1_2010/Boise_ID-hour.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/IPCC_scenarios/data_A1B_2010/Boise_ID-hour.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/IPCC_scenarios/data_A2_2010/Boise_ID-hour.dat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/IPCC_scenarios/IPCC_scenarios_cleaner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="73" column="0" lean-forward="false" selection-start-line="73" selection-start-column="0" selection-end-line="73" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines_percentage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="60" column="67" lean-forward="false" selection-start-line="60" selection-start-column="67" selection-end-line="60" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processing/1_training_and_testing_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="26" column="60" lean-forward="false" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/figure_3_histogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="11" column="46" lean-forward="false" selection-start-line="11" selection-start-column="46" selection-end-line="11" selection-end-column="64" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
+    <entry file="file://$PROJECT_DIR$/analysis/figure_3_scatter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="22" column="118" lean-forward="false" selection-start-line="22" selection-start-column="95" selection-end-line="22" selection-end-column="118" />
+        <state relative-caret-position="119">
+          <caret line="16" column="66" lean-forward="false" selection-start-line="16" selection-start-column="66" selection-end-line="16" selection-end-column="84" />
           <folding>
-            <element signature="e#0#9#0" expanded="true" />
+            <element signature="e#0#31#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_old/figure_3_boxplot_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1207">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -951,10 +927,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical/1_definition_and_inference.py">
+    <entry file="file://$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="91" column="0" lean-forward="true" selection-start-line="91" selection-start-column="0" selection-end-line="91" selection-end-column="0" />
+        <state relative-caret-position="469">
+          <caret line="69" column="62" lean-forward="false" selection-start-line="69" selection-start-column="62" selection-end-line="69" selection-end-column="62" />
           <folding />
         </state>
       </provider>
