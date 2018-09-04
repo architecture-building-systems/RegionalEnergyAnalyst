@@ -48,15 +48,14 @@ def calc_MAPE(y_true, y_pred, n):
     error = np.sum((np.abs(delta/y_true)))*100/n
     return error
 
-def calc_accurracy(Xy_observed, alpha, beta, epsilon, gamma, response_variable, predictor_variables,
+def calc_accurracy(Xy_observed, alpha, beta, response_variable, predictor_variables,
                    fields_to_scale, scaler):
     # calculate linear curve
     x1 = Xy_observed[predictor_variables[0]].values
-    x2 = Xy_observed[predictor_variables[1]].values
 
     #y_prediction = alpha + beta * x1 + gamma * x2 + epsilon * x3
     # y_prediction = np.exp(alpha)*(x1**beta)*(x2**gamma)*(x3**epsilon)
-    y_prediction = alpha + beta * x1 + gamma * x2
+    y_prediction = alpha + beta * x1
     y_target = Xy_observed[response_variable].values
 
     #scale back
@@ -105,8 +104,8 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     bfmi = pm.bfmi(hierarchical_trace).round(2)
     max_gr = max(np.max(gr_stats) for gr_stats in pm.gelman_rubin(hierarchical_trace).values()).round(2)
     n = pm.diagnostics.effective_n(hierarchical_trace)
-    efffective_samples_city_beta = n['beta']
-    efffective_samples_global_beta = n['global_b']
+    efffective_samples_city_beta = n['b1']
+    efffective_samples_global_beta = n['global_b1']
 
     # fields to scale
     fields_to_scale = [response_variable] + predictor_variables
@@ -127,20 +126,18 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
     # DO CALCULATION FOR ALL CLASSES IN THE MODEL (CITIES)
     # get mean coefficeints
-    alpha = data['global_a'].mean()
-    beta = data['global_b'].mean()
-    gamma = data['global_c'].mean()
+    alpha = data['global_b1'].mean()
+    beta = data['global_b2'].mean()
     # epsilon = data['global_d'].mean()
     # err = data['eps'].mean()
-    epsilon =1
 
     # calc accurracy against training set
     # get scaled values for the city
-    MAPE_single_building_train,  MAPE_all_buildings_train, R2_train = calc_accurracy(Xy_training, alpha, beta, epsilon, gamma, response_variable,
+    MAPE_single_building_train,  MAPE_all_buildings_train, R2_train = calc_accurracy(Xy_training, alpha, beta, response_variable,
                                                     predictor_variables, fields_to_scale, scaler)
 
     # calc accurracy against testing set
-    MAPE_single_building_test, MAPE_all_buildings_test,  R2_test = calc_accurracy(Xy_testing, alpha, beta, epsilon, gamma, response_variable,
+    MAPE_single_building_test, MAPE_all_buildings_test,  R2_test = calc_accurracy(Xy_testing, alpha, beta,  response_variable,
                                                  predictor_variables, fields_to_scale, scaler)
 
     accurracy_df = pd.DataFrame.from_items([("CITY", ["All", ""]),
@@ -156,20 +153,17 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     # DO CALCULATION FOR EVERY CLASS IN THE MODEL (CITIES)
     for i, city in zip(degree_index["CODE"].values, degree_index["CITY"].values):
         # get mean coefficeints
-        alpha = data['alpha__' + str(i)].mean()
-        beta = data['beta__' + str(i)].mean()
-        gamma = data['gamma__' + str(i)].mean()
-        # epsilon = data['epsilon__' + str(i)].mean()
-        # err = data['eps'].mean()
+        alpha = data['b1__' + str(i)].mean()
+        beta = data['b2__' + str(i)].mean()
 
         # calc accurracy against training set
         Xy_training_city = Xy_training[Xy_training["CITY"] == city]
-        MAPE_single_building_train, MAPE_all_buildings_train, R2_train = calc_accurracy(Xy_training_city, alpha, beta, epsilon, gamma,
+        MAPE_single_building_train, MAPE_all_buildings_train, R2_train = calc_accurracy(Xy_training_city, alpha, beta,
                                                         response_variable, predictor_variables, fields_to_scale, scaler)
 
         # calc accurracy against testing set
         Xy_testing_city = Xy_testing[Xy_testing["CITY"] == city]
-        MAPE_single_building_test, MAPE_all_buildings_test, R2_test = calc_accurracy(Xy_testing_city, alpha, beta, epsilon, gamma, response_variable,
+        MAPE_single_building_test, MAPE_all_buildings_test, R2_test = calc_accurracy(Xy_testing_city, alpha, beta, response_variable,
                                                      predictor_variables, fields_to_scale, scaler)
 
         dict = pd.DataFrame.from_items([("CITY", [city, "",]),
@@ -195,7 +189,7 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
 if __name__ == "__main__":
 
-    name_model = "log_log_all_standard_1000"
+    name_model = "log_log_all_2var_standard_2500"
     output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER, name_model + ".csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE

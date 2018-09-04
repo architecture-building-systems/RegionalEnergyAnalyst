@@ -29,8 +29,9 @@ def calc_graph(data_frame, output_path, cities, y_var, x_var):
             yaxis = 'y'
         for color, scenario in zip(["rgb(144,202,249)", "rgb(66,165,245)"],["Commercial", "Residential"]):
             data2 = data[data["BUILDING_CLASS"] == scenario]
-            x = data2[x_var]
-            y = data2[y_var]
+            import numpy as np
+            x = data2[x_var] #
+            y = data2[y_var] #data2["LOG_THERMAL_ENERGY_MWh_yr"] #
             trace = go.Scatter(x=x, y=y, name=scenario, yaxis = yaxis,  mode = 'markers', marker=dict(color=color))
             print(cols)
             fig.append_trace(trace, row, cols)
@@ -41,7 +42,6 @@ def calc_graph(data_frame, output_path, cities, y_var, x_var):
 
     for i in fig['layout']['annotations']:
         i['font'] = dict(family='Helvetica, monospace', size=20)
-
 
     fig['layout'].update( plot_bgcolor= "rgb(236,243,247)",
                          font=dict(family='Helvetica, monospace', size=18)
@@ -59,7 +59,7 @@ if __name__ == "__main__":
     cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City']
     output_path = DATA_ANALYSIS_PLOTS_FOLDER
     y = "LOG_SITE_ENERGY_MWh_yr"
-    x = "LOG_HDD_FLOOR_18_5_C_m2"
+    x = "LOG_THERMAL_ENERGY_MWh_yr"
 
     data  = pd.read_csv(DATA_ALLDATA_FILE)
     main(data, output_path, cities, y, x)

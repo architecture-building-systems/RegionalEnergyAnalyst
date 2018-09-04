@@ -53,46 +53,31 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
         # log(y) = alpha + beta*log(GFA*HDD) + gamma*log(GFA*CDD) + eps
         
         # Coefficients of all population
-        global_a = pm.Normal('global_a', mu=0., sd=100 ** 2)
-        sigma_a = pm.HalfCauchy('sigma_a', 5)
+        global_b1 = pm.Normal('global_b1', mu=0., sd=100**2)
+        sigma_b1 =  pm.Uniform('sigma_b1', lower=0, upper=100)
 
-        global_b = pm.Normal('global_b', mu=0., sd=100 ** 2)
-        sigma_b = pm.HalfCauchy('sigma_b', 5)
+        global_b2 = pm.Normal('global_b2', mu=0., sd=100**2)
+        sigma_b2 = pm.Uniform('sigma_b2', lower=0, upper=100)
 
-        global_c = pm.Normal('global_c', mu=0., sd=100 ** 2) #pm.StudentT('global_d', nu = 5, mu=0, sd=100**2)
-        sigma_c = pm.HalfCauchy('sigma_c', 5)
-
-        global_d =  pm.Normal('global_d', mu=0., sd=100 ** 2) #pm.StudentT('global_d', nu = 5, mu=0, sd=100**2)
-        sigma_d = pm.HalfCauchy('sigma_d', 5)
 
         # Coefficients for each city, distributed around the group means
-        a_offset = pm.HalfCauchy('a_offset', 5, shape=n_counties)# pm.Normal('a_offset', mu=0, sd=10, shape=n_counties)
-        alpha = pm.Deterministic("alpha", global_a + a_offset * sigma_a)
+        b1 = pm.Normal('b1', mu=global_b1, sd=sigma_b1, shape=n_counties)
+        b2 = pm.Normal('b2', mu=global_b2, sd=sigma_b2, shape=n_counties)
 
-        b_offset = pm.HalfCauchy('b_offset', 5, shape=n_counties)#pm.Normal('b_offset', mu=0, sd=10, shape=n_counties)
-        beta = pm.Deterministic("beta", global_b + b_offset * sigma_b)
-
-        c_offset = pm.HalfCauchy('c_offset', 5, shape=n_counties) #pm.Normal('c_offset', mu=0, sd=10, shape=n_counties)
-        gamma = pm.Deterministic("gamma", global_c + c_offset * sigma_c)
-
-        d_offset = pm.HalfCauchy('d_offset', 5, shape=n_counties) #pm.Normal('c_offset', mu=0, sd=10, shape=n_counties)
-        kappa = pm.Deterministic("kappa", global_d + d_offset * sigma_d)
 
         # Model error
-        eps = pm.HalfCauchy('eps', 5)
+        eps = pm.Uniform('eps', lower=0, upper=100)
         y_obs = Xy_training[response_variable]
         x1 = Xy_training[predictor_variables[0]].values
-        x2 = Xy_training[predictor_variables[1]].values
-        x3 = Xy_training[predictor_variables[2]].values
 
-        model = alpha[county_idx] + beta[county_idx] * x1 + gamma[county_idx] * x2 + kappa[county_idx] * x3
+        model = b1[county_idx] + b2[county_idx] * x1
 
         # Data likelihood
         y_like = pm.Normal('y_like', mu=model, sd=eps, observed=y_obs)
 
     with hierarchical_model:
 
-        step = pm.NUTS(target_accept=0.95)  # increase to avoid divergence problems
+        step = pm.NUTS()  # increase to avoid divergence problemsstep = pm.NUTS()  # increase to avoid divergence problems
         hierarchical_trace = pm.sample(draws=samples, step=step, n_init=samples, njobs=1)
         # save to disc
         with open(output_trace_path, 'wb') as buff:
@@ -104,11 +89,11 @@ if __name__ == "__main__":
 
     scaler = "standard" #"minmax"  # o standard for standard scaler to use in both sides of the data
     log_transform = "log_log" # log_log or none
-    type_log = "all_3var"  # "all" when the covariates and the response have log conversion, Floor if only floor is log (this behavior is modified manually)
-    samples = 10000 # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
+    type_log = "all_2var"  # "all" when the covariates and the response have log conversion, Floor if only floor is log (this behavior is modified manually)
+    samples = 2500 # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
     cities = [] # or leave empty to have all cities.
     response_variable = "LOG_SITE_ENERGY_MWh_yr"
-    predictor_variables = ["LOG_HDD_FLOOR_18_5_C_m2", "LOG_CDD_FLOOR_18_5_C_m2", "BUILDING_CLASS"]
+    predictor_variables = ["LOG_THERMAL_ENERGY_MWh_yr"]
 
     Xy_training_path = DATA_TRAINING_FILE
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER,
