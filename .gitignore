@@ -1,15 +1,5 @@
 # Created by .ignore support plugin (hsz.mobi)
 /data_raw/
-/data_processing/
-/databases/prediction/Cape Coral, FL.csv
-/databases/prediction/New York, NY.csv
-/databases/prediction/Washington, DC.csv
-/databases/prediction/Detroit, MI.csv
-/databases/prediction/San Francisco, CA.csv
-/databases/prediction/Seattle, WA.csv
-/databases/prediction/Philadelphia, PA.csv
-/databases/prediction/Los Angeles, CA.csv
-/databases/prediction/Chicago, IL.csv
-/databases/prediction/Austin, TX.csv
-/_old/
-databases/training_and_testing/all_database.csv
+/results/
+/databases/prediction_future_efficiency/
+/databases/prediction_today_efficiency/
