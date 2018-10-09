@@ -16,6 +16,13 @@ This should be enough for testing the approach.
 ## Installation for the Neural Network
 1. install tensorflow, I advise to use a GPU to run it quickly.
 
+## Step0. preprocess the data (sorry only available for the authors)
+1. run the script `data_processing/IPCC_scenarios_cleaner.py`
+2. run the script `data_processing/enthalpy_calculation.py`
+3. run the script `data_processing/split_enthalpy_by_period.py.py`
+4. run the script `data_processing/training_and_testing_database.py`
+5. run the script `data_processing/prediction_database.py`
+
 ## Step 1. Configure the script
 - open the excel file `configuration.xlsx/test_cities` and indicate the names of the cities to evaluate.
 - open the script `configuration.py` and indicate the paths to the datasets and the `configuration.xlsx`. Do this step only if you have an alternative database to that one provided in the repository.

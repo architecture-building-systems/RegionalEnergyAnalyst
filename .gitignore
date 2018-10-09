@@ -3,3 +3,5 @@
 /results/
 /databases/prediction_future_efficiency/
 /databases/prediction_today_efficiency/
+/databases/today_energy_consumption
+/databases/training_and_testing

@@ -22,11 +22,11 @@ def calc_graph(data_frame, output_path, cities, y_var, x_var):
         if i < 5:
             row = 1
             cols = i +1
-            yaxis = 'y'
+            yaxis = 'y1'
         else:
             row = 2
             cols = i - 4
-            yaxis = 'y'
+            yaxis = 'y2'
         for color, scenario in zip(["rgb(144,202,249)", "rgb(66,165,245)"],["Commercial", "Residential"]):
             data2 = data[data["BUILDING_CLASS"] == scenario]
             import numpy as np
