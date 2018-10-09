@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ead128b6-9cd5-4896-8ddf-7371aab32405" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_3_scatter.py" afterPath="$PROJECT_DIR$/analysis/figure_3_scatter.py" />
-      <change beforePath="$PROJECT_DIR$/analysis/plots/other_analysis/histogram.html" afterPath="$PROJECT_DIR$/analysis/plots/other_analysis/histogram.html" />
-      <change beforePath="$PROJECT_DIR$/analysis/plots/other_analysis/scatter.html" afterPath="$PROJECT_DIR$/analysis/plots/other_analysis/scatter.html" />
-      <change beforePath="$PROJECT_DIR$/configuration.py" afterPath="$PROJECT_DIR$/configuration.py" />
-      <change beforePath="$PROJECT_DIR$/configuration.xlsx" afterPath="$PROJECT_DIR$/configuration.xlsx" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_variables/1_definition_and_inference.py" afterPath="$PROJECT_DIR$/models/hierarchical_2_variables/1_definition_and_inference.py" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_variables/2_performance_check.py" afterPath="$PROJECT_DIR$/models/hierarchical_2_variables/2_performance_check.py" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical/inference/log_log_all_2var_standard_2500.pkl" afterPath="$PROJECT_DIR$/results/hierarchical/inference/log_log_all_2var_standard_2500.pkl" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical/performance/log_log_all_2var_standard_2500.csv" afterPath="$PROJECT_DIR$/results/hierarchical/performance/log_log_all_2var_standard_2500.csv" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -70,7 +67,7 @@
             <state relative-caret-position="1513">
               <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
               <folding>
-                <marker date="1539084732190" expanded="true" signature="3397:3422" ph="..." />
+                <marker date="1536633419862" expanded="true" signature="3397:3422" ph="..." />
               </folding>
             </state>
           </provider>
@@ -91,8 +88,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="102">
+              <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -101,8 +98,8 @@
       <file leaf-file-name=".gitattributes" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitattributes">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="34">
+              <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -172,7 +169,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.gitattributes" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/analysis/coefficients_hierarchical_model_plots.py" />
         <option value="$PROJECT_DIR$/analysis/plots_predictions.py" />
@@ -211,6 +207,7 @@
         <option value="$PROJECT_DIR$/analysis/extensive_OLS.py" />
         <option value="$PROJECT_DIR$/data_raw/IPCC_scenarios/enthalpy_calculation.py" />
         <option value="$PROJECT_DIR$/data_processing/training_and_testing_database.py" />
+        <option value="$PROJECT_DIR$/.gitattributes" />
       </list>
     </option>
   </component>
@@ -220,10 +217,11 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="-8" />
-    <option name="width" value="1937" />
-    <option name="height" value="1047" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="219" />
+    <option name="y" value="448" />
+    <option name="width" value="1756" />
+    <option name="height" value="458" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -285,6 +283,12 @@
               <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
               <item name="results" type="462c0819:PsiDirectoryNode" />
               <item name="hierarchical" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="great-american-cities" type="b2602c69:ProjectViewProjectNode" />
+              <item name="great-american-cities" type="462c0819:PsiDirectoryNode" />
+              <item name="results" type="462c0819:PsiDirectoryNode" />
+              <item name="neural_network" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -611,7 +615,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="0" width="1937" height="1047" extended-state="1" />
+    <frame x="219" y="448" width="1756" height="458" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -620,7 +624,7 @@
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3464481" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18060735" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19988208" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21108742" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="1646" y="75" width="246" height="924" />
@@ -1011,7 +1015,7 @@
         <state relative-caret-position="1513">
           <caret line="90" column="47" lean-forward="false" selection-start-line="90" selection-start-column="47" selection-end-line="90" selection-end-column="47" />
           <folding>
-            <marker date="1539084732190" expanded="true" signature="3397:3422" ph="..." />
+            <marker date="1536633419862" expanded="true" signature="3397:3422" ph="..." />
           </folding>
         </state>
       </provider>
@@ -1046,16 +1050,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="102">
+          <caret line="6" column="31" lean-forward="true" selection-start-line="6" selection-start-column="31" selection-end-line="6" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="34">
+          <caret line="2" column="0" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="41" />
           <folding />
         </state>
       </provider>

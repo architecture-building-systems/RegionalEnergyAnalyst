@@ -77,7 +77,7 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
 
     with hierarchical_model:
 
-        step = pm.NUTS()  # increase to avoid divergence problemsstep = pm.NUTS()  # increase to avoid divergence problems
+        step = pm.NUTS(target_accept=0.98)  # increase to avoid divergence problemsstep = pm.NUTS()  # increase to avoid divergence problems
         hierarchical_trace = pm.sample(draws=samples, step=step, n_init=samples, njobs=1)
         # save to disc
         with open(output_trace_path, 'wb') as buff:
@@ -90,7 +90,7 @@ if __name__ == "__main__":
     scaler = "standard" #"minmax"  # o standard for standard scaler to use in both sides of the data
     log_transform = "log_log" # log_log or none
     type_log = "all_2var"  # "all" when the covariates and the response have log conversion, Floor if only floor is log (this behavior is modified manually)
-    samples = 2500 # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
+    samples = 10000 # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
     cities = [] # or leave empty to have all cities.
     response_variable = "LOG_SITE_ENERGY_MWh_yr"
     predictor_variables = ["LOG_THERMAL_ENERGY_MWh_yr"]
