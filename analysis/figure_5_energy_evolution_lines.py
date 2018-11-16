@@ -14,70 +14,68 @@ import numpy as np
 
 def calc_graph(data_frame, data_frame_with_efficiency, output_path,  colors_hdd, colors_cdd, cities, scenarios):
 
-    titles = np.append(cities[:5], ["", "", "", "", ""])
-    titles = np.append(titles, cities[5:])
-    titles = np.append(titles, ["", "", "", "", ""])
-    fig = tools.make_subplots(rows=4, cols=5, shared_xaxes=True, shared_yaxes=True, subplot_titles=titles)
+    titles = cities
+    fig = tools.make_subplots(rows=2, cols=5, shared_xaxes=True, shared_yaxes=True, subplot_titles=titles)
 
-    # colors_srh2=["rgb(231,214,219)", "rgb(171,95,127)", "rgb(198,149,167)"]
-    # #colors_srh2= ["rgb(126,127,132)", "rgb(68,76,83)", "rgb(35,31,32)"]
-    # # colors_srh = [ "rgb(254,220,198)","rgb(248,159,109)", "rgb(245,131,69)"]
-    # colors_srh = ["rgb(255,255,255)", "rgb(68,76,83)", "rgb(126,127,132)"]
+    # "blue": "rgb(63,192,194)",
+    # "blue_light": "rgb(171,221,222)",
+    # "blue_lighter": "rgb(225,242,242)",
+    # "yellow": "rgb(255,209,29)",
+    # "yellow_light": "rgb(255,225,133)",
+    # "yellow_lighter": "rgb(255,243,211)",
+    # "brown": "rgb(174,148,72)",
+    # "brown_light": "rgb(201,183,135)",
+    # "brown_lighter": "rgb(233,225,207)",
+    # "purple": "rgb(171,95,127)",
+    # "purple_light": "rgb(198,149,167)",
+    # "purple_lighter": "rgb(231,214,219)",
+    # "green": "rgb(126,199,143)",
+    # "green_light": "rgb(178,219,183)",
+    # "green_lighter": "rgb(227,241,228)",
 
-    colors_srh2 = ["rgb(239,154,154)", "rgb(183,28,28)","rgb(239,83,80)"]
-    colors_srh = ["rgb(254,220,198)","rgb(245,131,69)","rgb(248,159,109)"]
+    # blue ["rgb(144,202,249)", "rgb(13,71,161)", "rgb(66,165,245)"]
+    # blue ligth ["rgb(225,242,242)","rgb(63,192,194)", "rgb(171,221,222)"]
+    # colors_all = ["rgb(239,154,154)", "rgb(183,28,28)","rgb(239,83,80)"]
+    colors_commercial = ["rgb(144,202,249)", "rgb(13,71,161)", "rgb(66,165,245)"]
+    colors_residential= ["rgb(225,242,242)","rgb(63,192,194)", "rgb(171,221,222)"]
     mode = "lines"
+
     for i, city in enumerate(cities):
         data = data_frame[data_frame["1_city"] == city]
         data_with_efficiency = data_frame_with_efficiency[data_frame_with_efficiency["1_city"] == city]
         if i < 5:
             row = 1
             cols = i + 1
-            yaxis = 'y1'
+            yaxis = 'y'
         else:
-            row = 3
+            row = 2
             cols = i - 4
-            yaxis = 'y3'
+            yaxis = 'y'
         for j, scenario in enumerate(scenarios):
-            data2 = data[data["SCENARIO_CLASS"] == scenario]
-            x = data2.index
-            y = data2["energy_MWh"] # in MWh
-            trace = go.Scatter(x=x, y=y, name="energy_MWh for scenario" + scenario, mode=mode, marker=dict(color=colors_hdd[j]), yaxis =yaxis)
-            fig.append_trace(trace, row, cols)
 
-            # data2 = data_with_efficiency[data_with_efficiency["SCENARIO_CLASS"] == scenario]
+            #data for the total energy consumption
+            data2 = data[data["SCENARIO_CLASS"] == scenario]
             # x = data2.index
-            # y = data2["energy_MWh"] # in MWh
-            # trace = go.Scatter(x=x, y=y, name="energy_efficency_MWh for scenario" + scenario, mode=mode, marker=dict(color=colors_cdd[j]), yaxis =yaxis)
+            # y = data2["EUI_kWh_m2yr"]
+            # trace = go.Scatter(x=x, y=y, name="EUI_kWh_m2yr for scenario " + scenario, mode=mode, marker=dict(color=colors_all[j]))
             # fig.append_trace(trace, row, cols)
 
-
-        print(city, "total change in %", (data2.loc["2100", "energy_MWh"] - data2.loc["2010", "energy_MWh"]) /data2.loc["2010", "energy_MWh"]/ 9*100)
-
-
-    for i, city in enumerate(cities):
-        data = data_frame[data_frame["1_city"] == city]
-        data_with_efficiency = data_frame_with_efficiency[data_frame_with_efficiency["1_city"] == city]
-        if i < 5:
-            row = 2
-            cols = i + 1
-            yaxis = 'y2'
-        else:
-            row = 4
-            cols = i - 4
-            yaxis = 'y4'
-        for j, scenario in enumerate(scenarios):
-            data2 = data[data["SCENARIO_CLASS"] == scenario]
             x = data2.index
-            y = data2["EUI_kWh_m2yr"]
-            trace = go.Scatter(x=x, y=y, name="EUI_kWh_m2yr for scenario " + scenario, mode=mode, marker=dict(color=colors_srh2[j]), yaxis =yaxis)
+            y = data2["EUI_kWh_m2yr_commercial"]
+            trace = go.Scatter(x=x, y=y, name="EUI_kWh_m2yr commercial for scenario " + scenario, mode=mode, marker=dict(color=colors_commercial[j]),
+                               yaxis = yaxis)
             fig.append_trace(trace, row, cols)
 
-            data2 = data_with_efficiency[data_with_efficiency["SCENARIO_CLASS"] == scenario]
             x = data2.index
-            y = data2["EUI_kWh_m2yr"]
-            trace = go.Scatter(x=x, y=y, name="EUI_kWh_m2yr with efficiency for scenario " + scenario, mode=mode, marker=dict(color=colors_srh[j]), yaxis =yaxis)
+            y = data2["EUI_kWh_m2yr_residential"]
+            trace = go.Scatter(x=x, y=y, name="EUI_kWh_m2yr residential for scenario " + scenario, mode=mode, marker=dict(color=colors_residential[j]),
+                               yaxis=yaxis)
             fig.append_trace(trace, row, cols)
+
+        print(city, "commercial", round(((data2.loc["2100", "EUI_kWh_m2yr_commercial"] - data2.loc["2010", "EUI_kWh_m2yr_commercial"])/data2.loc["2010", "EUI_kWh_m2yr_commercial"] /9 )*100,0))
+        print(city, "residential", round(((data2.loc["2100", "EUI_kWh_m2yr_residential"] - data2.loc["2010", "EUI_kWh_m2yr_residential"])/data2.loc["2010", "EUI_kWh_m2yr_residential"] / 9)*100,0))
+
+
 
     for i in fig['layout']['annotations']:
         i['font'] = dict(family='Helvetica, monospace', size=20)
@@ -85,10 +83,8 @@ def calc_graph(data_frame, data_frame_with_efficiency, output_path,  colors_hdd,
 
     fig['layout'].update( plot_bgcolor= "rgb(236,243,247)",
                          font=dict(family='Helvetica, monospace', size=18),
-                             yaxis1= dict(domain = [0.78, 1], range=[0, 9000]),
-                         yaxis2 = dict(domain = [0.54, 0.74], range=[0, 600]),
-                         yaxis3 = dict(domain=[0.24, 0.44], range=[0, 9000]),
-                         yaxis4=dict(domain=[0.0, 0.20], range=[0, 600]),)
+                          yaxis=dict(range=[0, 550])
+                          )
     plot(fig, auto_open=False, filename=output_path + '//' + "lines_energy" + ".html")
 
 
@@ -104,7 +100,7 @@ def main(output_path, future_energy_file, future_energy_file_with_efficiency, co
         data_future_energy["YEAR"] = [x.split("_", 1)[1] for x in data_future_energy["scenario"].values]
         data_future_energy.set_index("YEAR", inplace=True)
         data_future_energy["SCENARIO_CLASS"] = [x.split("_", 1)[0] for x in data_future_energy["scenario"].values]
-        df = data_future_energy[["energy_MWh", "EUI_kWh_m2yr", "SCENARIO_CLASS", "1_city"]]
+        df = data_future_energy[["energy_MWh", "EUI_kWh_m2yr", "SCENARIO_CLASS", "1_city", "EUI_kWh_m2yr_commercial", "EUI_kWh_m2yr_residential"]]
         data_final = pd.concat([data_final, df])
 
     data_final_with_efficiency = pd.DataFrame()

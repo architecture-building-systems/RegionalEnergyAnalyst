@@ -43,6 +43,14 @@ for scenario1 in scenarios:
             data = all_data[all_data["SCENARIO"] == scenario]
         energy_MWh = np.mean(data["SITE_ENERGY_kWh_yr"].values/1000).round(2)
         EUI_kWh_m2yr = np.mean(data["SITE_ENERGY_kWh_yr"].values / data["GROSS_FLOOR_AREA_m2"].values).round(2)
+
+        #now calculate for sommercial and residential sectors
+        data_commercial = data[data["BUILDING_CLASS"]== "Commercial"]
+        EUI_kWh_m2yr_commercial = np.mean(data_commercial["SITE_ENERGY_kWh_yr"].values / data_commercial["GROSS_FLOOR_AREA_m2"].values).round(2)
+
+        data_residential = data[data["BUILDING_CLASS"] == "Residential"]
+        EUI_kWh_m2yr_residential = np.mean(data_residential["SITE_ENERGY_kWh_yr"].values / data_residential["GROSS_FLOOR_AREA_m2"].values).round(2)
+
         std_EUI_kWh_m2yr = np.std(EUI_kWh_m2yr).round(2)
         std_Energy_MWh_yr = np.std(energy_MWh).round(2)
         if city in test_cities:
@@ -59,7 +67,8 @@ for scenario1 in scenarios:
              "8_m_label": label,
              "9_lat": latitude,
              "10_lon": longitude,
-             }
+             "EUI_kWh_m2yr_commercial": EUI_kWh_m2yr_commercial,
+             "EUI_kWh_m2yr_residential": EUI_kWh_m2yr_residential,}
         list_of_dicts.append(dictionary)
     df_output = pd.DataFrame(list_of_dicts)
     final_df = pd.concat([final_df, df_output], ignore_index=True)
