@@ -124,6 +124,7 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     # get data of traces
     data = pm.trace_to_dataframe(hierarchical_trace)
 
+
     # DO CALCULATION FOR ALL CLASSES IN THE MODEL (CITIES)
     # get mean coefficeints
     alpha = data['global_b1'].mean()
@@ -189,7 +190,7 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
 if __name__ == "__main__":
 
-    name_model = "log_log_all_2var_standard_5000"
+    name_model = "log_log_all_2var_standard_10000"
     output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER, name_model + ".csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE
