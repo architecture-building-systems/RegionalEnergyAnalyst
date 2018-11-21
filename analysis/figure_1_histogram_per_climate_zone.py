@@ -28,6 +28,9 @@ def main(flag):
         data_A1B_2100 = pd.read_csv(os.path.join(DATA_RAW_BUILDING_ENTHALPY_FOLDER, "future_enthalpy_days_A1B_2100.csv"), sep=';')
         data_A2_100 = pd.read_csv(os.path.join(DATA_RAW_BUILDING_ENTHALPY_FOLDER, "future_enthalpy_days_A2_2100.csv"), sep=';')
         data_B1_2100 = pd.read_csv(os.path.join(DATA_RAW_BUILDING_ENTHALPY_FOLDER, "future_enthalpy_days_B1_2100.csv"), sep=';')
+        data_A1B_2050 = pd.read_csv(os.path.join(DATA_RAW_BUILDING_ENTHALPY_FOLDER, "future_enthalpy_days_A1B_2050.csv"), sep=';')
+        data_A2_2050 = pd.read_csv(os.path.join(DATA_RAW_BUILDING_ENTHALPY_FOLDER, "future_enthalpy_days_A2_2050.csv"), sep=';')
+        data_B1_2050 = pd.read_csv(os.path.join(DATA_RAW_BUILDING_ENTHALPY_FOLDER, "future_enthalpy_days_B1_2050.csv"), sep=';')
 
 
     zones = [["1A", "2A", "3A"],
@@ -48,7 +51,6 @@ def main(flag):
                    "Cold-humid",
                    "Cold-dry",
                    "Arctic"]
-
     graph_variable = ["6_enthalpy_HUM",
                       "7_enthalpy_DEHUM",
                       "4_enthalpy_H",
@@ -66,28 +68,43 @@ def main(flag):
               "Heating",
               "Cooling",
               "Total thermal energy"]
-    pairs_colors = [["rgb(254,220,198)","rgb(248,159,109)"],
-                    ["rgb(231,214,219)", "rgb(198,149,167)"],
-                    ["rgb(239,154,154)", "rgb(239,83,80)"],
-                    ["rgb(144,202,249)", "rgb(66,165,245)"],
-                    ["rgb(126,127,132)", "rgb(68,76,83)"]]
+    pairs_colors = [["rgb(254,220,198)","rgb(248,159,109)", "rgb(245,131,69)"],
+                    ["rgb(231,214,219)", "rgb(198,149,167)", "rgb(171,95,127)"],
+                    ["rgb(252,217,210)", "rgb(246,148,143)", "rgb(240,75,91)"],
+                    ["rgb(144,202,249)", "rgb(66,165,245)", "rgb(13,71,161)"],
+                    ["rgb(255,255,255)","rgb(126,127,132)", "rgb(68,76,83)"]]
 
+    # "red": "rgb(240,75,91)",
+    # "red_light": "rgb(246,148,143)",
+
+
+    data_final_2050 = pd.concat([data_A1B_2050, data_A2_2050, data_B1_2050], ignore_index=True).set_index("2_climate_zone")
+    data_final_2050["x"] = "0"
     data_final_2100 = pd.concat([data_A1B_2100, data_A2_100, data_B1_2100], ignore_index=True).set_index("2_climate_zone")
     data_final_2100["x"] = "0"
     data_1990_2010["x"] = "0"
     x = []
 
     for zone, name in zip(zones,zones_names):
+        data_final_2050.loc[zone, "x"] = name
         data_final_2100.loc[zone, "x"] = name
         data_1990_2010.loc[zone, "x"] = name
 
 
     for grah_var, text_var, colors, title in zip(graph_variable, text_vars, pairs_colors, titles):
 
-        trace1 = go.Box(
+        trace2 = go.Box(
             y=data_final_2100[grah_var],
             x=data_final_2100["x"],
             name='2100',
+            boxpoints = 'all',
+            marker=dict(
+                color=colors[2]))
+
+        trace1 = go.Box(
+            y=data_final_2050[grah_var],
+            x=data_final_2050["x"],
+            name='2050',
             boxpoints = 'all',
             marker=dict(
                 color=colors[1]))
@@ -116,7 +133,7 @@ def main(flag):
                 color=colors[0]
             ))
 
-        data = [trace0, trace1]
+        data = [trace0, trace1, trace2]
         layout = go.Layout(plot_bgcolor= "rgb(236,243,247)",legend=dict(x=0.90, y=0.95),
                            annotations=annotations,
                              font=dict(family='Helvetica, monospace', size=18),

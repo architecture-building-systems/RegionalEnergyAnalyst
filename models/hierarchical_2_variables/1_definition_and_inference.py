@@ -53,22 +53,22 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
         # log(y) = alpha + beta*log(GFA*HDD) + gamma*log(GFA*CDD) + eps
         
         # Coefficients of all population
-        global_b1 = pm.Normal('global_b1', mu=0., sd=100**2)
-        sigma_b1 =  pm.HalfCauchy('sigma_b1', 5)
+        global_b1 = pm.Normal('global_b1', mu=0, sd=10)
+        sigma_b1 = pm.Uniform('sigma_b1', lower=0, upper=10)
 
-        global_b2 = pm.Normal('global_b2', mu=0., sd=100**2)
-        sigma_b2 = pm.HalfCauchy('sigma_b2', 5)
+        global_b2 = pm.Normal('global_b2', mu=0, sd=10)
+        sigma_b2 = pm.Uniform('sigma_b2', lower=0, upper=10)
 
         # Coefficients for each city, distributed around the group means
-        b1 = pm.Normal('b1', mu=global_b1, sd=sigma_b1, shape=n_counties)
-        b2 = pm.Normal('b2', mu=global_b2, sd=sigma_b2, shape=n_counties)
+        # b1 = pm.Normal('b1', mu=global_b1, sd=sigma_b1, shape=n_counties)
+        # b2 = pm.Normal('b2', mu=global_b2, sd=sigma_b2, shape=n_counties)
 
-        # # Coefficients for each city, distributed around the group means
-        # a_offset = pm.HalfCauchy('a_offset', 5, shape=n_counties)# pm.Normal('a_offset', mu=0, sd=10, shape=n_counties)
-        # b1 = pm.Deterministic("b1", global_b1 + a_offset * sigma_b1)
+        # Coefficients for each city, distributed around the group means
+        b1_offset = pm.Normal('b1_offset', mu=0, sd=1, shape=n_counties)
+        b1 = pm.Deterministic("b1", global_b1 + b1_offset * sigma_b1)
         #
-        # b_offset = pm.HalfCauchy('b_offset', 5, shape=n_counties)#pm.Normal('b_offset', mu=0, sd=10, shape=n_counties)
-        # b2 = pm.Deterministic("b2", global_b2 + b_offset * sigma_b2)
+        b2_offset = pm.Normal('b2_offset', mu=0, sd=1, shape=n_counties)
+        b2 = pm.Deterministic("b2", global_b2 + b2_offset * sigma_b2)
 
         # Model error
         eps = pm.HalfCauchy('eps', 5)
@@ -83,7 +83,7 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
     with hierarchical_model:
 
         step = pm.NUTS(target_accept=0.98)  # increase to avoid divergence problemsstep = pm.NUTS()  # increase to avoid divergence problems
-        hierarchical_trace = pm.sample(draws=samples, step=step, n_init=samples, njobs=1)
+        hierarchical_trace = pm.sample(draws=samples, step=step, n_init=samples, njobs=2)
         # save to disc
         with open(output_trace_path, 'wb') as buff:
             pickle.dump({'inference': hierarchical_model, 'trace': hierarchical_trace,
@@ -92,15 +92,15 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
 
 if __name__ == "__main__":
 
-    scaler = None #"standard" #"minmax"  # o standard for standard scaler to use in both sides of the data
+    scaler = "standard" #"minmax"  # o standard for standard scaler to use in both sides of the data
     log_transform = "log_log" # log_log or none
     type_log = "all_2var"  # "all" when the covariates and the response have log conversion, Floor if only floor is log (this behavior is modified manually)
-    samples = 2000 # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
+    samples = 5000 # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
     cities = [] # or leave empty to have all cities.
     response_variable = "LOG_SITE_ENERGY_kWh_yr"
     predictor_variables = ["LOG_THERMAL_ENERGY_kWh_yr"]
 
     Xy_training_path = DATA_TRAINING_FILE
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER,
-                                     log_transform + "_" + type_log + "_" + "None" + "_" + str(samples) + ".pkl")
-    main(Xy_training_path, output_trace_path, response_variable, predictor_variables, cities, samples, "None")
+                                     log_transform + "_" + type_log + "_" + scaler + "_" + str(samples) + ".pkl")
+    main(Xy_training_path, output_trace_path, response_variable, predictor_variables, cities, samples, scaler)

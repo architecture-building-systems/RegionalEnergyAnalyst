@@ -81,7 +81,13 @@ for scenario1 in scenarios:
         df_output["delta_eui"] = (df_output["EUI_kWh_m2yr"] - df_baseline["EUI_kWh_m2yr"]).round(2)
         df_output["per_eui"] = (df_output["delta_eui"] /df_baseline["EUI_kWh_m2yr"]*100).round(2)
 
-    # output = os.path.join(DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, "future_consumption" + scenario + ".csv")
-    # df_output.to_csv(output, sep=";", index=False)
+        df_output["delta_eui_com"] = (df_output["EUI_kWh_m2yr_commercial"] - df_baseline["EUI_kWh_m2yr_commercial"]).round(2)
+        df_output["per_eui_com"] = (df_output["delta_eui_com"] /df_baseline["EUI_kWh_m2yr_commercial"]*100).round(2)
+
+        df_output["delta_eui_res"] = (df_output["EUI_kWh_m2yr_residential"] - df_baseline["EUI_kWh_m2yr_residential"]).round(2)
+        df_output["per_eui_res"] = (df_output["delta_eui_res"] /df_baseline["EUI_kWh_m2yr_residential"]*100).round(2)
+
+    output = os.path.join(DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, "future_consumption" + scenario + ".csv")
+    df_output.to_csv(output, sep=";", index=False)
 
 final_df.to_csv(output_final)

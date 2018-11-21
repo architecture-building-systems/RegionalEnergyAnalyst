@@ -35,6 +35,11 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, city
     # get training data,do the scaler and select the data for the city
     Xy_training = pd.read_csv(Xy_training_path)
     Xy_testing = pd.read_csv(Xy_testing_path)
+
+    degree_index = Xy_training.groupby('CITY').all().reset_index().reset_index()[['index', 'CITY']]
+    degree_index["CODE"] = degree_index.index.values
+    Xy_training = Xy_training.merge(degree_index, on='CITY')
+    Xy_training['BUILDING_CLASS'] = Xy_training['BUILDING_CLASS'].apply(lambda x: int(1) if x == "Residential" else int(0))
     if scaler != None:
         Xy_training[fields_to_scale] = pd.DataFrame(scaler.transform(Xy_training[fields_to_scale]),
                                                 columns=Xy_training[fields_to_scale].columns)
@@ -42,8 +47,18 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, city
         Xy_testing[fields_to_scale] = pd.DataFrame(scaler.transform(Xy_testing[fields_to_scale]),
                                                columns=Xy_testing[fields_to_scale].columns)
 
-    x_training_city = Xy_testing.loc[Xy_testing["CITY"]==city_target]
+    x_training_city = Xy_training.loc[Xy_training["CITY"]==city_target]
     x_testing_city = Xy_testing.loc[Xy_testing["CITY"] ==city_target]
+
+    pd.DataFrame({"Y": x_training_city[response_variable].values,
+                  "X1": x_training_city[predictor_variables[0]].values}).to_csv(r"C:\Users\JimenoF\Desktop\training_data.csv")
+
+    pd.DataFrame({"B1": alpha,
+                  "B2": beta,
+                  "eps":eps}).to_csv(r"C:\Users\JimenoF\Desktop\betas_data.csv")
+
+
+
 
 
 

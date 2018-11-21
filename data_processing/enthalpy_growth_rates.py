@@ -78,7 +78,7 @@ if __name__ == "__main__":
     longitudes = data_cities['longitude'].values
     climates = data_cities['climate'].values
     test_cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City'].values
-    scenarios = ["1990_2010", "B1_2100", "A2_2100", "A1B_2100"]
+    scenarios = ["1990_2010", "B1_2100", "A2_2100", "A1B_2100","B1_2050", "A2_2050", "A1B_2050"]
 
-    flag_use_efficiency = True
+    flag_use_efficiency = False
     main(cities, latitudes, longitudes, climates, test_cities, scenarios, flag_use_efficiency)
