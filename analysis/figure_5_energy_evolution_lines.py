@@ -35,11 +35,29 @@ def calc_graph(data_frame, data_frame_with_efficiency, output_path,  colors_hdd,
 
     # blue ["rgb(144,202,249)", "rgb(13,71,161)", "rgb(66,165,245)"]
     # blue ligth ["rgb(225,242,242)","rgb(63,192,194)", "rgb(171,221,222)"]
-    # colors_all = ["rgb(239,154,154)", "rgb(183,28,28)","rgb(239,83,80)"]
+    colors_all = ["rgb(239,154,154)", "rgb(183,28,28)","rgb(239,83,80)"]
     colors_commercial = ["rgb(144,202,249)", "rgb(13,71,161)", "rgb(66,165,245)"]
     colors_residential= ["rgb(225,242,242)","rgb(63,192,194)", "rgb(171,221,222)"]
     mode = "lines"
 
+    ratios_dict = {"Hot - Humid": .276,
+                   "Very Hot - Humid": .276,
+                   "Warm - Humid": .276,
+                   "Hot - Dry": .343,
+                   "Warm - Dry": .343,
+                   "Hot - Marine": .189,
+                   "Warm - Marine": .189,
+                   "Mixed - Humid": .276,
+                   "Mixed - Dry": .343,
+                   "Mixed - Marine": .189,
+                   "Cold - Humid": .272,
+                   "Cool - Humid": .272,
+                   "Cold - Dry": .272,
+                   "Cool - Dry": .272,
+                   "Very Cold": .272}
+
+    # get ratio of residential and commercial
+    data_frame["ratio"] = [ratios_dict[x] for x in data_frame["2.1_climate_description"]]
     for i, city in enumerate(cities):
         data = data_frame[data_frame["1_city"] == city]
         data_with_efficiency = data_frame_with_efficiency[data_frame_with_efficiency["1_city"] == city]
@@ -51,14 +69,16 @@ def calc_graph(data_frame, data_frame_with_efficiency, output_path,  colors_hdd,
             row = 2
             cols = i - 4
             yaxis = 'y'
+
+        data["EUI_tot"] = data["EUI_kWh_m2yr_commercial"] * data["ratio"] + data["EUI_kWh_m2yr_residential"] * (1-data["ratio"])
         for j, scenario in enumerate(scenarios):
 
             #data for the total energy consumption
             data2 = data[data["SCENARIO_CLASS"] == scenario]
-            # x = data2.index
-            # y = data2["EUI_kWh_m2yr"]
-            # trace = go.Scatter(x=x, y=y, name="EUI_kWh_m2yr for scenario " + scenario, mode=mode, marker=dict(color=colors_all[j]))
-            # fig.append_trace(trace, row, cols)
+            x = data2.index
+            y = data["EUI_tot"]
+            trace = go.Scatter(x=x, y=y, name="EUI_kWh_m2yr for scenario " + scenario, mode=mode, marker=dict(color=colors_all[j]))
+            fig.append_trace(trace, row, cols)
 
             x = data2.index
             y = data2["EUI_kWh_m2yr_commercial"]
@@ -72,8 +92,9 @@ def calc_graph(data_frame, data_frame_with_efficiency, output_path,  colors_hdd,
                                yaxis=yaxis)
             fig.append_trace(trace, row, cols)
 
-        print(city, "commercial", round(((data2.loc["2100", "EUI_kWh_m2yr_commercial"] - data2.loc["2010", "EUI_kWh_m2yr_commercial"])/data2.loc["2010", "EUI_kWh_m2yr_commercial"] /9 )*100,0))
-        print(city, "residential", round(((data2.loc["2100", "EUI_kWh_m2yr_residential"] - data2.loc["2010", "EUI_kWh_m2yr_residential"])/data2.loc["2010", "EUI_kWh_m2yr_residential"] / 9)*100,0))
+        print(city, "total", round(((data2.loc["2100", "EUI_tot"] - data2.loc["2010", "EUI_tot"])/data2.loc["2010", "EUI_tot"] /9 )*100,2))
+        print(city, "commercial", round(((data2.loc["2100", "EUI_kWh_m2yr_commercial"] - data2.loc["2010", "EUI_kWh_m2yr_commercial"])/data2.loc["2010", "EUI_kWh_m2yr_commercial"] /9 )*100,2))
+        print(city, "residential", round(((data2.loc["2100", "EUI_kWh_m2yr_residential"] - data2.loc["2010", "EUI_kWh_m2yr_residential"])/data2.loc["2010", "EUI_kWh_m2yr_residential"] / 9)*100,2))
 
 
 
@@ -100,7 +121,8 @@ def main(output_path, future_energy_file, future_energy_file_with_efficiency, co
         data_future_energy["YEAR"] = [x.split("_", 1)[1] for x in data_future_energy["scenario"].values]
         data_future_energy.set_index("YEAR", inplace=True)
         data_future_energy["SCENARIO_CLASS"] = [x.split("_", 1)[0] for x in data_future_energy["scenario"].values]
-        df = data_future_energy[["energy_MWh", "EUI_kWh_m2yr", "SCENARIO_CLASS", "1_city", "EUI_kWh_m2yr_commercial", "EUI_kWh_m2yr_residential"]]
+        df = data_future_energy[["energy_MWh", "EUI_kWh_m2yr", "SCENARIO_CLASS", "1_city", "EUI_kWh_m2yr_commercial", "EUI_kWh_m2yr_residential",
+                                 "2_climate_zone", "2.1_climate_description"]]
         data_final = pd.concat([data_final, df])
 
     data_final_with_efficiency = pd.DataFrame()
@@ -111,7 +133,7 @@ def main(output_path, future_energy_file, future_energy_file_with_efficiency, co
         data_future_energy_efficiency["YEAR"] = [x.split("_", 1)[1] for x in data_future_energy_efficiency["scenario"].values]
         data_future_energy_efficiency.set_index("YEAR", inplace=True)
         data_future_energy_efficiency["SCENARIO_CLASS"] = [x.split("_", 1)[0] for x in data_future_energy_efficiency["scenario"].values]
-        df = data_future_energy_efficiency[["energy_MWh", "EUI_kWh_m2yr", "SCENARIO_CLASS", "1_city"]]
+        df = data_future_energy_efficiency[["energy_MWh", "EUI_kWh_m2yr", "SCENARIO_CLASS", "1_city", "2_climate_zone"]]
         data_final_with_efficiency = pd.concat([data_final_with_efficiency, df])
 
     calc_graph(data_final, data_final_with_efficiency, output_path,  colors_hdd, colors_cdd, cities, scenarios)
