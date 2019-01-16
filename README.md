@@ -1,4 +1,4 @@
-# Prediciton model of energy consumption in 100 american cities and 360.000 buildings: Hierarchical Bayesian Regression and Wide and Deep Neural Network
+# Prediciton model of energy consumption in 100 american cities.
 
 
 This repository stores the statistical models of the project.
