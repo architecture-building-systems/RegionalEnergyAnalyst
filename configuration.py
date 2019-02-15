@@ -29,6 +29,11 @@ DATA_RAW_BUILDING_TODAY_HDD_FOLDER = os.path.join(os.path.abspath(os.path.dirnam
 DATA_RAW_BUILDING_IPCC_SCENARIOS_ENTHALPY_FILE_EFFICEINCY = os.path.join(os.path.abspath(os.path.dirname(__file__)), "databases", "today_future_enthalpy", "future_enthalpy_days_efficiency.csv")
 
 #indicate folders to store the results (I ADVISE TO KEEP THEM AS IT IS)
+HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical_2_levels", "inference")
+HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical_2_levels", "performance")
+HIERARCHICAL_MODEL_PREDICTION_FOLDER_2_LEVELS = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical_2_levels", "predictions")
+HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER_2_LEVELS = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "hierarchical_2_levels")
+
 HIERARCHICAL_MODEL_INFERENCE_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical", "inference")
 NN_MODEL_INFERENCE_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "neural_network", "inference")
 NN_MODEL_PERFORMANCE_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "neural_network", "performance")
@@ -45,7 +50,14 @@ DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER = os.path.join(os.path.abspath(os.pat
 DATA_POST_FUTURE_ENERGY_CONSUMPTION_FILE = os.path.join(DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, "future_consumption.csv")
 DATA_POST_FUTURE_ENERGY_CONSUMPTION_FILE_WITH_EFFICIENCY = os.path.join(DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, "future_consumption_efficiency.csv")
 
-
+ZONE_NAMES = {"Hot-humid":["1A", "2A", "3A"] ,
+               "Hot-dry": ["2B", "3B"],
+               "Hot-marine": ["3C"] ,
+               "Mixed-humid": ["4A"],
+               "Mixed-dry": ["4B"],
+               "Mixed-marine": ["4C"],
+               "Cold-humid": ["5A", "6A"],
+               "Cold-dry": ["5B", "6B", "7"]}
 
 
 

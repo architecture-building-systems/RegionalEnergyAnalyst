@@ -40,7 +40,7 @@ def calc_mae(prediction, target):
 
 def calc_mse(prediction, target):
     delta = (prediction - target) ** 2
-    sum_delta = (delta.sum() / len(target)) * 100
+    sum_delta = (delta.sum() / len(target))
     return round(sum_delta, 2)
 
 def calc_MAPE(y_true, y_pred, n):
@@ -48,20 +48,17 @@ def calc_MAPE(y_true, y_pred, n):
     error = np.sum((np.abs(delta/y_true)))*100/n
     return error
 
-def calc_accurracy(Xy_observed, alpha, beta, response_variable, predictor_variables,
-                   fields_to_scale, scaler):
+def do_prediction(Xy_observed, alpha, beta, response_variable, predictor_variables,
+                  fields_to_scale, scaler):
     # calculate linear curve
     x1 = Xy_observed[predictor_variables[0]].values
-
-    #y_prediction = alpha + beta * x1 + gamma * x2 + epsilon * x3
-    # y_prediction = np.exp(alpha)*(x1**beta)*(x2**gamma)*(x3**epsilon)
-    y_prediction = alpha + beta * x1
-    y_target = Xy_observed[response_variable].values
+    y_prediction_log = alpha + beta * x1
+    y_target_log = Xy_observed[response_variable].values
 
     #scale back
     if scaler != None:
         xy_prediction = Xy_observed.copy()
-        xy_prediction[response_variable] = y_prediction
+        xy_prediction[response_variable] = y_prediction_log
         xy_prediction = pd.DataFrame(scaler.inverse_transform(xy_prediction[fields_to_scale]),
                                                  columns=xy_prediction[fields_to_scale].columns)
         #scale back and get in kWh/yr units
@@ -73,85 +70,40 @@ def calc_accurracy(Xy_observed, alpha, beta, response_variable, predictor_variab
         y_prediction = np.exp(xy_prediction[response_variable].values)
     else:
         y_prediction = xy_prediction[response_variable].values
+
     if response_variable.split("_")[0] =="LOG":
         y_target = np.exp(Xy_observed[response_variable].values)
     else:
         y_target = Xy_observed[response_variable].values
 
-    # plotting
-    # plt.scatter(x=y_prediction, y =y_target)
-    # plt.show()
-
-    # se = (standard_error(y_true=y_target, y_pred=y_prediction) * 100).round(2)
-    # mse = (mean_squared_error(y_true=y_target, y_pred=y_prediction) * 100).round(2)
-    # mae = (mean_absolute_error(y_true=y_target, y_pred=y_prediction) * 100).round(2)
-    MAPE_single_building = calc_MAPE(y_true=y_target, y_pred=y_prediction, n = len(y_target)).round(2)
-    MAPE_city_scale = calc_MAPE(y_true=sum(y_target), y_pred=sum(y_prediction), n = 1).round(2)
-    r2 = r2_score(y_true=y_target, y_pred=y_prediction).round(2)
-
-    return MAPE_single_building, MAPE_city_scale, r2#, se
+    return y_prediction, y_target, y_prediction_log, y_target_log
 
 def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main_cities):
     # loading data
     with open(output_trace_path, 'rb') as buff:
         data = pickle.load(buff)
         hierarchical_model, hierarchical_trace, scaler, degree_index, \
-        response_variable, predictor_variables = data['inference'], data['trace'], data['scaler'], \
+        response_variable, predictor_variables, sector = data['inference'], data['trace'], data['scaler'], \
                                                  data['city_index_df'], data['response_variable'],\
-                                                 data['predictor_variables']
+                                                 data['predictor_variables'], data['sector']
 
     # calculate Convergence stats
     bfmi = pm.bfmi(hierarchical_trace).round(2)
     max_gr = max(np.max(gr_stats) for gr_stats in pm.gelman_rubin(hierarchical_trace).values()).round(2)
     n = pm.diagnostics.effective_n(hierarchical_trace)
     efffective_samples_city_beta = n['b1']
-    efffective_samples_global_beta = n['global_b1']
 
-    # fields to scale
+    # fields to scale, get data of traces
     fields_to_scale = [response_variable] + predictor_variables
-
-    # get training data scaler
-    Xy_training = pd.read_csv(Xy_training_path)
-    Xy_testing = pd.read_csv(Xy_testing_path)
-
-    if scaler != None:
-        Xy_training[fields_to_scale] = pd.DataFrame(scaler.transform(Xy_training[fields_to_scale]),
-                                                columns=Xy_training[fields_to_scale].columns)
-
-        Xy_testing[fields_to_scale] = pd.DataFrame(scaler.transform(Xy_testing[fields_to_scale]),
-                                               columns=Xy_testing[fields_to_scale].columns)
+    Xy_testing, Xy_training, degree_index = input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler,
+                                                       sector)
 
     # get data of traces
     data = pm.trace_to_dataframe(hierarchical_trace)
 
-
-    # DO CALCULATION FOR ALL CLASSES IN THE MODEL (CITIES)
-    # get mean coefficeints
-    alpha = data['global_b1'].mean()
-    beta = data['global_b2'].mean()
-    # epsilon = data['global_d'].mean()
-    # err = data['eps'].mean()
-
-    # calc accurracy against training set
-    # get scaled values for the city
-    MAPE_single_building_train,  MAPE_all_buildings_train, R2_train = calc_accurracy(Xy_training, alpha, beta, response_variable,
-                                                    predictor_variables, fields_to_scale, scaler)
-
-    # calc accurracy against testing set
-    MAPE_single_building_test, MAPE_all_buildings_test,  R2_test = calc_accurracy(Xy_testing, alpha, beta,  response_variable,
-                                                 predictor_variables, fields_to_scale, scaler)
-
-    accurracy_df = pd.DataFrame.from_items([("CITY", ["All", ""]),
-                                            ("DATASET", ["Training", "Testing"]),
-                                            ("MAPE_building [%]", [MAPE_single_building_train, MAPE_single_building_test]),
-                                            ("MAPE_city [%]", [MAPE_all_buildings_train, MAPE_all_buildings_test]),
-                                            ("R2 [-]", [R2_train, R2_test]),
-                                            ("BFMI [-]", [bfmi, ""]),
-                                            ("GB [-]", [max_gr, ""]),
-                                            ("N_eff",[efffective_samples_global_beta, ""])])
-    accurracy_df_2 = pd.DataFrame()
-
     # DO CALCULATION FOR EVERY CLASS IN THE MODEL (CITIES)
+    accurracy_df = pd.DataFrame()
+    accurracy_df_2 = pd.DataFrame()
     for i, city in zip(degree_index["CODE"].values, degree_index["CITY"].values):
         # get mean coefficeints
         alpha = data['b1__' + str(i)].mean()
@@ -159,38 +111,85 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
         # calc accurracy against training set
         Xy_training_city = Xy_training[Xy_training["CITY"] == city]
-        MAPE_single_building_train, MAPE_all_buildings_train, R2_train = calc_accurracy(Xy_training_city, alpha, beta,
-                                                        response_variable, predictor_variables, fields_to_scale, scaler)
-
-        # calc accurracy against testing set
         Xy_testing_city = Xy_testing[Xy_testing["CITY"] == city]
-        MAPE_single_building_test, MAPE_all_buildings_test, R2_test = calc_accurracy(Xy_testing_city, alpha, beta, response_variable,
-                                                     predictor_variables, fields_to_scale, scaler)
 
-        dict = pd.DataFrame.from_items([("CITY", [city, "",]),
-                                        ("DATASET", ["Training", "Testing"]),
-                                        ("MAPE_building [%]", [MAPE_single_building_train, MAPE_single_building_test]),
-                                        ("MAPE_city [%]", [MAPE_all_buildings_train, MAPE_all_buildings_test]),
-                                        ("R2 [-]", [R2_train, R2_test]),
-                                        ("BFMI [-]", [bfmi, ""]),
-                                        ("GB [-]", [max_gr, ""]),
-                                        ("N_eff", [efffective_samples_city_beta[i], ""])])
-
-        #do this to get the cities in order
-        if city in main_cities:
-            accurracy_df = pd.concat([accurracy_df, dict], ignore_index=True)
+        if Xy_training_city.empty or Xy_testing_city.empty:
+            print(city, sector, "does not exist, we are skipping it")
         else:
-            accurracy_df_2 = pd.concat([accurracy_df_2, dict], ignore_index=True)
+            # do for the training data set
+            y_prediction, y_target, y_prediction_log, y_target_log  = do_prediction(Xy_training_city, alpha, beta, response_variable, predictor_variables, fields_to_scale, scaler)
+            n_samples_train = len(y_target)
+            MAPE_single_building_train, MAPE_city_scale_train, r2_train = calc_accurracy(y_prediction, y_target)
+            MSE_log_domain_train = mean_squared_error(y_target_log, y_prediction_log)
+
+            # do for the testing data set
+            y_prediction, y_target, y_prediction_log, y_target_log = do_prediction(Xy_testing_city, alpha, beta, response_variable, predictor_variables, fields_to_scale, scaler)
+            n_samples_test = len(y_target)
+            MAPE_single_building_test, MAPE_city_scale_test, r2_test = calc_accurracy(y_prediction, y_target)
+            MSE_log_domain_test = mean_squared_error(y_target_log, y_prediction_log)
+
+
+            dict = pd.DataFrame.from_items([("CITY", [city, city,]),
+                                            ("BUILDING_CLASS", [sector, sector]),
+                                            ("DATASET", ["Training", "Testing"]),
+                                            ("MAPE_build_EUI_%", [MAPE_single_building_train, MAPE_single_building_test]),
+                                            ("PE_mean_EUI_%", [MAPE_city_scale_train, MAPE_city_scale_test]),
+                                            ("MSE_log_domain", [MSE_log_domain_train, MSE_log_domain_test]),
+                                            ("n_samples", [n_samples_train, n_samples_test])])
+
+            #do this to get the cities in order
+            if city in main_cities:
+                accurracy_df = pd.concat([accurracy_df, dict], ignore_index=True)
+            else:
+                accurracy_df_2 = pd.concat([accurracy_df_2, dict], ignore_index=True)
 
     #append both datasets
     accurracy_df = pd.concat([accurracy_df, accurracy_df_2], ignore_index=True)
     accurracy_df.to_csv(output_path, index=False)
 
 
+def calc_accurracy(y_prediction, y_target):
+    MAPE_single_building = calc_MAPE(y_true=y_target, y_pred=y_prediction, n=len(y_target)).round(2)
+    MAPE_city_scale = calc_MAPE(y_true=np.mean(y_target), y_pred=np.mean(y_prediction), n=1).round(2)
+    r2 = r2_score(y_true=y_target, y_pred=y_prediction).round(2)
+
+    return MAPE_single_building, MAPE_city_scale, r2
+
+
+def input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler, sector):
+    # get training data scaler
+    Xy_training = pd.read_csv(Xy_training_path)
+    Xy_testing = pd.read_csv(Xy_testing_path)
+
+    if sector != "none":
+        Xy_training = Xy_training[Xy_training["BUILDING_CLASS"] == sector]
+    degree_index = Xy_training.groupby('CITY').all().reset_index().reset_index()[['index', 'CITY']]
+    degree_index["CODE"] = degree_index.index.values
+    Xy_training = Xy_training.merge(degree_index, on='CITY')
+    Xy_training['BUILDING_CLASS'] = Xy_training['BUILDING_CLASS'].apply(
+        lambda x: int(1) if x == "Residential" else int(0))
+
+    if scaler != None:
+        Xy_training[fields_to_scale] = pd.DataFrame(scaler.transform(Xy_training[fields_to_scale]),
+                                                    columns=Xy_training[fields_to_scale].columns)
+
+    if sector != "none":
+        Xy_testing = Xy_testing[Xy_testing["BUILDING_CLASS"] == sector]
+    degree_index = Xy_testing.groupby('CITY').all().reset_index().reset_index()[['index', 'CITY']]
+    degree_index["CODE"] = degree_index.index.values
+    Xy_testing = Xy_testing.merge(degree_index, on='CITY')
+    Xy_testing['BUILDING_CLASS'] = Xy_testing['BUILDING_CLASS'].apply(
+        lambda x: int(1) if x == "Residential" else int(0))
+
+    if scaler != None:
+        Xy_testing[fields_to_scale] = pd.DataFrame(scaler.transform(Xy_testing[fields_to_scale]),
+                                                   columns=Xy_testing[fields_to_scale].columns)
+    return Xy_testing, Xy_training, degree_index
+
 
 if __name__ == "__main__":
 
-    name_model = "log_log_all_2var_standard_5000"
+    name_model = "log_logResidential_all_2var_standard_5000"
     output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER, name_model + ".csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE

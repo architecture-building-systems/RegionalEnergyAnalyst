@@ -20,7 +20,8 @@ df = pd.read_csv(data_path)
 
 
 #df = df[df["BUILDING_CLASS"] == "Residential"]
-fields = ["LOG_SITE_ENERGY_MWh_yr", "LOG_HDD_FLOOR_18_5_C_m2", "LOG_HDD/CDD_FLOOR_18_5_C_m2", "LOG_GROSS_FLOOR_AREA_m2"]  # , "ok"]
+df["LOG_THERMAL_EUI_kWh_m2yr"] = np.log(df["THERMAL_ENERGY_kWh_yr"]/df["GROSS_FLOOR_AREA_m2"])
+fields = ["LOG_SITE_EUI_kWh_m2yr", "THERMAL_ENERGY_kWh_yr"]  # , "ok"]
 # fields_SCALE = ["LOG_CDD_FLOOR_18_5_C_m2"],
 # scaler = StandardScaler()
 # df[fields_SCALE] = pd.DataFrame(scaler.fit_transform(df[fields_SCALE]),columns=df[fields_SCALE].columns)

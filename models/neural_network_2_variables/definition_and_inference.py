@@ -98,8 +98,8 @@ def main(_):
     FLAGS['num_epochs'] = 50
     FLAGS['epoch_per_eval'] = 2
     FLAGS['batch_size'] = 512 #use 32, 64, 128, 256, 512, 1024, 2048
-    FLAGS['scaler_X'] = MinMaxScaler(feature_range=(-1, 1))
-    FLAGS['scaler_y'] = MinMaxScaler(feature_range=(-1, 1))
+    FLAGS['scaler_X'] = StandardScaler()
+    FLAGS['scaler_y'] = StandardScaler()
     FLAGS['hidden_units'] = [100, 75, 50, 25]#
     FLAGS['response_variable'] = "LOG_SITE_ENERGY_kWh_yr"
     FLAGS['predictor_variables'] = ['LOG_THERMAL_ENERGY_kWh_yr', "CITY", "BUILDING_CLASS"]

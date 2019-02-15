@@ -7,18 +7,28 @@ from sklearn.model_selection import train_test_split
 from configuration import DATA_RAW_BUILDING_PERFORMANCE_FOLDER, CONFIG_FILE, DATA_TRAINING_FILE, \
     DATA_RAW_BUILDING_IPCC_SCENARIOS_FOLDER, DATA_RAW_BUILDING_IPCC_SCENARIOS_FILE, DATA_TESTING_FILE, \
     DATA_ALLDATA_FILE, DATA_RAW_BUILDING_IPCC_SCENARIOS_ENTHALPY_FILE, DATA_RAW_BUILDING_TODAY_HDD_FOLDER, \
-    DATA_FUTURE_EFFICIENCY_FILE
+    DATA_FUTURE_EFFICIENCY_FILE, ZONE_NAMES
 from data_processing.enthalpy_calculation import convert_rh_to_moisture_content, calc_yearly_enthalpy
+
 
 
 def prepare_input_database(cities, data_energy_folder, delta_enthalpy_data, scenario, COP_H, COP_C,
                            temperatures_base_H_C, temperatures_base_C_C,
-                           relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C):
+                           relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C, climate):
     final_df = pd.DataFrame()
     name_of_data_file = [x.split(",")[0] + "_" + x.split(", ")[-1] + "-hour.dat" for x in cities]
     name_of_data_file = [x.replace(" ", "_") for x in name_of_data_file]
     data_1990_2010 = pd.read_csv(DATA_RAW_BUILDING_IPCC_SCENARIOS_FILE)
-    for name_file, city in zip(name_of_data_file, cities):
+
+    #get climate calssification
+    new_clima = []
+    for clima in climate:
+        for category, categories in ZONE_NAMES.items():
+            if clima.split(" ")[0] in categories:
+                new_clima.append(category)
+
+
+    for name_file, city, climate in zip(name_of_data_file, cities, new_clima):
         # get_local_data:
         data_measured = pd.read_csv(os.path.join(data_energy_folder, city + ".csv"))
         data_measured["site_year"] = data_measured["site_year"].round(0)
@@ -83,6 +93,7 @@ def prepare_input_database(cities, data_energy_folder, delta_enthalpy_data, scen
                   "GROSS_FLOOR_AREA_m2": gross_floor_area_m2,
                   "HKKD_kJ_kg": HKKD_kJ_kg,
                   "SHR": SHR,
+                  "CLIMATE_ZONE": climate,
                   "THERMAL_ENERGY_kWh_yr": thermal_energy_kWh_yr,
                   "LOG_SITE_ENERGY_kWh_yr": np.log(site_energy_kWh_yr),
                   "LOG_SITE_EUI_kWh_m2yr": np.log(site_EUI_kWh_m2yr),
@@ -161,25 +172,28 @@ def training_testing_splitter(final_df, cities, y_field, sizes):
     X_final_train = pd.DataFrame()
     X_final_test = pd.DataFrame()
     # split into training and test datasets
+    building_class = ["Residential", "Commercial"]
     for city in cities:
         data = final_df[final_df['CITY'] == city]
-        y = data[y_field]
-        X_train, X_test, y_train, y_test = train_test_split(data, y, test_size=test_size)
+        for bu_class in building_class:
+            data_final = data[data['BUILDING_CLASS'] == bu_class]
+            y = data_final[y_field]
+            X_train, X_test, y_train, y_test = train_test_split(data_final, y, test_size=test_size)
 
-        # join each dataset
-        X_final_train = pd.concat([X_final_train, X_train], ignore_index=True)
-        X_final_test = pd.concat([X_final_test, X_test], ignore_index=True)
+            # join each dataset
+            X_final_train = pd.concat([X_final_train, X_train], ignore_index=True)
+            X_final_test = pd.concat([X_final_test, X_test], ignore_index=True)
 
     return X_final_train, X_final_test
 
 
 def main(cities, data_energy_folder, data_ipcc_file, outputpath_training, outputpath_testing, outputpath_all_data,
          y_field, sizes, scenarios, COP_H, COP_C, temperatures_base_H_C, temperatures_base_C_C,
-         relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C):
+         relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C, climate):
     delta_enthalpy_data = pd.read_csv(data_ipcc_file)
     final_df = prepare_input_database(cities, data_energy_folder, delta_enthalpy_data, scenarios, COP_H, COP_C,
                                       temperatures_base_H_C, temperatures_base_C_C,
-                                      relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C)
+                                      relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C, climate)
 
     training, testing = training_testing_splitter(final_df, cities, y_field, sizes)
 
@@ -209,6 +223,7 @@ if __name__ == "__main__":
     COP_C = today_efficiency["COP_C_A1B"]
 
     cities = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['City'].values
+    climate = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['climate'].values
     main(cities, data_energy_folder, data_ipcc_file, outputpath_training, outputpath_testing, outputpath_all_data,
          y_field, sizes, scenarios, COP_H, COP_C, temperatures_base_H_C, temperatures_base_C_C,
-         relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C)
+         relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C, climate)

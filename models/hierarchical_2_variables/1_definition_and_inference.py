@@ -12,8 +12,10 @@ import pandas as pd
 import theano
 from configuration import DATA_TRAINING_FILE, HIERARCHICAL_MODEL_INFERENCE_FOLDER
 
-def main(Xy_training_path, output_trace_path, response_variable, predictor_variables, cities, samples, scaler_type):
+def main(Xy_training_path, output_trace_path, response_variable, predictor_variables, cities, samples, scaler_type, sector):
     Xy_training = pd.read_csv(Xy_training_path)
+    if sector != "none":
+        Xy_training = Xy_training[Xy_training["BUILDING_CLASS"]==sector]
 
     if cities != []:  # select cities to do the analysis
         Xy_training = Xy_training.loc[Xy_training['CITY'].isin(cities)]
@@ -88,12 +90,14 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
         with open(output_trace_path, 'wb') as buff:
             pickle.dump({'inference': hierarchical_model, 'trace': hierarchical_trace,
                          'scaler': scaler, 'city_index_df': degree_index,
-                         'response_variable': response_variable, 'predictor_variables': predictor_variables}, buff)
+                         'response_variable': response_variable, 'predictor_variables': predictor_variables,
+                         'sector':sector}, buff)
 
 if __name__ == "__main__":
 
     scaler = "standard" #"minmax"  # o standard for standard scaler to use in both sides of the data
     log_transform = "log_log" # log_log or none
+    sector = "Commercial" #or Residential or none (for all sectors)
     type_log = "all_2var"  # "all" when the covariates and the response have log conversion, Floor if only floor is log (this behavior is modified manually)
     samples = 5000 # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
     cities = [] # or leave empty to have all cities.
@@ -103,4 +107,6 @@ if __name__ == "__main__":
     Xy_training_path = DATA_TRAINING_FILE
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER,
                                      log_transform + "_" + type_log + "_" + scaler + "_" + str(samples) + ".pkl")
-    main(Xy_training_path, output_trace_path, response_variable, predictor_variables, cities, samples, scaler)
+    main(Xy_training_path, output_trace_path, response_variable, predictor_variables, cities, samples, scaler, sector)
+
+
