@@ -1,7 +1,22 @@
-# Prediciton model of energy consumption in 100 american cities.
+# HiBayes: A Hybrid Engineering-Statistical model for prediction of energy consumption in buildings across 96 cities in the United States
 
+The first data-driven and open-source tool for forecasting the energy demand of buildings across 96 cities in the united states under different scenarios of climate change.
 
-This repository stores the statistical models of the project.
+The tool is built on a hierarchical bayesian regression model and a Deep neural network of half a million buildings surveyed between 2010-2011.
+
+The tool includes two models.
+
+1. A Hierarchical Bayesian Neural Netowork
+2. A Wide and Deep Neural Network.
+
+The tool includes 96 cities including all capitals of state.
+
+The tool includes forecasts for 3 scenarios of Climate Change.
+
+1. Family A1B
+2. Familiy B1
+3. Family A1
+
 It Includes a sub-set of the original training and testing database.
 It Includes a sub-set of the original database for predictions.
 This should be enough for testing the approach.
