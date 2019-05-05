@@ -1,6 +1,8 @@
 # Regional Energy Analyst (REA)
 
-The first data-driven and open-source tool for forecasting the energy demand of buildings across 96 cities in the united states under different scenarios of climate change.
+Regional Energy Analyst, the first data-driven software for the analysis of the future energy consumption of buildings across sectors, cities and regions.
+
+The first version of this software package includes a model for forecasting the energy demand of buildings across 96 cities in the united states under different scenarios of climate change.
 
 The tool is built on a hierarchical bayesian regression model and a Deep neural network of half a million buildings surveyed between 2010-2011.
 
