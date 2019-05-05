@@ -6,6 +6,11 @@ The first version of this software package includes a model for forecasting the 
 
 The tool is built on a hierarchical bayesian regression model and a Deep neural network of half a million buildings surveyed between 2010-2011.
 
+![Picture2](https://user-images.githubusercontent.com/8973186/57191465-b1110a80-6f58-11e9-995a-a906173c030c.png)
+
+![Picture1](https://user-images.githubusercontent.com/8973186/57191455-8fb01e80-6f58-11e9-832d-bbb376e6abc0.png)
+
+
 The tool includes two models.
 
 1. A Hierarchical Bayesian Neural Netowork
