@@ -1,4 +1,4 @@
-# HiBayes: A Hybrid Engineering-Statistical model for prediction of energy consumption in buildings across 96 cities in the United States
+# Regional Energy Analyst (REA)
 
 The first data-driven and open-source tool for forecasting the energy demand of buildings across 96 cities in the united states under different scenarios of climate change.
 
