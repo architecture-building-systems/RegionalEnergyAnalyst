@@ -71,12 +71,12 @@ def do_prediction(Xy_observed, alpha, beta, response_variable, predictor_variabl
 
     # scale back from log if necessry
     if predictor_variables[0].split("_")[0] == "LOG":
-        y_prediction = np.exp(xy_prediction[response_variable].values)
+        y_prediction = np.exp(xy_prediction[response_variable].values[0])
     else:
         y_prediction = xy_prediction[response_variable].values
 
     if response_variable.split("_")[0] == "LOG":
-        y_target = np.exp(Xy_observed[response_variable].values)
+        y_target = np.exp(Xy_observed[response_variable].values[0])
     else:
         y_target = Xy_observed[response_variable].values
 
@@ -98,88 +98,83 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
     # get data of traces and only 1000 random samples
     data = pm.trace_to_dataframe(hierarchical_trace)
-    #data = data.sample(n=1000).reset_index(drop=True)
-    pm.traceplot(hierarchical_trace, skip_first=5000)
-    from matplotlib import pyplot as plt
-    plt.show()
+    data = data.sample(n=1000).reset_index(drop=True)
 
 
+    # count_train = Xy_training.pivot_table(index=['CLIMATE_ZONE'], values=fields_to_scale, aggfunc='count')
+    # count_test = Xy_testing.pivot_table(index=['CLIMATE_ZONE'], values=fields_to_scale, aggfunc='count')
 
-    # x = pm.summary(hierarchical_trace)
+
+    index_climatezone = degree_index.pivot_table(index=['CLIMATE_ZONE'])
+    index_id = index_climatezone["index_d"].values
     alpha_training = []
     beta_training = []
-    num_buildings_train = Xy_training.shape[0]
-    for building in range(num_buildings_train):
-        building_class = Xy_training.loc[building, "BUILDING_CLASS"]
-        buildig_city = Xy_training.loc[building, "CITY"]
-        index = degree_index[
-            (degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
-        alpha_training.append(data['degree_state_county_b__' + str(index)].mean())
-        beta_training.append(data['degree_state_county_m__' + str(index)].mean())
-
-    alpha_testing = []
-    beta_testing = []
-    num_buildings_test = Xy_testing.shape[0]
-    for building in range(num_buildings_test):
-        building_class = Xy_testing.loc[building, "BUILDING_CLASS"]
-        buildig_city = Xy_testing.loc[building, "CITY"]
-        index = degree_index[
-            (degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
-        alpha_testing.append(data['degree_state_county_b__' + str(index)].mean())
-        beta_testing.append(data['degree_state_county_m__' + str(index)].mean())
+    for index in index_id:
+        alpha_training.append(data['degree_b__' + str(index)].tolist())
+        beta_training.append(data['degree_m__' + str(index)].tolist())
 
     # do for the training data set
-    Xy_training["prediction"], Xy_training["observed"], _, _ = do_prediction(Xy_training, alpha_training, beta_training,
-                                                                             response_variable,
-                                                                             predictor_variables,
-                                                                             fields_to_scale,
-                                                                             scaler)
-    # do for the testing data set
-    Xy_testing["prediction"], Xy_testing["observed"], _, _ = do_prediction(Xy_testing, alpha_testing, beta_testing,
-                                                                           response_variable,
-                                                                           predictor_variables,
-                                                                           fields_to_scale,
-                                                                           scaler)
-
-    cities = set(degree_index["CITY"].values)
     accurracy_df = pd.DataFrame()
-    for city in cities:
-        temporal_data_train_raw = Xy_training[Xy_training["CITY"] == city]
-        temporal_data_test_raw = Xy_testing[Xy_testing["CITY"] == city]
+    for index, climate_zone in zip(index_id, index_climatezone.index.values):
+        # calc accurracy against training set
+        df = Xy_training[Xy_training["CLIMATE_ZONE"]==climate_zone]
+        n_samples_train = df.shape[0]
+        n_samples_city_train = len(set(df["CITY"].values))
+        df.sort_values(by='GROSS_FLOOR_AREA_m2', inplace=True)
+        Xy_training_climate_zone = pd.DataFrame(df[df['GROSS_FLOOR_AREA_m2'] > df['GROSS_FLOOR_AREA_m2'].mean()].iloc[0]).T
 
-        for sector in ["Residential", "Commercial"]:
-            temporal_data_train = temporal_data_train_raw[temporal_data_train_raw["BUILDING_CLASS"] == sector]
-            temporal_data_test = temporal_data_test_raw[temporal_data_test_raw["BUILDING_CLASS"] == sector]
+        df = Xy_training[Xy_training["CLIMATE_ZONE"]==climate_zone]
+        n_samples_test = df.shape[0]
+        n_samples_city_test = len(set(df["CITY"].values))
+        df.sort_values(by='GROSS_FLOOR_AREA_m2', inplace=True)
+        Xy_testing_climate_zone = pd.DataFrame(df[df['GROSS_FLOOR_AREA_m2'] > df['GROSS_FLOOR_AREA_m2'].mean()].iloc[0]).T
 
-            if temporal_data_train.empty or temporal_data_test.empty:
-                print(city, sector, "does not exist, we are skipping it")
-            else:
-                n_samples_train = temporal_data_train.shape[0]
-                n_samples_test = temporal_data_test.shape[0]
+        # Xy_training_climate_zone = train_climate_zones[train_climate_zones.index == climate_zone]
+        # Xy_testing_climate_zone = test_climate_zones[test_climate_zones.index == climate_zone]
 
-                MAPE_single_building_train, MAPE_city_scale_train, r2_test = calc_accurracy(
-                    np.array(temporal_data_train["prediction"]),
-                    np.array(temporal_data_train["observed"]))
-                MAPE_single_building_test, MAPE_city_scale_test, r2_test = calc_accurracy(
-                    np.array(temporal_data_test["prediction"]),
-                    np.array(temporal_data_test["observed"]))
+        if Xy_training_climate_zone.empty or Xy_testing_climate_zone.empty:
+            print(climate_zone, "does not exist, we are skipping it")
+        else:
+            alpha = alpha_training[index]
+            beta = beta_training[index]
 
-                dictionary = pd.DataFrame.from_items([("CITY", [city, city, ]),
-                                                ("BUILDING_CLASS", [sector, sector]),
-                                                ("DATASET", ["Training", "Testing"]),
-                                                ("MAPE_build_EUI_%",
-                                                 [MAPE_single_building_train, MAPE_single_building_test]),
-                                                ("PE_mean_EUI_%", [MAPE_city_scale_train, MAPE_city_scale_test]),
-                                                ("n_samples", [n_samples_train, n_samples_test])])
+            #add as many alpha and beta
+            Xy_training_climate_zone = Xy_training_climate_zone.append([Xy_training_climate_zone] * (len(alpha)-1), ignore_index=True)
+            Xy_testing_climate_zone = Xy_testing_climate_zone.append([Xy_testing_climate_zone] * (len(alpha)-1), ignore_index=True)
+
+            Xy_training_climate_zone["prediction"], Xy_training_climate_zone["observed"], _, _ = do_prediction(Xy_training_climate_zone, alpha, beta,
+                                                                                     response_variable,
+                                                                                     predictor_variables,
+                                                                                     fields_to_scale,
+                                                                                     scaler)
+            # do for the testing data set
+            Xy_testing_climate_zone["prediction"], Xy_testing_climate_zone["observed"], _, _ = do_prediction(Xy_testing_climate_zone, alpha, beta,
+                                                                                   response_variable,
+                                                                                   predictor_variables,
+                                                                                   fields_to_scale,
+                                                                                   scaler)
+
+            MAPE_single_building_train, MAPE_city_scale_train, r2_test = calc_accurracy(
+                np.array(Xy_training_climate_zone["prediction"]),
+                np.array(Xy_training_climate_zone["observed"]))
+            MAPE_single_building_test, MAPE_city_scale_test, r2_test = calc_accurracy(
+                np.array(Xy_testing_climate_zone["prediction"]),
+                np.array(Xy_testing_climate_zone["observed"]))
+
+            dictionary = pd.DataFrame.from_items([("CLIMATE_ZONE", [climate_zone, climate_zone]),
+                                                  ("DATASET", ["Training", "Testing"]),
+                                                  ("PE_%", [MAPE_city_scale_train, MAPE_city_scale_test]),
+                                                  ("n_samples_buildings", [n_samples_train, n_samples_test]),
+                                                  ("n_samples_cities", [n_samples_city_train, n_samples_city_test])])
 
 
-                accurracy_df = pd.concat([accurracy_df, dictionary], ignore_index=True)
+            accurracy_df = pd.concat([accurracy_df, dictionary], ignore_index=True)
     # append both datasets
     accurracy_df.to_csv(output_path, index=False)
 
 def calc_accurracy(y_prediction, y_target):
     MAPE_single_building = calc_MAPE(y_true=y_target, y_pred=y_prediction, n=len(y_target)).round(2)
-    MAPE_city_scale = calc_MAPE(y_true=np.mean(y_target), y_pred=np.mean(y_prediction), n=1).round(2)
+    MAPE_city_scale = calc_MAPE(y_true=np.median(y_target), y_pred=np.median(y_prediction), n=1).round(2)
     r2 = r2_score(y_true=y_target, y_pred=y_prediction).round(2)
 
     return MAPE_single_building, MAPE_city_scale, r2
@@ -201,8 +196,8 @@ def input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler):
 
 
 if __name__ == "__main__":
-    name_model = "log_log_all_2var_repram_better_tree_standard_10000"# "log_log_all_2var_standard_10000"
-    output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, name_model + ".csv")
+    name_model = "log_log_all_2var_standard_10000"
+    output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, name_model + "CLIMATE_ZONE.csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE
     Xy_testing_path = DATA_TESTING_FILE

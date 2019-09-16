@@ -1,8 +1,8 @@
 import os
 import pickle
 
-os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
-os.environ["MKL_THREADING_LAYER"] = "GNU"
+# os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
+# os.environ["MKL_THREADING_LAYER"] = "GNU"
 import numpy as np
 import pandas as pd
 import pymc3 as pm
@@ -98,35 +98,26 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
     # get data of traces and only 1000 random samples
     data = pm.trace_to_dataframe(hierarchical_trace)
-    #data = data.sample(n=1000).reset_index(drop=True)
-    pm.traceplot(hierarchical_trace, skip_first=5000)
-    from matplotlib import pyplot as plt
-    plt.show()
-
-
+    data = data.sample(n=1000).reset_index(drop=True)
 
     # x = pm.summary(hierarchical_trace)
     alpha_training = []
     beta_training = []
     num_buildings_train = Xy_training.shape[0]
     for building in range(num_buildings_train):
-        building_class = Xy_training.loc[building, "BUILDING_CLASS"]
         buildig_city = Xy_training.loc[building, "CITY"]
-        index = degree_index[
-            (degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
-        alpha_training.append(data['degree_state_county_b__' + str(index)].mean())
-        beta_training.append(data['degree_state_county_m__' + str(index)].mean())
+        index = degree_index[(degree_index["CITY"] == buildig_city)].index_ds.values[0]
+        alpha_training.append(data['degree_state_b__' + str(index)].mean())
+        beta_training.append(data['degree_state_m__' + str(index)].mean())
 
     alpha_testing = []
     beta_testing = []
     num_buildings_test = Xy_testing.shape[0]
     for building in range(num_buildings_test):
-        building_class = Xy_testing.loc[building, "BUILDING_CLASS"]
-        buildig_city = Xy_testing.loc[building, "CITY"]
-        index = degree_index[
-            (degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
-        alpha_testing.append(data['degree_state_county_b__' + str(index)].mean())
-        beta_testing.append(data['degree_state_county_m__' + str(index)].mean())
+        buildig_city = Xy_training.loc[building, "CITY"]
+        index = degree_index[(degree_index["CITY"] == buildig_city)].index_ds.values[0]
+        alpha_testing.append(data['degree_state_b__' + str(index)].mean())
+        beta_testing.append(data['degree_state_m__' + str(index)].mean())
 
     # do for the training data set
     Xy_training["prediction"], Xy_training["observed"], _, _ = do_prediction(Xy_training, alpha_training, beta_training,
@@ -144,36 +135,31 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     cities = set(degree_index["CITY"].values)
     accurracy_df = pd.DataFrame()
     for city in cities:
-        temporal_data_train_raw = Xy_training[Xy_training["CITY"] == city]
-        temporal_data_test_raw = Xy_testing[Xy_testing["CITY"] == city]
+        temporal_data_train = Xy_training[Xy_training["CITY"] == city]
+        temporal_data_test = Xy_testing[Xy_testing["CITY"] == city]
 
-        for sector in ["Residential", "Commercial"]:
-            temporal_data_train = temporal_data_train_raw[temporal_data_train_raw["BUILDING_CLASS"] == sector]
-            temporal_data_test = temporal_data_test_raw[temporal_data_test_raw["BUILDING_CLASS"] == sector]
+        if temporal_data_train.empty or temporal_data_test.empty:
+            print(city, "does not exist, we are skipping it")
+        else:
+            n_samples_train = temporal_data_train.shape[0]
+            n_samples_test = temporal_data_test.shape[0]
 
-            if temporal_data_train.empty or temporal_data_test.empty:
-                print(city, sector, "does not exist, we are skipping it")
-            else:
-                n_samples_train = temporal_data_train.shape[0]
-                n_samples_test = temporal_data_test.shape[0]
+            MAPE_single_building_train, MAPE_city_scale_train, r2_test = calc_accurracy(
+                np.array(temporal_data_train["prediction"]),
+                np.array(temporal_data_train["observed"]))
+            MAPE_single_building_test, MAPE_city_scale_test, r2_test = calc_accurracy(
+                np.array(temporal_data_test["prediction"]),
+                np.array(temporal_data_test["observed"]))
 
-                MAPE_single_building_train, MAPE_city_scale_train, r2_test = calc_accurracy(
-                    np.array(temporal_data_train["prediction"]),
-                    np.array(temporal_data_train["observed"]))
-                MAPE_single_building_test, MAPE_city_scale_test, r2_test = calc_accurracy(
-                    np.array(temporal_data_test["prediction"]),
-                    np.array(temporal_data_test["observed"]))
-
-                dictionary = pd.DataFrame.from_items([("CITY", [city, city, ]),
-                                                ("BUILDING_CLASS", [sector, sector]),
-                                                ("DATASET", ["Training", "Testing"]),
-                                                ("MAPE_build_EUI_%",
-                                                 [MAPE_single_building_train, MAPE_single_building_test]),
-                                                ("PE_mean_EUI_%", [MAPE_city_scale_train, MAPE_city_scale_test]),
-                                                ("n_samples", [n_samples_train, n_samples_test])])
+            dictionary = pd.DataFrame.from_items([("CITY", [city, city, ]),
+                                            ("DATASET", ["Training", "Testing"]),
+                                            ("MAPE_build_EUI_%",
+                                             [MAPE_single_building_train, MAPE_single_building_test]),
+                                            ("MAPE_%", [MAPE_city_scale_train, MAPE_city_scale_test]),
+                                            ("n_samples", [n_samples_train, n_samples_test])])
 
 
-                accurracy_df = pd.concat([accurracy_df, dictionary], ignore_index=True)
+            accurracy_df = pd.concat([accurracy_df, dictionary], ignore_index=True)
     # append both datasets
     accurracy_df.to_csv(output_path, index=False)
 
@@ -201,8 +187,8 @@ def input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler):
 
 
 if __name__ == "__main__":
-    name_model = "log_log_all_2var_repram_better_tree_standard_10000"# "log_log_all_2var_standard_10000"
-    output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, name_model + ".csv")
+    name_model = "log_log_all_2var_standard_10000"
+    output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, name_model + "CITY.csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE
     Xy_testing_path = DATA_TESTING_FILE

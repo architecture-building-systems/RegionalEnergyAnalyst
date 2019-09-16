@@ -1,13 +1,13 @@
 import os
 import pickle
 
-os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
+# os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
 os.environ["MKL_THREADING_LAYER"] = "GNU"
 import numpy as np
 import pandas as pd
 import pymc3 as pm
 from sklearn.metrics import r2_score
-from configuration import HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS, \
+from configuration import HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS_2_COVARIATE, HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE, \
     DATA_TRAINING_FILE, DATA_TESTING_FILE, CONFIG_FILE
 
 
@@ -99,7 +99,7 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     # get data of traces and only 1000 random samples
     data = pm.trace_to_dataframe(hierarchical_trace)
     #data = data.sample(n=1000).reset_index(drop=True)
-    pm.traceplot(hierarchical_trace, skip_first=5000)
+    pm.traceplot(hierarchical_trace)
     from matplotlib import pyplot as plt
     plt.show()
 
@@ -201,9 +201,9 @@ def input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler):
 
 
 if __name__ == "__main__":
-    name_model = "log_log_all_2var_repram_better_tree_standard_10000"# "log_log_all_2var_standard_10000"
-    output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, name_model + ".csv")
-    output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS, name_model + ".pkl")
+    name_model = "log_log_all_2var_standard_5000"# "log_log_all_2var_standard_10000"
+    output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS_2_COVARIATE, name_model + ".csv")
+    output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE
     Xy_testing_path = DATA_TESTING_FILE
     main_cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City'].values
