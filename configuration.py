@@ -34,6 +34,12 @@ HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS = os.path.join(os.path.abspath(os
 HIERARCHICAL_MODEL_PREDICTION_FOLDER_2_LEVELS = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical_2_levels", "predictions")
 HIERARCHICAL_MODEL_COEFFICIENT_PLOTS_FOLDER_2_LEVELS = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "hierarchical_2_levels")
 
+HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical_2_levels_2_covariate", "inference")
+HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS_2_COVARIATE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical_2_levels_2_covariate", "performance")
+HIERARCHICAL_MODEL_PREDICTION_FOLDER_2_LEVELS_2_COVARIATE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical_2_levels_2_covariate", "predictions")
+HIERARCHICAL_MODEL_COEFFICIENT_FOLDER_2_LEVELS_2_COVARIATE = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "hierarchical_2_levels_2_covariate")
+
+
 HIERARCHICAL_MODEL_INFERENCE_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "hierarchical", "inference")
 NN_MODEL_INFERENCE_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "neural_network", "inference")
 NN_MODEL_PERFORMANCE_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "results", "neural_network", "performance")
