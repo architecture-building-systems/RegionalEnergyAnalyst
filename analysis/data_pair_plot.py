@@ -1,39 +1,185 @@
-import os
-
 import matplotlib.pyplot as plt
-import pandas as pd
-import seaborn as sns
-from pandas.plotting import scatter_matrix
 import numpy as np
-from configuration import CONFIG_FILE,  DATA_ALLDATA_FILE
+import pandas as pd
+from pandas.plotting import scatter_matrix
+from sklearn import linear_model
+from sklearn.metrics import r2_score
+from sklearn.model_selection import train_test_split
 
-from sklearn.preprocessing import MinMaxScaler, StandardScaler
+from configuration import CONFIG_FILE, DATA_ALLDATA_FILE
+from sklearn.cluster import KMeans, DBSCAN
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import make_blobs
+from sklearn import mixture
 
 
+def calc_MAPE(y_true, y_pred, n):
+    delta = (y_pred - y_true)
+    error = np.sum((np.abs(delta / y_true))) * 100 / n
+    return error
+
+
+def calc_accurracy(y_prediction, y_target):
+    MAPE_single_building = calc_MAPE(y_true=y_target, y_pred=y_prediction, n=len(y_target)).round(2)
+    MAPE_city_scale = calc_MAPE(y_true=np.mean(y_target), y_pred=np.mean(y_prediction), n=1).round(2)
+    r2 = r2_score(y_true=y_target, y_pred=y_prediction).round(2)
+
+    return MAPE_single_building, MAPE_city_scale, r2
+
+random_state = 170
+np.random.RandomState(random_state)
 data_path = DATA_ALLDATA_FILE
 cities_path = CONFIG_FILE
 cities = pd.read_excel(cities_path, sheet_name='test_cities')['City'].values
 
-df = pd.read_csv(data_path)
-# df = df[df.CITY.isin(cities)]   # "New York, NY"]
+df2 = pd.read_csv(data_path)
+df2['RATIO'] = df2['LOG_SITE_ENERGY_kWh_yr']/df2['LOG_THERMAL_ENERGY_kWh_yr']
+# df2 = df2[df2['CLIMATE_ZONE'] == 'Hot-humid']
+df2 = df2[df2["CITY"] == "Los Angeles, CA"]
+df2 = df2[df2["BUILDING_CLASS"] == "Commercial"]
+n_components = 3
+
+#
+cities = df2.CITY.unique()
+building_classes = df2.BUILDING_CLASS.unique()
+df = pd.DataFrame()
+for city in cities:
+    for classes in building_classes:
+        df3 = df2[df2["CITY"] == city]
+        df3 = df3[df3["BUILDING_CLASS"] == classes]
+        if df3.empty:
+            x=1
+        else:
+            X_cluster = df3[["LOG_THERMAL_ENERGY_kWh_yr", "LOG_SITE_ENERGY_kWh_yr"]].values
+            cv_type = 'tied'
+            gmm = mixture.GaussianMixture(n_components=n_components, covariance_type=cv_type)
+            gmm.fit(X_cluster)
+            cluster_labels = gmm.predict(X_cluster)
+            df3['CLUSTERS'] = cluster_labels
+            df = pd.concat([df, df3], ignore_index=True)
 
 
+#RATIO
+X = df[["LOG_THERMAL_ENERGY_kWh_yr", "RATIO"]].values
+Y = df[["LOG_SITE_ENERGY_kWh_yr"]].values
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=random_state)
+regr = linear_model.LinearRegression()
+regr.fit(X_train, y_train)
+y_pred = regr.predict(X_test)
 
-#df = df[df["BUILDING_CLASS"] == "Residential"]
-df["LOG_THERMAL_EUI_kWh_m2yr"] = np.log(df["THERMAL_ENERGY_kWh_yr"]/df["GROSS_FLOOR_AREA_m2"])
-fields = ["LOG_SITE_EUI_kWh_m2yr", "THERMAL_ENERGY_kWh_yr"]  # , "ok"]
-# fields_SCALE = ["LOG_CDD_FLOOR_18_5_C_m2"],
-# scaler = StandardScaler()
-# df[fields_SCALE] = pd.DataFrame(scaler.fit_transform(df[fields_SCALE]),columns=df[fields_SCALE].columns)
-#df = df[df["CITY"] == "Seattle, WA"]
-scatter_matrix(df[fields], alpha=0.2, marker='o', figsize=(10, 10), diagonal='hist', hist_kwds={'bins': 224})
+#get clusters
+X_cluster = [[x[0],y[0]] for x,y in zip(X_test, y_test)]
+cv_type='tied'
+gmm = mixture.GaussianMixture(n_components=n_components,   covariance_type=cv_type)
+gmm.fit(X_cluster)
+cluster_labels = gmm.predict(X_cluster)
+plt.scatter([[x[0]] for x in X_test], y_test, c=cluster_labels.reshape(-1,1))
+plt.plot([[x[0]] for x in X_test], y_pred, color='blue', linewidth=3)
+plt.show()
+
+#COEFFICIENTS
+y_test = np.exp(y_test)
+y_pred = np.exp(y_pred)
+MAPE, PE, r2_test = calc_accurracy(y_pred, y_test)
+# The coefficients
+print('Coefficients: \n', regr.coef_, regr.intercept_)
+# The mean squared error
+print('MAPE error: %.2f'
+      % MAPE)
+# The mean squared error
+print('PE error: %.2f'
+      % PE)
+# The coefficient of determination: 1 is perfect prediction
+print('Coefficient of determination: %.2f'
+      % r2_test)
+
+#CLUSTERS
+X = df[["LOG_THERMAL_ENERGY_kWh_yr", "RATIO", "CLUSTERS"]].values
+Y = df[["LOG_SITE_ENERGY_kWh_yr"]].values
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=random_state)
+regr = linear_model.LinearRegression()
+regr.fit(X_train, y_train)
+y_pred = regr.predict(X_test)
+
+#get clusters
+X_cluster = [[x[0],y[0]] for x,y in zip(X_test, y_test)]
+cv_type='tied'
+gmm = mixture.GaussianMixture(n_components=n_components,   covariance_type=cv_type)
+gmm.fit(X_cluster)
+cluster_labels = gmm.predict(X_cluster)
+plt.scatter([[x[0]] for x in X_test], y_test, c=cluster_labels.reshape(-1,1))
+plt.plot([[x[0]] for x in X_test], y_pred, color='blue', linewidth=3)
+plt.show()
+
+#COEFFICIENTS
+y_test = np.exp(y_test)
+y_pred = np.exp(y_pred)
+MAPE, PE, r2_test = calc_accurracy(y_pred, y_test)
+# The coefficients
+print('Coefficients: \n', regr.coef_, regr.intercept_)
+# The mean squared error
+print('MAPE error: %.2f'
+      % MAPE)
+# The mean squared error
+print('PE error: %.2f'
+      % PE)
+# The coefficient of determination: 1 is perfect prediction
+print('Coefficient of determination: %.2f'
+      % r2_test)
+
+#RATIO
+X = df[["LOG_THERMAL_ENERGY_kWh_yr"]].values
+Y = df[["LOG_SITE_ENERGY_kWh_yr"]].values
+X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=random_state)
+regr = linear_model.LinearRegression()
+regr.fit(X_train, y_train)
+y_pred = regr.predict(X_test)
+
+#get clusters
+X_cluster = [[x[0],y[0]] for x,y in zip(X_test, y_test)]
+cv_type='tied'
+gmm = mixture.GaussianMixture(n_components=n_components,   covariance_type=cv_type)
+gmm.fit(X_cluster)
+cluster_labels = gmm.predict(X_cluster)
+plt.scatter([[x[0]] for x in X_test], y_test, c=cluster_labels.reshape(-1,1))
+plt.plot([[x[0]] for x in X_test], y_pred, color='blue', linewidth=3)
+plt.show()
+
+#COEFFICIENTS
+y_test = np.exp(y_test)
+y_pred = np.exp(y_pred)
+MAPE, PE, r2_test = calc_accurracy(y_pred, y_test)
+# The coefficients
+print('Coefficients: \n', regr.coef_, regr.intercept_)
+# The mean squared error
+print('MAPE error: %.2f'
+      % MAPE)
+# The mean squared error
+print('PE error: %.2f'
+      % PE)
+# The coefficient of determination: 1 is perfect prediction
+print('Coefficient of determination: %.2f'
+      % r2_test)
+
+# X = [[x[0],y[0]] for x,y in zip(X_test2,y_test2)]
+# # y_pred = KMeans(n_clusters=3, random_state=random_state).fit_predict(X)
+# cv_type='tied'
+# gmm = mixture.GaussianMixture(n_components=3,   covariance_type=cv_type)
+# gmm.fit(X)
+# y_pred = gmm.predict(X)
+
+
+# fields = ["LOG_SITE_ENERGY_kWh_yr", "LOG_THERMAL_ENERGY_kWh_yr", 'RATIO']  # , "ok"]
+# scatter_matrix(df[fields], alpha=0.2, marker='o', figsize=(10, 10), diagonal='hist', hist_kwds={'bins': 224})
+# plt.show()
+
+
 # sns.pairplot(df, size=4, aspect=1,
 #                          hue="BUILDING_CLASS",
 #                          #diag_kind='none',
 #                          markers="+", plot_kws = dict(s=50, edgecolor="b", linewidth=1), diag_kws = dict(bins=224),
 #                          palette="PuBuGn_d")
 
-plt.show()
 # df = df[df["CITY"] == "Seattle, WA"] #"Seattle, WA"
 #
 # import matplotlib as mpl
@@ -98,4 +244,3 @@ plt.show()
 # df_residential = df[df.BUILDING_CLASS == "Residential"]
 # scatter_matrix(df_residential[fields], alpha=0.2, figsize=(10, 10), diagonal='hist', hist_kwds={'bins': 160})
 # print(len(df_residential.index))
-

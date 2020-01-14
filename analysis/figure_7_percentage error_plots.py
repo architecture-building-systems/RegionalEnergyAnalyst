@@ -8,15 +8,15 @@ import plotly.plotly as py
 import os
 from plotly.offline import plot
 import pandas as pd
-from configuration import DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, DATA_ENERGY_PLOTS_FOLDER, NN_MODEL_PERFORMANCE_FOLDER, HIERARCHICAL_MODEL_PERFORMANCE_FOLDER, CONFIG_FILE
+from configuration import DATA_ENERGY_PLOTS_FOLDER, NN_MODEL_PERFORMANCE_FOLDER, HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS
 import numpy as np
 
 
 def main(hierarchical_model_commercial,hierarchical_model_residential,neural_network_model):
 
     #get data from models to evaluate
-    data_hierarchical_commercial = pd.read_csv(os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER, hierarchical_model_commercial + ".csv"))
-    data_hierarchical_residential = pd.read_csv(os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER, hierarchical_model_residential + ".csv"))
+    data_hierarchical_commercial = pd.read_csv(os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, hierarchical_model_commercial + ".csv"))
+    data_hierarchical_residential = pd.read_csv(os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, hierarchical_model_residential + ".csv"))
     data_neural_network = pd.read_csv(os.path.join(NN_MODEL_PERFORMANCE_FOLDER, neural_network_model + ".csv"))
     data_hierarchical =  pd.concat([data_hierarchical_residential, data_hierarchical_commercial], ignore_index=True)
     data_neural_network["type"] = "Wide and Deep Neural Network"
@@ -95,5 +95,5 @@ def main(hierarchical_model_commercial,hierarchical_model_residential,neural_net
 if __name__ == "__main__":
     hierarchical_model_commercial = "log_logCommercial_all_2var_standard_5000"
     hierarchical_model_residential = "log_logResidential_all_2var_standard_5000"
-    neural_network_model = "log_nn_wd_4L_2var"
+    neural_network_model = "log_neural_net_wide_deep_4L_453%_3%"
     main(hierarchical_model_commercial,hierarchical_model_residential,neural_network_model)

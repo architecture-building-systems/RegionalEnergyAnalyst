@@ -1,8 +1,8 @@
 import os
 import pickle
 
-# os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
-# os.environ["MKL_THREADING_LAYER"] = "GNU"
+os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
+os.environ["MKL_THREADING_LAYER"] = "GNU"
 import numpy as np
 import pandas as pd
 import pymc3 as pm
@@ -187,7 +187,7 @@ def input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler):
 
 
 if __name__ == "__main__":
-    name_model = "log_log_all_2var_standard_10000"
+    name_model = "log_log_all_2var_repram_better_tree_standard_10000"
     output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, name_model + "CITY.csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE

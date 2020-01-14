@@ -71,7 +71,7 @@ def do_prediction(Xy_observed, alpha, beta, response_variable, predictor_variabl
 
     # scale back from log if necessry
     if predictor_variables[0].split("_")[0] == "LOG":
-        y_prediction = np.exp(xy_prediction[response_variable].values[0])
+        y_prediction = np.exp(xy_prediction[response_variable].values)
     else:
         y_prediction = xy_prediction[response_variable].values
 
@@ -98,39 +98,27 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
     # get data of traces and only 1000 random samples
     data = pm.trace_to_dataframe(hierarchical_trace)
-    data = data.sample(n=1000).reset_index(drop=True)
-
-
-    # count_train = Xy_training.pivot_table(index=['CLIMATE_ZONE'], values=fields_to_scale, aggfunc='count')
-    # count_test = Xy_testing.pivot_table(index=['CLIMATE_ZONE'], values=fields_to_scale, aggfunc='count')
-
+    data = data.sample(n=10000).reset_index(drop=True)
 
     index_climatezone = degree_index.pivot_table(index=['CLIMATE_ZONE'])
     index_id = index_climatezone["index_d"].values
     alpha_training = []
     beta_training = []
     for index in index_id:
-        alpha_training.append(data['degree_b__' + str(index)].tolist())
-        beta_training.append(data['degree_m__' + str(index)].tolist())
+        alpha_training.append(data['degree_b__' + str(index)].median())
+        beta_training.append(data['degree_m__' + str(index)].median())
 
     # do for the training data set
     accurracy_df = pd.DataFrame()
-    for index, climate_zone in zip(index_id, index_climatezone.index.values):
+    for index, climate_zone in zip(index_climatezone.index_d.values, index_climatezone.index.values):
         # calc accurracy against training set
-        df = Xy_training[Xy_training["CLIMATE_ZONE"]==climate_zone]
-        n_samples_train = df.shape[0]
-        n_samples_city_train = len(set(df["CITY"].values))
-        df.sort_values(by='GROSS_FLOOR_AREA_m2', inplace=True)
-        Xy_training_climate_zone = pd.DataFrame(df[df['GROSS_FLOOR_AREA_m2'] > df['GROSS_FLOOR_AREA_m2'].mean()].iloc[0]).T
+        Xy_training_climate_zone = Xy_training[Xy_training["CLIMATE_ZONE"] == climate_zone]
+        n_samples_train = Xy_training_climate_zone.shape[0]
+        n_samples_city_train = len(set(Xy_training_climate_zone["CITY"].values))
 
-        df = Xy_training[Xy_training["CLIMATE_ZONE"]==climate_zone]
-        n_samples_test = df.shape[0]
-        n_samples_city_test = len(set(df["CITY"].values))
-        df.sort_values(by='GROSS_FLOOR_AREA_m2', inplace=True)
-        Xy_testing_climate_zone = pd.DataFrame(df[df['GROSS_FLOOR_AREA_m2'] > df['GROSS_FLOOR_AREA_m2'].mean()].iloc[0]).T
-
-        # Xy_training_climate_zone = train_climate_zones[train_climate_zones.index == climate_zone]
-        # Xy_testing_climate_zone = test_climate_zones[test_climate_zones.index == climate_zone]
+        Xy_testing_climate_zone = Xy_testing[Xy_testing["CLIMATE_ZONE"] == climate_zone]
+        n_samples_test = Xy_testing_climate_zone.shape[0]
+        n_samples_city_test = len(set(Xy_testing_climate_zone["CITY"].values))
 
         if Xy_training_climate_zone.empty or Xy_testing_climate_zone.empty:
             print(climate_zone, "does not exist, we are skipping it")
@@ -138,21 +126,19 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
             alpha = alpha_training[index]
             beta = beta_training[index]
 
-            #add as many alpha and beta
-            Xy_training_climate_zone = Xy_training_climate_zone.append([Xy_training_climate_zone] * (len(alpha)-1), ignore_index=True)
-            Xy_testing_climate_zone = Xy_testing_climate_zone.append([Xy_testing_climate_zone] * (len(alpha)-1), ignore_index=True)
-
-            Xy_training_climate_zone["prediction"], Xy_training_climate_zone["observed"], _, _ = do_prediction(Xy_training_climate_zone, alpha, beta,
-                                                                                     response_variable,
-                                                                                     predictor_variables,
-                                                                                     fields_to_scale,
-                                                                                     scaler)
+            Xy_training_climate_zone["prediction"], Xy_training_climate_zone["observed"], _, _ = do_prediction(
+                Xy_training_climate_zone, alpha, beta,
+                response_variable,
+                predictor_variables,
+                fields_to_scale,
+                scaler)
             # do for the testing data set
-            Xy_testing_climate_zone["prediction"], Xy_testing_climate_zone["observed"], _, _ = do_prediction(Xy_testing_climate_zone, alpha, beta,
-                                                                                   response_variable,
-                                                                                   predictor_variables,
-                                                                                   fields_to_scale,
-                                                                                   scaler)
+            Xy_testing_climate_zone["prediction"], Xy_testing_climate_zone["observed"], _, _ = do_prediction(
+                Xy_testing_climate_zone, alpha, beta,
+                response_variable,
+                predictor_variables,
+                fields_to_scale,
+                scaler)
 
             MAPE_single_building_train, MAPE_city_scale_train, r2_test = calc_accurracy(
                 np.array(Xy_training_climate_zone["prediction"]),
@@ -167,10 +153,10 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
                                                   ("n_samples_buildings", [n_samples_train, n_samples_test]),
                                                   ("n_samples_cities", [n_samples_city_train, n_samples_city_test])])
 
-
             accurracy_df = pd.concat([accurracy_df, dictionary], ignore_index=True)
     # append both datasets
     accurracy_df.to_csv(output_path, index=False)
+
 
 def calc_accurracy(y_prediction, y_target):
     MAPE_single_building = calc_MAPE(y_true=y_target, y_pred=y_prediction, n=len(y_target)).round(2)
@@ -196,7 +182,7 @@ def input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler):
 
 
 if __name__ == "__main__":
-    name_model = "log_log_all_2var_standard_10000"
+    name_model = "log_log_all_2var_repram_better_tree_standard_10000"
     output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS, name_model + "CLIMATE_ZONE.csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE
