@@ -4,8 +4,8 @@ import numpy as np
 import pandas as pd
 
 from configuration import DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY, DATA_PREDICTION_FOLDER_FUTURE_EFFICIENCY, ZONE_NAMES, \
-    CONFIG_FILE, DATA_RAW_BUILDING_IPCC_SCENARIOS_FOLDER, DATA_RAW_BUILDING_PERFORMANCE_FOLDER, \
-    DATA_FUTURE_EFFICIENCY_FILE
+    CONFIG_FILE, DATA_RAW_BUILDING_PERFORMANCE_FOLDER, \
+    DATA_FUTURE_EFFICIENCY_FILE, DATA_ALLDATA_FILE,DATA_RAW_BUILDING_IPCC_SCENARIOS_FOLDER
 from data_processing.enthalpy_calculation import convert_rh_to_moisture_content, calc_yearly_enthalpy
 from data_processing.training_and_testing_database import calc_massflow_building, calc_total_energy
 
@@ -13,7 +13,7 @@ data_path = os.path.abspath(os.path.dirname(__file__))
 data_efficiency = pd.read_excel(DATA_FUTURE_EFFICIENCY_FILE, sheet_name="data").set_index('year')
 
 
-def main(cities, climate, scenarios):
+def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder):
     name_of_data_file = [x.split(",")[0] + "_" + x.split(", ")[-1] + "-hour.dat" for x in cities]
     name_of_data_file = [x.replace(" ", "_") for x in name_of_data_file]
 
@@ -23,6 +23,10 @@ def main(cities, climate, scenarios):
         for category, categories in ZONE_NAMES.items():
             if clima.split(" ")[0] in categories:
                 new_clima.append(category)
+
+    # get training and testing dataset
+    output_path = DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY
+    data_train_test_all = pd.read_csv(DATA_ALLDATA_FILE)
 
     for name_file, city, climate in zip(name_of_data_file, cities, new_clima):
         final_df = pd.DataFrame()
@@ -58,11 +62,20 @@ def main(cities, climate, scenarios):
                 COP_H = today_efficiency["COP_H_A1B"]
                 COP_C = today_efficiency["COP_C_A1B"]
 
-            # get enthalpy
-            df_join = pd.read_csv(os.path.join(DATA_RAW_BUILDING_PERFORMANCE_FOLDER, city + ".csv"))
-            weather_file_location = os.path.join(DATA_RAW_BUILDING_IPCC_SCENARIOS_FOLDER, scenario, name_file)
+            # get data for city
+            data_energy_city = pd.read_csv(os.path.join(data_energy_folder, city + ".csv"))
+            data_energy_city["BUILDING_ID"] = [city + str(ix) for ix in data_energy_city.index]
+            # merge to data about the cluster type
+            data_train_test_city = data_train_test_all[['BUILDING_ID', 'CLUSTER_LOG_SITE_EUI_kWh_m2yr']]
+            data = pd.merge(data_energy_city, data_train_test_city, on="BUILDING_ID")
+
+            # get other quantities
+            data['CITY'] = city
+            data['CLIMATE_ZONE'] = climate
+            data['SCENARIO'] = scenario.split("_")[-1]
 
             # Quantities
+            weather_file_location = os.path.join(data_ipcc_folder, scenario, name_file)
             weather_file = pd.read_csv(weather_file_location, sep='\s+', header=2, skiprows=0)
             temperatures_out_C = weather_file["Ta"].values[:8760]
             relative_humidity_percent = weather_file["RH"].values[:8760]
@@ -82,24 +95,33 @@ def main(cities, climate, scenarios):
                                                                                   humidity_ratio_base_C_kgperkg)
 
             # Quantities of every building
-            gross_floor_area_m2 = (df_join["floor_area"] * 0.092903).values
-            building_class = df_join["building_class"].values
-            volumetric_flow_building_m3_s = np.vectorize(calc_massflow_building)(gross_floor_area_m2, building_class)
+            data["GROSS_FLOOR_AREA_m2"] = (data["floor_area"] * 0.092903).values
+            data["BUILDING_CLASS"] = data["building_class"].values
+            volumetric_flow_building_m3_s = np.vectorize(calc_massflow_building)(data["GROSS_FLOOR_AREA_m2"].values,
+                                                                                 data["BUILDING_CLASS"].values)
 
-            thermal_energy_kWh_yr = [calc_total_energy(x, delta_enthalpy_kJ_kg, y, COP_H, COP_C) for x, y in
-                                     zip(volumetric_flow_building_m3_s, building_class)]
+            data["THERMAL_ENERGY_kWh_yr"] = [calc_total_energy(x, delta_enthalpy_kJ_kg, y, COP_H, COP_C) for x, y in
+                                             zip(volumetric_flow_building_m3_s, data["BUILDING_CLASS"].values)]
+
+            # logarithmic values
+            data['LOW_THERMAL_ENERGY_kWh_yr'] = np.log(data["THERMAL_ENERGY_kWh_yr"].values)
+            data['LOG_SITE_EUI_kWh_m2yr'] = np.log(data["SITE_EUI_kWh_m2yr"].values)
+            data['LOG_SITE_ENERGY_kWh_yr'] = np.log(data["SITE_ENERGY_kWh_yr"].values)
 
             # list of fields to extract
+            fields = {"BUILDING_ID"
+                      "CITY",
+                      "CLIMATE_ZONE",
+                      "SCENARIO",
+                      "BUILDING_CLASS",
+                      "GROSS_FLOOR_AREA_m2",
+                      "LOG_SITE_EUI_kWh_m2yr",
+                      "LOG_SITE_ENERGY_kWh_yr",
+                      "LOG_THERMAL_ENERGY_kWh_yr",
+                      "CLUSTER_LOG_SITE_EUI_kWh_m2yr"
+                      }
 
-            dataframe = pd.DataFrame({"THERMAL_ENERGY_kWh_yr": thermal_energy_kWh_yr,
-                                      "LOG_THERMAL_ENERGY_kWh_yr": np.log(thermal_energy_kWh_yr)})
-            dataframe["CITY"] = city
-            dataframe["SCENARIO"] = scenario.split("_", 1)[1:][0]
-            dataframe["YEAR"] = scenario.split("_")[-1]
-            dataframe["BUILDING_CLASS"] = building_class
-            dataframe["GROSS_FLOOR_AREA_m2"] = gross_floor_area_m2
-            dataframe["CLIMATE_ZONE"] = climate
-            final_df = pd.concat([final_df, dataframe], ignore_index=True)
+            final_df = pd.concat([final_df, data[fields]], ignore_index=True)
         final_df.to_csv(os.path.join(output_path, city + ".csv"), index=False)
         print("city done: ", city)
 
@@ -112,6 +134,8 @@ if __name__ == "__main__":
                  "data_B1_2010", "data_B1_2020", "data_B1_2030", "data_B1_2040", "data_B1_2050", "data_B1_2060",
                  "data_B1_2070", "data_B1_2080", "data_B1_2090", "data_B1_2100"]
     flag_use_efficiency = False
+    data_energy_folder = DATA_RAW_BUILDING_PERFORMANCE_FOLDER
+    data_ipcc_folder = DATA_RAW_BUILDING_IPCC_SCENARIOS_FOLDER
     cities = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['City'].values
     climate = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['climate'].values
-    main(cities, climate, scenarios)
+    main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder)

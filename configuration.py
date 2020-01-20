@@ -51,6 +51,7 @@ DATA_ANALYSIS_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file
 DATA_ENTHALPY_GROWTH_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "enthalpy_growth")
 DATA_HDD_CDD_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "IPCC_scenarios")
 DATA_ENERGY_PLOTS_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "energy")
+DATA_CLUSTERING_PLOTS_FOLDER  = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "plots", "clustering")
 
 DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER = os.path.join(os.path.abspath(os.path.dirname(__file__)), "databases", "future_energy_consumption")
 DATA_POST_FUTURE_ENERGY_CONSUMPTION_FILE = os.path.join(DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, "future_consumption.csv")
