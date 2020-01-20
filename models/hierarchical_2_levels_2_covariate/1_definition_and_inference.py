@@ -10,7 +10,6 @@ import pickle
 from sklearn.preprocessing import StandardScaler
 import pymc3 as pm
 import pandas as pd
-import theano
 from configuration import DATA_TRAINING_FILE, HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE
 
 
@@ -51,65 +50,61 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
 
     with pm.Model() as hierarchical_model:
 
-        # log(y) = alpha + beta*log(GFA*HDD) + gamma*log(GFA*CDD) + eps
+        # log(y) = b + m*log(GFA*HDD) + g*log(GFA*CDD) + eps
         global_m = pm.Normal('global_m', mu=0, sd=10)
-        global_m_sd = pm.HalfNormal('global_m_sd', sd=10) #pm.Uniform('global_b_sd', lower=0, upper=10)
-        global_m2 = pm.Normal('global_m2', mu=0, sd=10)
-        global_m2_sd = pm.HalfNormal('global_m2_sd', sd=10) #pm.Uniform('global_b_sd', lower=0, upper=10)
+        global_m_sd = pm.HalfNormal('global_m_sd', sd=10)
         global_b = pm.Normal('global_b', mu=0, sd=10)
         global_b_sd = pm.HalfNormal('global_b_sd', sd=10)
+        global_g = pm.Normal('global_g', mu=0, sd=10)
+        global_g_sd = pm.HalfNormal('global_g_sd', sd=10)
 
         degree_m_offset = pm.Normal('degree_m_offset', mu=0, sd=10, shape=degree_count)
         degree_m = pm.Deterministic("degree_m", global_m + degree_m_offset * global_m_sd)
         degree_m_sd = pm.HalfNormal('degree_m_sd', sd=10, shape=degree_count)
 
-        degree_m2_offset = pm.Normal('degree_m2_offset', mu=0, sd=10, shape=degree_count)
-        degree_m2 = pm.Deterministic("degree_m2", global_m2 + degree_m2_offset * global_m2_sd)
-        degree_m2_sd = pm.HalfNormal('degree_m2_sd', sd=10, shape=degree_count)
-
         degree_b_offset = pm.Normal('degree_b_offset', mu=0, sd=10, shape=degree_count)
         degree_b = pm.Deterministic("degree_b", global_b + degree_b_offset * global_b_sd)
         degree_b_sd = pm.HalfNormal('degree_b_sd', sd=10, shape=degree_count)
+
+        degree_g_offset = pm.Normal('degree_g_offset', mu=0, sd=10, shape=degree_count)
+        degree_g = pm.Deterministic("degree_g", global_g + degree_g_offset * global_g_sd)
+        degree_g_sd = pm.HalfNormal('degree_g_sd', sd=10, shape=degree_count)
 
         degree_state_m_offset = pm.Normal('degree_state_m_offset', mu=0, sd=10, shape=degree_state_count)
         degree_state_m = pm.Deterministic('degree_state_m', degree_m[degree_state_indexes] + degree_state_m_offset* degree_m_sd[degree_state_indexes])
         degree_state_m_sd = pm.HalfNormal('degree_state_m_sd', sd=10, shape=degree_state_count)
 
-        degree_state_m2_offset = pm.Normal('degree_state_m2_offset', mu=0, sd=10, shape=degree_state_count)
-        degree_state_m2 = pm.Deterministic('degree_state_m2', degree_m2[degree_state_indexes] + degree_state_m2_offset* degree_m2_sd[degree_state_indexes])
-        degree_state_m2_sd = pm.HalfNormal('degree_state_m2_sd', sd=10, shape=degree_state_count)
-
         degree_state_b_offset = pm.Normal('degree_state_b_offset', mu=0, sd=10, shape=degree_state_count)
         degree_state_b = pm.Deterministic('degree_state_b', degree_b[degree_state_indexes] + degree_state_b_offset* degree_b_sd[degree_state_indexes])
         degree_state_b_sd = pm.HalfNormal('degree_state_b_sd', sd=10, shape=degree_state_count)
 
+        degree_state_g_offset = pm.Normal('degree_state_g_offset', mu=0, sd=10, shape=degree_state_count)
+        degree_state_g = pm.Deterministic('degree_state_g', degree_g[degree_state_indexes] + degree_state_g_offset* degree_g_sd[degree_state_indexes])
+        degree_state_g_sd = pm.HalfNormal('degree_state_g_sd', sd=10, shape=degree_state_count)
+
         degree_state_county_m_offset = pm.Normal('degree_state_county_m_offset', mu=0, sd=10, shape=degree_state_county_count)
         degree_state_county_m = pm.Deterministic('degree_state_county_m', degree_state_m[degree_state_county_indexes] + degree_state_county_m_offset * degree_state_m_sd[degree_state_county_indexes])
-
-        degree_state_county_m2_offset = pm.Normal('degree_state_county_m2_offset', mu=0, sd=10, shape=degree_state_county_count)
-        degree_state_county_m2 = pm.Deterministic('degree_state_county_m2', degree_state_m2[degree_state_county_indexes] + degree_state_county_m2_offset * degree_state_m2_sd[degree_state_county_indexes])
 
         degree_state_county_b_offset = pm.Normal('degree_state_county_b_offset', mu=0, sd=10,shape=degree_state_county_count)
         degree_state_county_b = pm.Deterministic('degree_state_county_b', degree_state_b[degree_state_county_indexes] + degree_state_county_b_offset * degree_state_b_sd[degree_state_county_indexes])
 
+        degree_state_county_g_offset = pm.Normal('degree_state_county_g_offset', mu=0, sd=10,shape=degree_state_county_count)
+        degree_state_county_g = pm.Deterministic('degree_state_county_g', degree_state_g[degree_state_county_indexes] + degree_state_county_g_offset * degree_state_g_sd[degree_state_county_indexes])
+
         eps = pm.HalfCauchy('eps', 5)
         y_obs = indexed_salary_df[response_variable].values
         x1 = indexed_salary_df[predictor_variables[0]].values
-        x2 = indexed_salary_df[predictor_variables[0]].values
+        x2 = indexed_salary_df[predictor_variables[1]].values
 
-        model = degree_state_county_m[indexed_salary_df['index'].values] * x1 + degree_state_county_m2[indexed_salary_df['index'].values] * x2 + degree_state_county_b[indexed_salary_df['index'].values]
+        model = degree_state_county_b[indexed_salary_df['index'].values] + degree_state_county_m[indexed_salary_df['index'].values] * x1 + degree_state_county_g[indexed_salary_df['index'].values] * x2
 
         # Data likelihood
         y_like = pm.Normal('y_like', mu=model, sd=eps, observed=y_obs)
 
     with hierarchical_model:
 
-        # step = pm.NUTS(target_accept=0.99)
-        # hierarchical_trace = pm.sample(draws=samples, step=step, n_init=samples, njobs=2)
-        hierarchical_trace = pm.sample(draws=samples, tune=2000, cores =2, nuts_kwargs=dict(target_accept=.90))
+        hierarchical_trace = pm.sample(draws=samples, tune=1000, njobs=2, nuts_kwargs=dict(target_accept=0.95))
 
-        #  increase to avoid divergence problemsstep = pm.NUTS()  # increase to avoid divergence problems
-        # hierarchical_trace = pm.sample(samples)
         # save to disc
         with open(output_trace_path, 'wb') as buff:
             pickle.dump({'inference': hierarchical_model, 'trace': hierarchical_trace,
@@ -124,7 +119,7 @@ if __name__ == "__main__":
     samples = 5000  # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
     cities = []  # or leave empty to have all cities.
     response_variable = "LOG_SITE_ENERGY_kWh_yr"
-    predictor_variables = ["LOG_THERMAL_ENERGY_kWh_yr", "GROSS_FLOOR_AREA_m2"]
+    predictor_variables = ["LOG_THERMAL_ENERGY_kWh_yr", "CLUSTER_LOG_SITE_EUI_kWh_m2yr"]
 
     Xy_training_path = DATA_TRAINING_FILE
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE,

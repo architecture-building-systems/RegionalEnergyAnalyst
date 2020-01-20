@@ -2,8 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e0e9efc-17c8-4026-aa9b-aa01df16e4be" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_processing/prediction_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/prediction_database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_processing/training_and_testing_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/training_and_testing_database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/prediction/Boston, MA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/prediction/Miami, FL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/prediction/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/training_and_testing/testing_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/databases/training_and_testing/testing_database.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/databases/training_and_testing/training_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/databases/training_and_testing/training_database.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check_city.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_city.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check_climate_zone.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_climate_zone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/inference/log_log_all_2var_standard_5000.pkl" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,8 +58,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="482">
-                    <caret line="110" column="39" lean-forward="true" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
+                  <state relative-caret-position="737">
+                    <caret line="136" column="86" selection-start-line="136" selection-start-column="86" selection-end-line="136" selection-end-column="86" />
                     <folding>
                       <element signature="e#0#9#0" expanded="true" />
                     </folding>
@@ -62,10 +75,46 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py">
+        <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
+            <state relative-caret-position="305">
+              <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="412">
+              <caret line="89" column="28" lean-forward="true" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="48" column="18" lean-forward="true" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="68" column="44" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -76,8 +125,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="348">
-              <caret line="248" column="96" selection-start-line="248" selection-start-column="96" selection-end-line="248" selection-end-column="96" />
+            <state relative-caret-position="572">
+              <caret line="198" column="49" lean-forward="true" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -103,6 +152,8 @@
       <find>test_size</find>
       <find>train_test_split</find>
       <find>fig</find>
+      <find>DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY</find>
+      <find>prediction</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,12 +174,19 @@
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_city.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_climate_zone.py" />
-        <option value="$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py" />
         <option value="$PROJECT_DIR$/analysis/data_pair_plot.py" />
         <option value="$PROJECT_DIR$/configuration.py" />
         <option value="$PROJECT_DIR$/analysis/figure_number_clusters.py" />
-        <option value="$PROJECT_DIR$/data_processing/training_and_testing_database.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check_city.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_city.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_climate_zone.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" />
         <option value="$PROJECT_DIR$/data_processing/prediction_database.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py" />
+        <option value="$PROJECT_DIR$/data_processing/training_and_testing_database.py" />
       </list>
     </option>
   </component>
@@ -153,7 +211,7 @@
             <path>
               <item name="RegionalEnergyAnalyst" type="b2602c69:ProjectViewProjectNode" />
               <item name="RegionalEnergyAnalyst" type="462c0819:PsiDirectoryNode" />
-              <item name="databases" type="462c0819:PsiDirectoryNode" />
+              <item name="analysis" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -197,29 +255,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.training_and_testing_database">
-    <configuration name="2_performance_check" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="great-american-cities" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="PYDEVD_LOAD_VALUES_ASYNC" value="True" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models/hierarchical_2_levels" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="data_pair_plot" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -256,6 +291,28 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/figure_number_clusters.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="performance_check_climate_zone" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="great-american-cities" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_climate_zone.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -309,19 +366,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.2_performance_check" />
       <item itemvalue="Python.data_pair_plot" />
       <item itemvalue="Python.training_and_testing_database" />
       <item itemvalue="Python.prediction_database" />
       <item itemvalue="Python.figure_number_clusters" />
+      <item itemvalue="Python.performance_check_climate_zone" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.training_and_testing_database" />
+        <item itemvalue="Python.performance_check_climate_zone" />
         <item itemvalue="Python.prediction_database" />
         <item itemvalue="Python.figure_number_clusters" />
         <item itemvalue="Python.data_pair_plot" />
-        <item itemvalue="Python.2_performance_check" />
       </list>
     </recent_temporary>
   </component>
@@ -345,12 +402,12 @@
       <workItem from="1579069200922" duration="187000" />
       <workItem from="1579069494835" duration="272000" />
       <workItem from="1579069808080" duration="132000" />
-      <workItem from="1579069987060" duration="23371000" />
+      <workItem from="1579069987060" duration="29693000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82996000" />
+    <option name="totallyTimeSpent" value="89318000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -370,8 +427,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38678223" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3531961" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.35536295" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32827735" />
@@ -384,7 +441,7 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9496951" visible="true" weight="0.15458423" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9496951" visible="true" weight="0.18176973" />
       <window_info anchor="right" id="Database" order="4" weight="0.21375267" />
       <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="5" sideWeight="0.050151974" side_tool="true" weight="0.30810234" />
       <window_info anchor="right" id="R Graphics" order="6" weight="0.32995737" />
@@ -435,7 +492,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/data_processing/prediction_database.py</url>
-          <line>29</line>
+          <line>28</line>
           <option name="timeStamp" value="27" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -455,7 +512,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/data_processing/prediction_database.py</url>
-          <line>90</line>
+          <line>89</line>
           <option name="timeStamp" value="108" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -469,19 +526,9 @@
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data_processing/training_and_testing_database.py</url>
-          <line>101</line>
-          <option name="timeStamp" value="137" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/data_processing/prediction_database.py</url>
-          <line>66</line>
+          <line>65</line>
           <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data_processing/training_and_testing_database.py</url>
-          <line>90</line>
-          <option name="timeStamp" value="139" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -494,11 +541,12 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$training_and_testing_database.coverage" NAME="training_and_testing_database Coverage Results" MODIFIED="1579509072355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$training_and_testing_database.coverage" NAME="training_and_testing_database Coverage Results" MODIFIED="1579515599072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check_city.coverage" NAME="2_performance_check_city Coverage Results" MODIFIED="1578903636058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$data_pair_plot.coverage" NAME="data_pair_plot Coverage Results" MODIFIED="1579141717880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$prediction_database.coverage" NAME="prediction_database Coverage Results" MODIFIED="1579508723800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_6_energy_boxplot_per_climate_zone.coverage" NAME="figure_6_energy_boxplot_per_climate_zone Coverage Results" MODIFIED="1578893584335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$performance_check_climate_zone.coverage" NAME="performance_check_climate_zone Coverage Results" MODIFIED="1579512563376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check_climate_zone.coverage" NAME="2_performance_check_climate_zone Coverage Results" MODIFIED="1578906592852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check.coverage" NAME="2_performance_check Coverage Results" MODIFIED="1578898547725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_number_clusters.coverage" NAME="figure_number_clusters Coverage Results" MODIFIED="1579167190623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
@@ -506,6 +554,26 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>data_final</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>cities</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>index_climatezone</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>data</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>data[fields]</expression-string>
         <language-id>Python</language-id>
@@ -518,11 +586,6 @@
       </expression>
       <expression>
         <expression-string>fields = {&quot;BUILDING_ID&quot;,                   &quot;CITY&quot;,                   &quot;CLIMATE_ZONE&quot;,                   &quot;SCENARIO&quot;,                   &quot;BUILDING_CLASS&quot;,                   &quot;GROSS_FLOOR_AREA_m2&quot;,                   &quot;LOG_SITE_EUI_kWh_m2yr&quot;,                   &quot;LOG_SITE_ENERGY_kWh_yr&quot;,                   &quot;LOG_THERMAL_ENERGY_kWh_yr&quot;,                   &quot;CLUSTER_LOG_SITE_EUI_kWh_m2yr&quot;                   }</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>data</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -541,38 +604,9 @@
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
-      <expression>
-        <expression-string>data_energy_city.set_index()</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>np.mean(allcities),np.mean(allcities2)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/databases/future_energy_consumption/future_consumption.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="17" selection-start-column="15" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_variables_2_levels/__init__.py" />
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_variables_2_levels/1_definition_and_inference.py" />
-    <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/tensorflow/python/estimator/canned/dnn_linear_combined.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-640">
-          <caret line="522" column="36" lean-forward="true" selection-start-line="522" selection-start-column="36" selection-end-line="522" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/old/neural_network/1_definition_and_inference.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/old/hierarchical/1_definition_and_inference.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
@@ -681,13 +715,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/neural_network_2_variables/2_performance_check.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="138" column="4" selection-start-line="138" selection-start-column="4" selection-end-line="138" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/data-postprocessing/future_energy_intensity.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-697">
@@ -780,30 +807,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="57" column="51" lean-forward="true" selection-start-line="57" selection-start-column="51" selection-end-line="57" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_climate_zone.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="100" column="54" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2125">
-          <caret line="126" column="76" selection-start-line="126" selection-start-column="57" selection-end-line="126" selection-end-column="76" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -851,13 +858,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="37" selection-start-line="1" selection-start-column="37" selection-end-line="1" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="691">
@@ -867,16 +867,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/databases/training_and_testing/all_database.csv">
       <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="28" column="52" lean-forward="true" selection-start-line="28" selection-start-column="52" selection-end-line="28" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/databases/future_degree_days/future_degree_days.csv">
       <provider editor-type-id="csv-table-editor">
@@ -892,27 +882,136 @@
       </provider>
       <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/configuration.py">
+    <entry file="file://$PROJECT_DIR$/models/neural_network_2_variables/2_performance_check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="348">
-          <caret line="248" column="96" selection-start-line="248" selection-start-column="96" selection-end-line="248" selection-end-column="96" />
+        <state relative-caret-position="-9">
+          <caret line="86" column="52" lean-forward="true" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="52" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Charleston, WV.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Cheyenne, WY..csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Cheyenne, WY.csv">
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="101" lean-forward="true" selection-start-line="16" selection-start-column="101" selection-end-line="16" selection-end-column="101" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_city.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="99" column="48" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_climate_zone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="424">
+          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="112" lean-forward="true" selection-start-line="112" selection-end-line="112" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/databases/prediction_today_efficiency/Boston, MA.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="110" column="39" lean-forward="true" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
+        <state relative-caret-position="737">
+          <caret line="136" column="86" selection-start-line="136" selection-start-column="86" selection-end-line="136" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="68" column="44" lean-forward="true" selection-start-line="68" selection-start-column="44" selection-end-line="68" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="412">
+          <caret line="89" column="28" lean-forward="true" selection-start-line="89" selection-start-column="28" selection-end-line="89" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="48" column="18" lean-forward="true" selection-start-line="48" selection-start-column="18" selection-end-line="48" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="572">
+          <caret line="198" column="49" lean-forward="true" selection-start-line="198" selection-start-column="49" selection-end-line="198" selection-end-column="49" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

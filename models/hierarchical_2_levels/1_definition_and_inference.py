@@ -3,7 +3,7 @@ import sys
 
 sys.path.append(r'E:\GitHub\great-american-cities')
 
-# os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
+os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
 os.environ["MKL_THREADING_LAYER"] = "GNU"
 
 import pickle
@@ -90,12 +90,8 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
 
     with hierarchical_model:
 
-        # step = pm.NUTS(target_accept=0.99)
-        # hierarchical_trace = pm.sample(draws=samples, step=step, n_init=samples, njobs=2)
         hierarchical_trace = pm.sample(draws=samples, tune=5000, njobs=2, nuts_kwargs=dict(target_accept=0.95))
 
-        #  increase to avoid divergence problemsstep = pm.NUTS()  # increase to avoid divergence problems
-        # hierarchical_trace = pm.sample(samples)
         # save to disc
         with open(output_trace_path, 'wb') as buff:
             pickle.dump({'inference': hierarchical_model, 'trace': hierarchical_trace,

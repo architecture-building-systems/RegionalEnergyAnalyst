@@ -13,7 +13,7 @@ data_path = os.path.abspath(os.path.dirname(__file__))
 data_efficiency = pd.read_excel(DATA_FUTURE_EFFICIENCY_FILE, sheet_name="data").set_index('year')
 
 
-def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder):
+def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder, output_path):
     name_of_data_file = [x.split(",")[0] + "_" + x.split(", ")[-1] + "-hour.dat" for x in cities]
     name_of_data_file = [x.replace(" ", "_") for x in name_of_data_file]
 
@@ -25,7 +25,6 @@ def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder):
                 new_clima.append(category)
 
     # get training and testing dataset
-    output_path = DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY
     data_train_test_all = pd.read_csv(DATA_ALLDATA_FILE)
 
     for name_file, city, climate in zip(name_of_data_file, cities, new_clima):
@@ -104,9 +103,7 @@ def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder):
                                              zip(volumetric_flow_building_m3_s, data["BUILDING_CLASS"].values)]
 
             # logarithmic values
-            data['LOW_THERMAL_ENERGY_kWh_yr'] = np.log(data["THERMAL_ENERGY_kWh_yr"].values)
-            data['LOG_SITE_EUI_kWh_m2yr'] = np.log(data["SITE_EUI_kWh_m2yr"].values)
-            data['LOG_SITE_ENERGY_kWh_yr'] = np.log(data["SITE_ENERGY_kWh_yr"].values)
+            data['LOG_THERMAL_ENERGY_kWh_yr'] = np.log(data["THERMAL_ENERGY_kWh_yr"].values)
 
             # list of fields to extract
             fields = ["BUILDING_ID",
@@ -115,8 +112,6 @@ def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder):
                       "SCENARIO",
                       "BUILDING_CLASS",
                       "GROSS_FLOOR_AREA_m2",
-                      "LOG_SITE_EUI_kWh_m2yr",
-                      "LOG_SITE_ENERGY_kWh_yr",
                       "LOG_THERMAL_ENERGY_kWh_yr",
                       "CLUSTER_LOG_SITE_EUI_kWh_m2yr"
                       ]
@@ -136,6 +131,7 @@ if __name__ == "__main__":
     flag_use_efficiency = False
     data_energy_folder = DATA_RAW_BUILDING_PERFORMANCE_FOLDER
     data_ipcc_folder = DATA_RAW_BUILDING_IPCC_SCENARIOS_FOLDER
+    output_path = DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY
     cities = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['City'].values
     climate = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['climate'].values
-    main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder)
+    main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder, output_path)

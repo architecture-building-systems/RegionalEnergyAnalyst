@@ -7,7 +7,41 @@ os.environ["MKL_THREADING_LAYER"] = "GNU"
 import numpy as np
 import pandas as pd
 import pymc3 as pm
-from configuration import HIERARCHICAL_MODEL_INFERENCE_FOLDER, DATA_PREDICTION_FOLDER, HIERARCHICAL_MODEL_PREDICTION_FOLDER, CONFIG_FILE
+from configuration import CONFIG_FILE, \
+    HIERARCHICAL_MODEL_PREDICTION_FOLDER_2_LEVELS_2_COVARIATE, HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE, DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY
+
+
+def input_data(Xy_prediction_path, response_variable, fields_to_scale, scaler):
+    # READ DATA
+    X_prediction = pd.read_csv(Xy_prediction_path)
+    X_prediction[response_variable] = 0.0  # create dummy of response variable so we can scale all the data
+
+    if scaler != None:
+        X_prediction[fields_to_scale] = pd.DataFrame(scaler.transform(X_prediction[fields_to_scale]),
+                                                     columns=X_prediction[fields_to_scale].columns)
+
+    return X_prediction
+
+
+def do_prediction(Xy_predict, alpha, beta, gamma, response_variable, predictor_variables,
+                  fields_to_scale, scaler):
+    # calculate linear curve
+    x1 = Xy_predict[predictor_variables[0]].values
+    x2 = Xy_predict[predictor_variables[1]].values
+    Xy_predict[response_variable] = alpha + beta * x1 + gamma * x2
+
+    # scale back
+    if scaler != None:
+        Xy_predict = pd.DataFrame(scaler.inverse_transform(Xy_predict[fields_to_scale]),
+                                  columns=Xy_predict[fields_to_scale].columns)
+
+    # scale back from log if necessry
+    if response_variable.split("_")[0] == "LOG":
+        y_prediction = np.exp(Xy_predict[response_variable].values)
+    else:
+        y_prediction = Xy_predict[response_variable].values
+
+    return y_prediction
 
 
 def main(output_trace_path, X_path, main_cities, output_path):
@@ -16,69 +50,53 @@ def main(output_trace_path, X_path, main_cities, output_path):
         data = pickle.load(buff)
         hierarchical_model, hierarchical_trace, scaler, degree_index, \
         response_variable, predictor_variables = data['inference'], data['trace'], data['scaler'], \
-                                                 data['city_index_df'], data['response_variable'],\
+                                                 data['city_index_df'], data['response_variable'], \
                                                  data['predictor_variables']
 
-    #list of cities
-    degree_index.set_index("CITY", inplace=True)
-
-    # get data of traces
-    data = pm.trace_to_dataframe(hierarchical_trace)
-
-    # DO CALCULATION FOR EVERY CLASS IN THE MODEL (CITIES)
-    for city in main_cities:
-        # get input data and scale if necessary
-        X = pd.read_csv(os.path.join(X_path, city+".csv"))
-        prediction, response_variable_real = calc_prediction(X, city, data, degree_index, predictor_variables, response_variable, scaler)
-
-        # create groups
-        df = prediction.groupby("IPCC_SCENARIO")[[response_variable_real]].sum()
-
-        # save results per city
-        df.to_csv(os.path.join(output_path, city +".csv"), index_label="IPCC_SCENARIO")
-        # save results to disk per building
-        # prediction.to_csv(os.path.join(output_path, city + "_building.csv"))
-
-def calc_prediction(X, city, data, degree_index, predictor_variables, response_variable, scaler):
-
+    # fields to scale, get data of traces
     fields_to_scale = [response_variable] + predictor_variables
+    X_predict = input_data(X_path, response_variable, fields_to_scale, scaler)
 
-    # scale variables
-    if scaler != None:
-        X[response_variable] = 0.0  # fill in so scaler does not get confused
-        X[fields_to_scale] = pd.DataFrame(scaler.transform(X[fields_to_scale]), columns=X[fields_to_scale].columns)
+    # get variables
+    data = pm.trace_to_dataframe(hierarchical_trace)
+    data = data.sample(n=1000).reset_index(drop=True)
 
-    # get mean regression coefficients
-    i = degree_index.loc[city, "CODE"]
-    alpha = data['alpha__' + str(i)].mean()
-    beta = data['beta__' + str(i)].mean()
-    gamma = data['gamma__' + str(i)].mean()
+    alphas = []
+    betas = []
+    gammas = []
+    num_buildings = X_predict.shape[0]
+    for building in range(num_buildings):
+        building_class = X_predict.loc[building, "BUILDING_CLASS"]
+        buildig_city = X_predict.loc[building, "CITY"]
+        index = degree_index[
+            (degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
+        alphas.append(data['degree_state_county_b__' + str(index)].mean())
+        betas.append(data['degree_state_county_m__' + str(index)].mean())
+        gammas.append(data['degree_state_county_g__' + str(index)].mean())
 
-    # get predictors
-    x1 = X[predictor_variables[0]].values
-    x2 = X[predictor_variables[1]].values
-
-    # predict
-    X[response_variable] = alpha + beta * x1 + gamma * x2
-
-    # get back to original units
-    if scaler != None:
-        X[fields_to_scale] = pd.DataFrame(scaler.inverse_transform(X[fields_to_scale]), columns=X[fields_to_scale].columns)
-
-    #scale back from log if necessry
     if response_variable.split("_")[0] == "LOG":
-        X[response_variable] = np.exp(X[response_variable].values)
-        new_name = response_variable.split("_",1)[1]
+        new_name = response_variable.split("_", 1)[1]
     else:
         new_name = response_variable
 
-    return X.rename(columns={response_variable: new_name}), new_name
-
+    # do prediction
+    X_predict[new_name] = do_prediction(X_predict, alphas, betas,
+                                        gammas,
+                                        response_variable,
+                                        predictor_variables,
+                                        fields_to_scale,
+                                        scaler)
+    # list of cities
+    for city in main_cities:
+        # get input data and scale if necessary
+        df = X_predict[X_predict['CITY']==city]
+        # save results per city
+        df.to_csv(os.path.join(output_path, city + ".csv"))
 
 if __name__ == "__main__":
-    name_model = "log_log_all_standard_10000"
-    output_path = os.path.join(HIERARCHICAL_MODEL_PREDICTION_FOLDER, name_model)
-    output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER, name_model + ".pkl")
-    X_path = DATA_PREDICTION_FOLDER
+    name_model = "log_log_all_2var_standard_5000"
+    output_path = os.path.join(HIERARCHICAL_MODEL_PREDICTION_FOLDER_2_LEVELS_2_COVARIATE, name_model)
+    output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE, name_model + ".pkl")
+    X_path = DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY
     main_cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City'].values
     main(output_trace_path, X_path, main_cities, output_path)

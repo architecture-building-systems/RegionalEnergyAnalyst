@@ -81,7 +81,7 @@ def prepare_input_database(cities, data_energy_folder, data_ipcc_folder, scenari
                                          zip(volumetric_flow_building_m3_s, data["BUILDING_CLASS"].values)]
 
         #logarithmic values
-        data['LOW_THERMAL_ENERGY_kWh_yr'] = np.log(data["THERMAL_ENERGY_kWh_yr"].values)
+        data['LOG_THERMAL_ENERGY_kWh_yr'] = np.log(data["THERMAL_ENERGY_kWh_yr"].values)
         data['LOG_SITE_EUI_kWh_m2yr'] = np.log(data["SITE_EUI_kWh_m2yr"].values)
         data['LOG_SITE_ENERGY_kWh_yr'] = np.log(data["SITE_ENERGY_kWh_yr"].values)
 
@@ -199,13 +199,16 @@ def training_testing_splitter(final_df, cities, y_field, sizes):
         data = final_df[final_df['CITY'] == city]
         for bu_class in building_class:
             data_final = data[data['BUILDING_CLASS'] == bu_class]
-            y = data_final[y_field]
-            X_train, X_test, y_train, y_test = train_test_split(data_final, y, test_size=test_size,
-                                                                random_state=random_state)
+            if data_final.empty:
+                x=1
+            else:
+                y = data_final[y_field]
+                X_train, X_test, y_train, y_test = train_test_split(data_final, y, test_size=test_size,
+                                                                    random_state=random_state)
 
-            # join each dataset
-            X_final_train = pd.concat([X_final_train, X_train], ignore_index=True)
-            X_final_test = pd.concat([X_final_test, X_test], ignore_index=True)
+                # join each dataset
+                X_final_train = pd.concat([X_final_train, X_train], ignore_index=True)
+                X_final_test = pd.concat([X_final_test, X_test], ignore_index=True)
 
     return X_final_train, X_final_test
 
@@ -247,6 +250,7 @@ if __name__ == "__main__":
 
     cities = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['City'].values
     climate = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['climate'].values
+    # cities = ['Cheyenne, WY']
     main(cities, data_energy_folder, data_ipcc_folder, outputpath_training, outputpath_testing, outputpath_all_data,
          y_field, sizes, scenarios, COP_H, COP_C, temperatures_base_H_C, temperatures_base_C_C,
          relative_humidity_base_HUM_C, relative_humidity_base_DEHUM_C, climate)
