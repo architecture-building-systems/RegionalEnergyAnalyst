@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e0e9efc-17c8-4026-aa9b-aa01df16e4be" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/analysis/figure_number_clusters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/data_pair_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/data_pair_plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_processing/prediction_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/prediction_database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data_processing/training_and_testing_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/training_and_testing_database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/training_and_testing/testing_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/databases/training_and_testing/testing_database.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/training_and_testing/training_database.csv" beforeDir="false" afterPath="$PROJECT_DIR$/databases/training_and_testing/training_database.csv" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -51,8 +45,8 @@
             <file pinned="false" current-in-tab="true">
               <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
                 <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="731">
-                    <caret line="55" column="69" lean-forward="true" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
+                  <state relative-caret-position="482">
+                    <caret line="110" column="39" lean-forward="true" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
                     <folding>
                       <element signature="e#0#9#0" expanded="true" />
                     </folding>
@@ -82,8 +76,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+            <state relative-caret-position="348">
+              <caret line="248" column="96" selection-start-line="248" selection-start-column="96" selection-end-line="248" selection-end-column="96" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -202,7 +196,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.prediction_database">
+  <component name="RunManager" selected="Python.training_and_testing_database">
     <configuration name="2_performance_check" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -323,8 +317,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.prediction_database" />
         <item itemvalue="Python.training_and_testing_database" />
+        <item itemvalue="Python.prediction_database" />
         <item itemvalue="Python.figure_number_clusters" />
         <item itemvalue="Python.data_pair_plot" />
         <item itemvalue="Python.2_performance_check" />
@@ -351,12 +345,12 @@
       <workItem from="1579069200922" duration="187000" />
       <workItem from="1579069494835" duration="272000" />
       <workItem from="1579069808080" duration="132000" />
-      <workItem from="1579069987060" duration="22981000" />
+      <workItem from="1579069987060" duration="23371000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82606000" />
+    <option name="totallyTimeSpent" value="82996000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -376,8 +370,8 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.33586133" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.32394367" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38678223" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.32936078" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32827735" />
@@ -390,7 +384,7 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9496951" visible="true" weight="0.12793177" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9496951" visible="true" weight="0.15458423" />
       <window_info anchor="right" id="Database" order="4" weight="0.21375267" />
       <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="5" sideWeight="0.050151974" side_tool="true" weight="0.30810234" />
       <window_info anchor="right" id="R Graphics" order="6" weight="0.32995737" />
@@ -500,7 +494,7 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$training_and_testing_database.coverage" NAME="training_and_testing_database Coverage Results" MODIFIED="1579508535734" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$training_and_testing_database.coverage" NAME="training_and_testing_database Coverage Results" MODIFIED="1579509072355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check_city.coverage" NAME="2_performance_check_city Coverage Results" MODIFIED="1578903636058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$data_pair_plot.coverage" NAME="data_pair_plot Coverage Results" MODIFIED="1579141717880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$prediction_database.coverage" NAME="prediction_database Coverage Results" MODIFIED="1579508723800" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
@@ -512,6 +506,26 @@
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
+      <expression>
+        <expression-string>data[fields]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>pd.concat([final_df, data[fields]]</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>fields = {&quot;BUILDING_ID&quot;,                   &quot;CITY&quot;,                   &quot;CLIMATE_ZONE&quot;,                   &quot;SCENARIO&quot;,                   &quot;BUILDING_CLASS&quot;,                   &quot;GROSS_FLOOR_AREA_m2&quot;,                   &quot;LOG_SITE_EUI_kWh_m2yr&quot;,                   &quot;LOG_SITE_ENERGY_kWh_yr&quot;,                   &quot;LOG_THERMAL_ENERGY_kWh_yr&quot;,                   &quot;CLUSTER_LOG_SITE_EUI_kWh_m2yr&quot;                   }</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>data</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>data_energy_city.index[1]</expression-string>
         <language-id>Python</language-id>
@@ -534,26 +548,6 @@
       </expression>
       <expression>
         <expression-string>np.mean(allcities),np.mean(allcities2)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>np.mean(allcities), np.mean(allcities2)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>np.median(allcities), np.median(allcities2)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>np.mean(allcities)</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>allcities</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
@@ -907,8 +901,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        <state relative-caret-position="348">
+          <caret line="248" column="96" selection-start-line="248" selection-start-column="96" selection-end-line="248" selection-end-column="96" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
@@ -917,8 +911,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="55" column="69" lean-forward="true" selection-start-line="55" selection-start-column="69" selection-end-line="55" selection-end-column="69" />
+        <state relative-caret-position="482">
+          <caret line="110" column="39" lean-forward="true" selection-start-line="110" selection-start-column="39" selection-end-line="110" selection-end-column="39" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

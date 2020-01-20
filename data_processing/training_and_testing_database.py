@@ -88,7 +88,7 @@ def prepare_input_database(cities, data_energy_folder, data_ipcc_folder, scenari
         data = calc_clusters(data)
 
         # list of fields to extract
-        fields = {"BUILDING_ID"
+        fields = ["BUILDING_ID",
                   "CITY",
                   "CLIMATE_ZONE",
                   "SCENARIO",
@@ -98,7 +98,7 @@ def prepare_input_database(cities, data_energy_folder, data_ipcc_folder, scenari
                   "LOG_SITE_ENERGY_kWh_yr",
                   "LOG_THERMAL_ENERGY_kWh_yr",
                   "CLUSTER_LOG_SITE_EUI_kWh_m2yr"
-                  }
+                  ]
         final_df = pd.concat([final_df, data[fields]], ignore_index=True)
         print("scenario and city done: ", scenario, city)
     return final_df
@@ -181,7 +181,7 @@ def calc_massflow_building(gross_floor_area_m2, building_class):
     elif building_class == "Commercial":
         ACH_1_h = 6
     else:
-        Exception("errorrrr")
+        raise Exception("errorrrr")
 
     volumetric_flow_building_m3_s = ACH_1_h * gross_floor_area_m2 * F / 3600
 

@@ -109,7 +109,7 @@ def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder):
             data['LOG_SITE_ENERGY_kWh_yr'] = np.log(data["SITE_ENERGY_kWh_yr"].values)
 
             # list of fields to extract
-            fields = {"BUILDING_ID"
+            fields = ["BUILDING_ID",
                       "CITY",
                       "CLIMATE_ZONE",
                       "SCENARIO",
@@ -119,7 +119,7 @@ def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder):
                       "LOG_SITE_ENERGY_kWh_yr",
                       "LOG_THERMAL_ENERGY_kWh_yr",
                       "CLUSTER_LOG_SITE_EUI_kWh_m2yr"
-                      }
+                      ]
 
             final_df = pd.concat([final_df, data[fields]], ignore_index=True)
         final_df.to_csv(os.path.join(output_path, city + ".csv"), index=False)
