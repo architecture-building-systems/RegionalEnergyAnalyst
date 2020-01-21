@@ -6,7 +6,7 @@ import pandas as pd
 import tensorflow as tf
 from sklearn.metrics import r2_score, mean_squared_error
 
-from models.neural_network_2_variables.definition_and_inference import build_estimator, input_fn, test_fn
+from models.neural_network_2_covariate.definition_and_inference import build_estimator, input_fn, test_fn
 
 
 def calc_MAPE(y_true, y_pred, n):

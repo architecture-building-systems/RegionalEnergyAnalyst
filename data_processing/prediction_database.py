@@ -71,7 +71,7 @@ def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder, outpu
             # get other quantities
             data['CITY'] = city
             data['CLIMATE_ZONE'] = climate
-            data['SCENARIO'] = scenario.split("_")[-1]
+            data['SCENARIO'] = scenario.split("data_")[1]
 
             # Quantities
             weather_file_location = os.path.join(data_ipcc_folder, scenario, name_file)

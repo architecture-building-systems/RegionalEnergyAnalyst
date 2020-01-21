@@ -8,7 +8,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 import matplotlib.pyplot as plt
 import numpy as np
 import pickle
-from models.neural_network_2_variables.definition_and_inference import build_estimator, test_fn
+from models.neural_network_2_covariate.definition_and_inference import build_estimator, test_fn
 
 def calc_MAPE(y_true, y_pred, n):
     delta = (y_pred - y_true)
