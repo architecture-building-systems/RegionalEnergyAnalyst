@@ -1,12 +1,13 @@
 import os
 import pickle
 
-# os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
+os.environ["THEANO_FLAGS"] = "device=cpu,floatX=float32,force_device=True"
 os.environ["MKL_THREADING_LAYER"] = "GNU"
 import numpy as np
 import pandas as pd
 import pymc3 as pm
 from sklearn.metrics import r2_score
+from matplotlib import pyplot as plt
 from configuration import HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS_2_COVARIATE, HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE, \
     DATA_TRAINING_FILE, DATA_TESTING_FILE, CONFIG_FILE
 
@@ -119,11 +120,15 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     fields_to_scale = [response_variable] + predictor_variables
     Xy_testing, Xy_training = input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler)
 
+    # trace = hierarchical_trace.sample(3000)
+    # # pm.traceplot(trace)
+    # # from matplotlib import pyplot as plt
+    # plt.show()
     # get data of traces and only 1000 random samples
     data = pm.trace_to_dataframe(hierarchical_trace)
-    #data = data.sample(n=1000).reset_index(drop=True)
+    summary = pm.summary(hierarchical_trace)
+    # data = data.sample(n=1000).reset_index(drop=True)
     pm.traceplot(hierarchical_trace)
-    from matplotlib import pyplot as plt
     plt.show()
 
     # x = pm.summary(hierarchical_trace)
@@ -147,11 +152,10 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     for building in range(num_buildings_test):
         building_class = Xy_testing.loc[building, "BUILDING_CLASS"]
         buildig_city = Xy_testing.loc[building, "CITY"]
-        index = degree_index[
-            (degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
+        index = degree_index[(degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
         alpha_testing.append(data['degree_state_county_b__' + str(index)].mean())
         beta_testing.append(data['degree_state_county_m__' + str(index)].mean())
-        gamma_testing.append(data['degree_state_county_g_' + str(index)].mean())
+        gamma_testing.append(data['degree_state_county_g__' + str(index)].mean())
 
     # do for the training data set
     Xy_training["prediction"], Xy_training["observed"], _, _ = do_prediction(Xy_training, alpha_training, beta_training,
@@ -173,7 +177,6 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
     for city in cities:
         temporal_data_train_raw = Xy_training[Xy_training["CITY"] == city]
         temporal_data_test_raw = Xy_testing[Xy_testing["CITY"] == city]
-
         for sector in ["Residential", "Commercial"]:
             temporal_data_train = temporal_data_train_raw[temporal_data_train_raw["BUILDING_CLASS"] == sector]
             temporal_data_test = temporal_data_test_raw[temporal_data_test_raw["BUILDING_CLASS"] == sector]
@@ -205,7 +208,7 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
 
 
 if __name__ == "__main__":
-    name_model = "log_log_all_2var_standard_10000"# "log_log_all_2var_standard_10000"
+    name_model = "log_log_all_2var_standard_5000"# "log_log_all_2var_standard_10000"
     output_path = os.path.join(HIERARCHICAL_MODEL_PERFORMANCE_FOLDER_2_LEVELS_2_COVARIATE, name_model + ".csv")
     output_trace_path = os.path.join(HIERARCHICAL_MODEL_INFERENCE_FOLDER_2_LEVELS_2_COVARIATE, name_model + ".pkl")
     Xy_training_path = DATA_TRAINING_FILE

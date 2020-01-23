@@ -2,8 +2,107 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e0e9efc-17c8-4026-aa9b-aa01df16e4be" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/4_prediction.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/performance_check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/performance_check_city.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/performance_check_climate_zone.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_logCommercial_all_2var_standard_2000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_logCommercial_all_2var_standard_5000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_logResidential_all_2var_standard_2000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_logResidential_all_2var_standard_5000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_log_all_2var_repram_better_tree_standard_10000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_log_all_2var_repram_standard_10000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_log_all_2var_repram_standard_5000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_log_all_2var_standard_10000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/inference/log_log_all_2var_standard_5000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels_2_covariate/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels_2_covariate/inference/log_log_all_2var_standard_10000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels_2_covariate/inference/log_log_all_2var_standard_2500.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels_2_covariate/inference/log_log_all_2var_standard_5000.pkl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels_2_covariate/performance/log_log_all_2var_standard_10000.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels_2_covariate/performance/log_log_all_2var_standard_2500.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels_2_covariate/performance/log_log_all_2var_standard_5000.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-19740.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-20680.data-00000-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-20680.data-00001-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-20680.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-20680.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-21620.data-00000-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-21620.data-00001-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-21620.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-21620.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-22560.data-00000-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-22560.data-00001-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-22560.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-22560.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-23500.data-00000-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-23500.data-00001-of-00002" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-23500.index" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_nn_wd_4L_2var/model.ckpt-23500.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/results/old/neural_network/performance/log_neural_net_wide_deep_4L_453%_3%.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/figure_number_clusters.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/figure_number_clusters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/plots/clustering/boxplot_clusters_criteria_.html" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/plots/clustering/boxplot_clusters_criteria_.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/1_definition_and_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/2_performance_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_city.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/2_performance_check_city.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_climate_zone.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/2_performance_check_climate_zone.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/3_uncertainty_check_building_sector.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/3_uncertainty_check_building_sector.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/4_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/4_prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels/test_to_erase.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels/test_to_erase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_variables/1_definition_and_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_variables/1_definition_and_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_variables/2_performance_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_variables/2_performance_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_variables/4_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_variables/4_prediction.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_variables/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_variables/test_to_erase.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_variables/test_to_erase.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/neural_network_2_covariate/definition_and_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/neural_network_2_covariate/definition_and_inference.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/old/hierarchical_2_variables/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_logCommercial_all_2var_standard_2000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_logCommercial_all_2var_standard_5000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_logResidential_all_2var_standard_2000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_logResidential_all_2var_standard_5000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_log_all_2var_repram_better_tree_standard_10000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_log_all_2var_repram_standard_10000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_log_all_2var_repram_standard_5000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_log_all_2var_standard_10000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/inference/log_log_all_2var_standard_5000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_logCommercial_all_2var_standard_5000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_logCommercial_all_2var_standard_5000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_logResidential_all_2var_standard_5000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_logResidential_all_2var_standard_5000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_repram_better_tree_standard_10000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_repram_better_tree_standard_10000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_repram_better_tree_standard_10000CITY.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_repram_better_tree_standard_10000CITY.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_repram_better_tree_standard_10000CLIMATE_ZONE.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_repram_better_tree_standard_10000CLIMATE_ZONE.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_repram_standard_10000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_repram_standard_10000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_repram_standard_5000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_repram_standard_5000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_standard_10000.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_standard_10000.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_standard_10000CITY.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_standard_10000CITY.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels/performance/log_log_all_2var_standard_10000CLIMATE_ZONE.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/hierarchical_2_levels/performance/log_log_all_2var_standard_10000CLIMATE_ZONE.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/checkpoint" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/eval_testing/events.out.tfevents.1524574547.DESKTOP-O6QF291" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/eval_testing/events.out.tfevents.1524574547.DESKTOP-O6QF291" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/events.out.tfevents.1524574541.DESKTOP-O6QF291" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/events.out.tfevents.1524574541.DESKTOP-O6QF291" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/flags.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/flags.pkl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/graph.pbtxt" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/graph.pbtxt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8112.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8112.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8112.index" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8112.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8112.meta" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8112.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8113.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8113.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8113.index" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8113.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8113.meta" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8113.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8281.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8281.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8281.index" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8281.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8281.meta" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8281.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8282.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8282.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8282.index" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8282.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8282.meta" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8282.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8450.data-00000-of-00001" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8450.data-00000-of-00001" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8450.index" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8450.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8450.meta" beforeDir="false" afterPath="$PROJECT_DIR$/results/old/neural_network/inference/log_neural_net_wide_deep_4L_453%_3%/model.ckpt-8450.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/neural_network/performance/log_neural_net_wide_deep_4L_453%_3%.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -39,23 +138,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="141">
-              <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
-              <folding>
-                <element signature="e#0#9#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="84" column="125" selection-start-line="84" selection-start-column="100" selection-end-line="84" selection-end-column="125" />
+            <state relative-caret-position="146">
+              <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/neural_network_2_covariate/definition_and_inference.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -63,41 +159,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="457">
-              <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/pymc3/distributions/distribution.py">
+        <entry file="file://$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="202">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="68" selection-start-line="68" selection-end-line="72" selection-end-column="92" />
-              <folding>
-                <element signature="e#0#31#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="382">
-              <caret line="138" column="59" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="59" />
+            <state relative-caret-position="-673">
+              <caret line="86" selection-start-line="86" selection-end-line="86" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -127,6 +193,8 @@
       <find>prediction</find>
       <find>samples</find>
       <find>fields_to_scale</find>
+      <find>predictor_variables</find>
+      <find>time</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -147,7 +215,6 @@
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_city.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_climate_zone.py" />
         <option value="$PROJECT_DIR$/configuration.py" />
-        <option value="$PROJECT_DIR$/analysis/figure_number_clusters.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check_city.py" />
@@ -157,11 +224,13 @@
         <option value="$PROJECT_DIR$/data_processing/training_and_testing_database.py" />
         <option value="$PROJECT_DIR$/data_processing/prediction_database.py" />
         <option value="$PROJECT_DIR$/models/neural_network_2_variables/definition_and_inference.py" />
+        <option value="$PROJECT_DIR$/analysis/data_pair_plot.py" />
+        <option value="$PROJECT_DIR$/analysis/figure_number_clusters.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py" />
+        <option value="$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py" />
         <option value="$PROJECT_DIR$/models/neural_network_2_covariate/definition_and_inference.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" />
-        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" />
-        <option value="$PROJECT_DIR$/analysis/data_pair_plot.py" />
-        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py" />
       </list>
     </option>
   </component>
@@ -176,6 +245,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -186,18 +256,13 @@
             <path>
               <item name="RegionalEnergyAnalyst" type="b2602c69:ProjectViewProjectNode" />
               <item name="RegionalEnergyAnalyst" type="462c0819:PsiDirectoryNode" />
-              <item name="databases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RegionalEnergyAnalyst" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RegionalEnergyAnalyst" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RegionalEnergyAnalyst" type="b2602c69:ProjectViewProjectNode" />
               <item name="RegionalEnergyAnalyst" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="hierarchical_2_levels_2_covariate" type="462c0819:PsiDirectoryNode" />
+              <item name="neural_network_2_covariate" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RegionalEnergyAnalyst" type="b2602c69:ProjectViewProjectNode" />
@@ -221,13 +286,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/results/old" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -238,13 +302,16 @@
     </option>
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\GitHub\RegionalEnergyAnalyst\models\old" />
+      <recent name="E:\GitHub\great-american-cities\models\old" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitHub\RegionalEnergyAnalyst\results\old" />
+      <recent name="E:\GitHub\RegionalEnergyAnalyst\models\old" />
       <recent name="E:\GitHub\RegionalEnergyAnalyst\models\hierarchical_2_levels_2_covariate" />
       <recent name="E:\GitHub\great-american-cities\models" />
       <recent name="E:\GitHub\great-american-cities\analysis" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\GitHub\great-american-cities\models\old" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -259,7 +326,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.1_definition_and_inference_centered">
+  <component name="RunManager" selected="Python.definition_and_inference">
     <configuration name="1_definition_and_inference" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -282,7 +349,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="1_definition_and_inference_centered" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="2_performance_check" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -290,12 +357,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models/neural_network_2_covariate" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -326,6 +393,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="figure_number_clusters" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="great-american-cities" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/figure_number_clusters.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="performance_check" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -348,42 +437,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="prediction_database" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="great-american-cities" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/prediction_database.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
-      <item itemvalue="Python.prediction_database" />
       <item itemvalue="Python.1_definition_and_inference" />
       <item itemvalue="Python.definition_and_inference" />
       <item itemvalue="Python.performance_check" />
-      <item itemvalue="Python.1_definition_and_inference_centered" />
+      <item itemvalue="Python.figure_number_clusters" />
+      <item itemvalue="Python.2_performance_check" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.1_definition_and_inference_centered" />
-        <item itemvalue="Python.performance_check" />
-        <item itemvalue="Python.1_definition_and_inference" />
         <item itemvalue="Python.definition_and_inference" />
-        <item itemvalue="Python.prediction_database" />
+        <item itemvalue="Python.2_performance_check" />
+        <item itemvalue="Python.performance_check" />
+        <item itemvalue="Python.figure_number_clusters" />
+        <item itemvalue="Python.1_definition_and_inference" />
       </list>
     </recent_temporary>
   </component>
@@ -407,12 +474,13 @@
       <workItem from="1579069200922" duration="187000" />
       <workItem from="1579069494835" duration="272000" />
       <workItem from="1579069808080" duration="132000" />
-      <workItem from="1579069987060" duration="45682000" />
+      <workItem from="1579069987060" duration="67272000" />
+      <workItem from="1579742969151" duration="12312000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105307000" />
+    <option name="totallyTimeSpent" value="139209000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -427,56 +495,56 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20309168" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20522387" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8454158" visible="true" weight="0.30227518" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" weight="0.3347779" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.8443497" visible="true" weight="0.27735645" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.26435536" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32827735" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.32900432" />
-      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.15458423" side_tool="true" visible="true" weight="0.30227518" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.15565032" side_tool="true" weight="0.30010834" />
       <window_info anchor="bottom" id="Version Control" order="10" weight="0.32900432" />
       <window_info anchor="bottom" id="Python Console" order="11" weight="0.25460455" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9496951" visible="true" weight="0.114605546" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9475262" visible="true" weight="0.061833687" />
       <window_info anchor="right" id="Database" order="4" weight="0.21375267" />
-      <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="5" sideWeight="0.050151974" side_tool="true" weight="0.30810234" />
+      <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="5" sideWeight="0.052473765" side_tool="true" visible="true" weight="0.061833687" />
       <window_info anchor="right" id="R Graphics" order="6" weight="0.32995737" />
       <window_info anchor="right" id="R Packages" order="7" weight="0.32995737" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16950959" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20309168" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Database Changes" order="0" />
-      <window_info anchor="bottom" id="Message" order="1" />
-      <window_info anchor="bottom" id="Find" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" weight="0.3206522" />
-      <window_info anchor="bottom" id="Debug" order="4" visible="true" weight="0.28804347" />
-      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="7" weight="0.32900432" />
-      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32900432" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="11" weight="0.32900432" />
-      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3286026" />
-      <window_info anchor="right" id="R Graphics" order="0" />
-      <window_info anchor="right" id="R Packages" order="1" />
-      <window_info anchor="right" id="Commander" order="2" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="3" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="4" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="5" visible="true" weight="0.07995736" />
-      <window_info anchor="right" id="Database" order="6" weight="0.21375267" />
-      <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="7" weight="0.34061834" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8443497" weight="0.17118093" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" visible="true" weight="0.28277355" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32827735" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.32900432" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.15565032" side_tool="true" weight="0.30010834" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32900432" />
+      <window_info anchor="bottom" id="Python Console" order="11" weight="0.25460455" />
+      <window_info anchor="bottom" id="Database Changes" order="12" />
+      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9496951" visible="true" weight="0.14552239" />
+      <window_info anchor="right" id="Database" order="4" weight="0.21375267" />
+      <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="5" sideWeight="0.050151974" side_tool="true" weight="0.30810234" />
+      <window_info anchor="right" id="R Graphics" order="6" weight="0.32995737" />
+      <window_info anchor="right" id="R Packages" order="7" weight="0.32995737" />
     </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -491,17 +559,17 @@
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py</url>
+          <url>file://$PROJECT_DIR$/models/old/hierarchical_2_levels/1_definition_and_inference.py</url>
           <line>34</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py</url>
+          <url>file://$PROJECT_DIR$/models/old/hierarchical_2_levels/1_definition_and_inference.py</url>
           <line>51</line>
           <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check.py</url>
+          <url>file://$PROJECT_DIR$/models/old/hierarchical_2_levels/2_performance_check.py</url>
           <line>177</line>
           <option name="timeStamp" value="57" />
         </line-breakpoint>
@@ -526,14 +594,14 @@
           <option name="timeStamp" value="148" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py</url>
-          <line>23</line>
-          <option name="timeStamp" value="152" />
+          <url>file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py</url>
+          <line>130</line>
+          <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py</url>
-          <line>122</line>
-          <option name="timeStamp" value="153" />
+          <url>file://$PROJECT_DIR$/analysis/figure_number_clusters.py</url>
+          <line>85</line>
+          <option name="timeStamp" value="158" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -546,93 +614,72 @@
     </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$definition_and_inference.coverage" NAME="definition_and_inference Coverage Results" MODIFIED="1579583184897" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/neural_network_2_covariate" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$definition_and_inference.coverage" NAME="definition_and_inference Coverage Results" MODIFIED="1579763224191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/neural_network_2_covariate" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$data_pair_plot.coverage" NAME="data_pair_plot Coverage Results" MODIFIED="1579141717880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$performance_check_climate_zone.coverage" NAME="performance_check_climate_zone Coverage Results" MODIFIED="1579512563376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$performance_check.coverage" NAME="performance_check Coverage Results" MODIFIED="1579584841872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$1_definition_and_inference_centered.coverage" NAME="1_definition_and_inference_centered Coverage Results" MODIFIED="1579586685879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_number_clusters.coverage" NAME="figure_number_clusters Coverage Results" MODIFIED="1579167190623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$performance_check.coverage" NAME="performance_check Coverage Results" MODIFIED="1579741728811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_number_clusters.coverage" NAME="figure_number_clusters Coverage Results" MODIFIED="1579685020992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$training_and_testing_database.coverage" NAME="training_and_testing_database Coverage Results" MODIFIED="1579515599072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check_city.coverage" NAME="2_performance_check_city Coverage Results" MODIFIED="1578903636058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$prediction_database.coverage" NAME="prediction_database Coverage Results" MODIFIED="1579569898114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_6_energy_boxplot_per_climate_zone.coverage" NAME="figure_6_energy_boxplot_per_climate_zone Coverage Results" MODIFIED="1578893584335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check_climate_zone.coverage" NAME="2_performance_check_climate_zone Coverage Results" MODIFIED="1578906592852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check.coverage" NAME="2_performance_check Coverage Results" MODIFIED="1578898547725" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check.coverage" NAME="2_performance_check Coverage Results" MODIFIED="1579749652320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/neural_network_2_covariate" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_7_percentage_error_plots.coverage" NAME="figure_7_percentage error_plots Coverage Results" MODIFIED="1578893447872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$1_definition_and_inference.coverage" NAME="1_definition_and_inference Coverage Results" MODIFIED="1579583612462" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$1_definition_and_inference.coverage" NAME="1_definition_and_inference Coverage Results" MODIFIED="1579593773342" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>hierarchical_trace.bij.rmap(hierarchical_trace.mean.eval())['degree_state_county_m']</expression-string>
+        <expression-string>zs</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.bij.rmap(hierarchical_trace.mean.eval())['degree_state_m']</expression-string>
+        <expression-string>building_class_cluster[99]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.bij.rmap(hierarchical_trace.mean.eval()).keys()['degree_state_m_offset']</expression-string>
+        <expression-string>city_cluster[99]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.bij.rmap(hierarchical_trace.mean.eval()).keys()['degree_state_m']</expression-string>
+        <expression-string>city_cluster[13]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.bij.rmap(hierarchical_trace.mean.eval()).keys()</expression-string>
+        <expression-string>building_class_cluster[13]</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.keys()</expression-string>
+        <expression-string>aic_list</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.keys</expression-string>
+        <expression-string>building_class_cluster</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.var</expression-string>
+        <expression-string>city_cluster</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>hierarchical_trace.</expression-string>
+        <expression-string>summary</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/pandas/core/indexing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="102" selection-start-line="102" selection-end-line="102" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_variables/1_definition_and_inference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="58" column="14" selection-start-line="58" selection-start-column="14" selection-end-line="58" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data-postprocessing/today_energy_intensity.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="5" selection-start-line="5" selection-end-line="10" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_variables/2_performance_check.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_variables/2_performance_check.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1258">
           <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
@@ -656,7 +703,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/3_uncertainty_check_building_sector.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels/3_uncertainty_check_building_sector.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2125">
           <folding>
@@ -689,7 +736,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels/2_performance_check.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="79" selection-start-line="79" selection-end-line="80" />
@@ -734,7 +781,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_climate_zone.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels/2_performance_check_climate_zone.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1683">
           <caret line="100" column="54" selection-start-line="100" selection-start-column="54" selection-end-line="100" selection-end-column="54" />
@@ -758,7 +805,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/2_performance_check_city.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels/2_performance_check_city.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="317">
           <caret line="130" column="41" selection-start-line="130" selection-start-column="40" selection-end-line="130" selection-end-column="41" />
@@ -778,13 +825,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/figure_number_clusters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="31" lean-forward="true" selection-start-column="31" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/sklearn/utils/validation.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="691">
@@ -793,53 +833,34 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/databases/future_degree_days/future_degree_days.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="-44464" />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/databases/enthalpy_growth/future_enthalpy_days_1990_2010.csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-9">
-          <caret line="86" column="52" lean-forward="true" selection-start-line="86" selection-start-column="52" selection-end-line="86" selection-end-column="52" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/databases/enthalpy_growth/future_enthalpy_days_1990_2010.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Charleston, WV.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
       <provider selected="true" editor-type-id="csv-text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Cheyenne, WY..csv">
       <provider editor-type-id="csv-table-editor">
         <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Cheyenne, WY..csv" />
     <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Cheyenne, WY.csv">
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="101" lean-forward="true" selection-start-line="16" selection-start-column="101" selection-end-line="16" selection-end-column="101" />
         </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_city.py">
@@ -882,7 +903,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/4_prediction.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels/4_prediction.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
           <caret line="34" column="46" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="46" />
@@ -902,30 +923,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels/1_definition_and_inference.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels/1_definition_and_inference.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="92" column="52" selection-start-line="92" selection-start-column="45" selection-end-line="92" selection-end-column="52" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="203" column="17" selection-start-line="203" selection-start-column="17" selection-end-line="203" selection-end-column="17" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configuration.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="239">
-          <caret line="43" selection-start-line="43" selection-end-line="43" />
         </state>
       </provider>
     </entry>
@@ -954,46 +958,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/neural_network_2_covariate/definition_and_inference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="136" column="73" lean-forward="true" selection-start-line="136" selection-start-column="73" selection-end-line="136" selection-end-column="73" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="68" selection-start-line="68" selection-end-line="72" selection-end-column="92" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="138" column="59" selection-start-line="138" selection-start-column="36" selection-end-line="138" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/pymc3/distributions/distribution.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="202">
@@ -1001,20 +965,111 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="84" column="125" selection-start-line="84" selection-start-column="100" selection-end-line="84" selection-end-column="125" />
+        <state relative-caret-position="2336">
+          <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py">
+    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/__init__.py">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/figure_3_histogram.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="457">
-          <caret line="81" lean-forward="true" selection-start-line="81" selection-end-line="81" />
+        <state relative-caret-position="306">
+          <caret line="30" column="118" selection-start-line="30" selection-start-column="118" selection-end-line="30" selection-end-column="135" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/figure_number_clusters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="89" column="53" selection-start-line="89" selection-start-column="53" selection-end-line="89" selection-end-column="53" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/data_pair_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="90" column="66" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="66" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="109" column="29" selection-start-line="109" selection-start-column="29" selection-end-line="109" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configuration.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="59" column="14" selection-start-line="59" selection-start-column="14" selection-end-line="66" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/neural_network_2_covariate/3_prediction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="127">
+          <caret line="10" column="39" selection-start-line="10" selection-start-column="39" selection-end-line="10" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-673">
+          <caret line="86" selection-start-line="86" selection-end-line="86" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/absl/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="481">
+          <caret line="284" selection-start-line="284" selection-end-line="284" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/neural_network_2_covariate/definition_and_inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="146">
+          <caret line="93" column="8" selection-start-line="93" selection-start-column="8" selection-end-line="93" selection-end-column="8" />
         </state>
       </provider>
     </entry>

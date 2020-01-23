@@ -17,13 +17,25 @@ def calc_MAPE(y_true, y_pred, n):
 
 def estimate_accurracy(FLAGS, train_data_path, test_data_path, main_cities, output_path, model_name):
     # load neural network
-    model = build_estimator(FLAGS['model_dir'], FLAGS['model_type'], FLAGS['cities'], FLAGS['building_classes'],
+    model = build_estimator(FLAGS['model_dir'],
+                            FLAGS['model_type'],
+                            FLAGS['cities'],
+                            FLAGS['building_classes'],
+                            FLAGS['climate_zones'],
                             FLAGS['hidden_units'])
 
     # DO CALCULATION FOR ALL CLASSES IN THE MODEL (CITIES)
     # Upload data to memory and apply scaler of training data to the other variables
-    X_train, y_train, _, _ = input_fn(train_data_path, FLAGS, FLAGS['scaler_X'], FLAGS['scaler_y'], train=False)
-    X_test, y_test, _, _ = input_fn(test_data_path, FLAGS, FLAGS['scaler_X'], FLAGS['scaler_y'], train=False)
+    X_train, y_train, _, _ = input_fn(train_data_path,
+                                      FLAGS,
+                                      FLAGS['scaler_X'],
+                                      FLAGS['scaler_y'],
+                                      train=False)
+    X_test, y_test, _, _ = input_fn(test_data_path,
+                                    FLAGS,
+                                    FLAGS['scaler_X'],
+                                    FLAGS['scaler_y'],
+                                    train=False)
 
     # calculate and asign predictions to dataframe
     data_train = X_train.copy()
@@ -70,9 +82,6 @@ def estimate_accurracy(FLAGS, train_data_path, test_data_path, main_cities, outp
                     data_test_city_building_class['y_predicted'].values,
                     data_test_city_building_class['y_measured'].values)
 
-                MSE_log_domain_train = mean_squared_error(data_train_city_building_class["y_measured_log"].values, data_train_city_building_class["y_predicted_log"].values)
-                MSE_log_domain_test =  mean_squared_error(data_test_city_building_class["y_measured_log"].values, data_test_city_building_class["y_predicted_log"].values)
-
                 n_samples_train = data_train_city_building_class['y_measured'].count()
                 n_samples_test = data_test_city_building_class['y_measured'].count()
 
@@ -81,7 +90,6 @@ def estimate_accurracy(FLAGS, train_data_path, test_data_path, main_cities, outp
                                                 ("DATASET", ["Training", "Testing"]),
                                                 ("MAPE_build_EUI_%",[MAPE_single_building_train, MAPE_single_building_test]),
                                                 ("PE_mean_EUI_%", [MAPE_all_buildings_train, MAPE_all_buildings_test]),
-                                                ("MSE_log_domain", [MSE_log_domain_train, MSE_log_domain_test]),
                                                 ("n_samples", [n_samples_train, n_samples_test])])
 
                 # do this to get the cities in order
@@ -104,6 +112,7 @@ def calc_accurracy(y_predicted, y):
 
 
 def do_predictions(model, scaler_y, X_train, y_train, FLAGS, model_name):
+
     predictions = model.predict(input_fn=lambda: test_fn(X_train, None, FLAGS))
     y_predicted_log = np.array(list(p['predictions'] for p in predictions))
     y_measured_log = y_train

@@ -1,13 +1,16 @@
+import os
+import pickle
+
+os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 import pandas as pd
-import os
 import tensorflow as tf
-from sklearn.preprocessing import  StandardScaler
-import pickle
 from absl import app as absl_app
+from sklearn.preprocessing import StandardScaler
 
 
-def build_model_columns(cities, building_classes):
+def build_model_columns(cities, building_classes, climate_zones):
     """Builds a set of wide and deep feature columns."""
 
     # Continuous columns
@@ -17,7 +20,7 @@ def build_model_columns(cities, building_classes):
     # Categorical columns
     CITY = tf.feature_column.categorical_column_with_vocabulary_list('CITY', cities)
     BUILDING_CLASS = tf.feature_column.categorical_column_with_vocabulary_list('BUILDING_CLASS', building_classes)
-    CLIMATE_ZONE = tf.feature_column.categorical_column_with_vocabulary_list('BUILDING_CLASS', building_classes)
+    CLIMATE_ZONE = tf.feature_column.categorical_column_with_vocabulary_list('CLIMATE_ZONE', climate_zones)
 
     CITY_x_BUILDING_CLASS = tf.feature_column.crossed_column(["CITY", "BUILDING_CLASS"], hash_bucket_size=int(1e4))
     CITY_x_CLIMATE_ZONE = tf.feature_column.crossed_column(["CITY", "CLIMATE_ZONE"], hash_bucket_size=int(1e4))
@@ -25,6 +28,8 @@ def build_model_columns(cities, building_classes):
     # Wide columns and deep columns.
     wide_columns = [LOG_THERMAL_ENERGY_kWh_yr,
                     CLUSTER_LOG_SITE_EUI_kWh_m2yr,
+                    CITY,
+                    CLIMATE_ZONE,
                     CITY_x_BUILDING_CLASS,
                     CITY_x_CLIMATE_ZONE]
     deep_columns = [LOG_THERMAL_ENERGY_kWh_yr,
@@ -36,9 +41,9 @@ def build_model_columns(cities, building_classes):
     return wide_columns, deep_columns
 
 
-def build_estimator(model_dir, model_type, cities, building_classes, hidden_units):
+def build_estimator(model_dir, model_type, cities, building_classes, climate_zones, hidden_units):
     """Build an estimator appropriate for the given inference type."""
-    wide_columns, deep_columns = build_model_columns(cities, building_classes)
+    wide_columns, deep_columns = build_model_columns(cities, building_classes, climate_zones)
 
     if model_type == 'wide':
         return tf.estimator.LinearRegressor(model_dir=model_dir, feature_columns=wide_columns)
@@ -100,10 +105,12 @@ def test_fn(features, labels, FLAGS):
 
 
 def main(_):
+    import time
+    t0 = time.time()
     from configuration import CONFIG_FILE, DATA_TRAINING_FILE, DATA_TESTING_FILE, NN_MODEL_INFERENCE_FOLDER
     # flags anc condiguration
     FLAGS = {}
-    FLAGS['model_dir'] = os.path.join(NN_MODEL_INFERENCE_FOLDER, "log_nn_wd_4L_2var")
+    FLAGS['model_dir'] = os.path.join(NN_MODEL_INFERENCE_FOLDER, "log_nn_wd_4L_2var_cpu")
     #  Clean up the inference directory if present
     # shutil.rmtree(FLAGS['model_dir'], ignore_errors=True)
 
@@ -115,22 +122,45 @@ def main(_):
     FLAGS['scaler_y'] = StandardScaler()
     FLAGS['hidden_units'] = [100, 75, 50, 25]  #
     FLAGS['response_variable'] = "LOG_SITE_ENERGY_kWh_yr"
-    FLAGS['predictor_variables'] = ['LOG_THERMAL_ENERGY_kWh_yr', "CLUSTER_LOG_SITE_EUI_kWh_m2yr", "CLIMATE_ZONE",
-                                    "CITY", "BUILDING_CLASS"]
-    FLAGS["fields_to_scale"] = ['LOG_SITE_ENERGY_kWh_yr', 'LOG_THERMAL_ENERGY_kWh_yr', "CLUSTER_LOG_SITE_EUI_kWh_m2yr"]
+    FLAGS['predictor_variables'] = ['LOG_THERMAL_ENERGY_kWh_yr',
+                                    "CLUSTER_LOG_SITE_EUI_kWh_m2yr",
+                                    "CLIMATE_ZONE",
+                                    "CITY",
+                                    "BUILDING_CLASS"]
+    FLAGS["fields_to_scale"] = ['LOG_THERMAL_ENERGY_kWh_yr',
+                                "CLUSTER_LOG_SITE_EUI_kWh_m2yr"]
     FLAGS['cities'] = pd.read_excel(CONFIG_FILE, sheet_name='cities_with_energy_data')['City'].values
-    FLAGS['building_classes'] = ["Commercial", "Residential"]
+    FLAGS['building_classes'] = ["Commercial",
+                                 "Residential"]
+    FLAGS['climate_zones'] = ["Hot-humid", "Hot-dry",
+                              "Hot-marine",
+                              "Mixed-humid",
+                              "Mixed-dry",
+                              "Mixed-marine",
+                              "Cold-humid",
+                              "Cold-dry"]
 
     # indicate path to databases
     train_data_path = DATA_TRAINING_FILE
     test_data_path = DATA_TESTING_FILE
 
     # Upload data to memory and apply scaler of training data to the other variables
-    X_train, y_train, FLAGS['scaler_X'], FLAGS['scaler_y'] = input_fn(train_data_path, FLAGS, FLAGS['scaler_X'],
-                                                                      FLAGS['scaler_y'], train=True)
-    X_test, y_test, _, _ = input_fn(test_data_path, FLAGS, FLAGS['scaler_X'], FLAGS['scaler_y'], train=False)
+    X_train, y_train, FLAGS['scaler_X'], FLAGS['scaler_y'] = input_fn(train_data_path,
+                                                                      FLAGS,
+                                                                      FLAGS['scaler_X'],
+                                                                      FLAGS['scaler_y'],
+                                                                      train=True)
+    X_test, y_test, _, _ = input_fn(test_data_path,
+                                    FLAGS,
+                                    FLAGS['scaler_X'],
+                                    FLAGS['scaler_y'],
+                                    train=False)
 
-    model = build_estimator(FLAGS['model_dir'], FLAGS['model_type'], FLAGS['cities'], FLAGS['building_classes'],
+    model = build_estimator(FLAGS['model_dir'],
+                            FLAGS['model_type'],
+                            FLAGS['cities'],
+                            FLAGS['building_classes'],
+                            FLAGS['climate_zones'],
                             FLAGS['hidden_units'])
 
     # # save flags and build inference
@@ -149,10 +179,14 @@ def main(_):
 
         for key in sorted(results_test):
             print('%s: %s' % (key, results_test[key]))
-
+    t1 = time.time() - t0
+    print(t1)
 
 if __name__ == '__main__':
-    config = tf.ConfigProto()
+    config = tf.ConfigProto(device_count={"GPU":-1, "CPU":2},
+                            inter_op_parallelism_threads=2,
+                            intra_op_parallelism_threads=2)
     config.gpu_options.allow_growth = True
     tf.logging.set_verbosity(tf.logging.INFO)
+    tf.Session(config=config)
     absl_app.run(main)
