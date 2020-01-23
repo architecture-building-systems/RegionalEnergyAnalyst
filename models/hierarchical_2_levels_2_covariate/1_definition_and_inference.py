@@ -91,10 +91,10 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
         y_like = pm.Normal('y_like', mu=building_mean, sd=eps, observed=y_obs)
 
     with hierarchical_model:
-        
+        #hierarchical_trace = pm.fit(50000, callbacks=[pm.callbacks.CheckParametersConvergence(tolerance=1e-4)])
         hierarchical_trace = pm.sample(draws=samples, tune=1000, cores=2, nuts_kwargs=dict(target_accept=0.98))
-
-
+        #
+        #
         # save to disc
         with open(output_trace_path, 'wb') as buff:
             pickle.dump({'inference': hierarchical_model, 'trace': hierarchical_trace,
