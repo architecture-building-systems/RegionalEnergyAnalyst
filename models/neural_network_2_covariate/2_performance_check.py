@@ -88,9 +88,10 @@ def estimate_accurracy(FLAGS, train_data_path, test_data_path, main_cities, outp
                 dict = pd.DataFrame.from_items([("CITY", [city, city]),
                                                 ("BUILDING_CLASS", [building_class, building_class]),
                                                 ("DATASET", ["Training", "Testing"]),
-                                                ("MAPE_build_EUI_%",[MAPE_single_building_train, MAPE_single_building_test]),
-                                                ("PE_mean_EUI_%", [MAPE_all_buildings_train, MAPE_all_buildings_test]),
+                                                ("MAPE_%",[MAPE_single_building_train, MAPE_single_building_test]),
+                                                ("PE_%", [MAPE_all_buildings_train, MAPE_all_buildings_test]),
                                                 ("n_samples", [n_samples_train, n_samples_test])])
+
 
                 # do this to get the cities in order
                 if city in main_cities:

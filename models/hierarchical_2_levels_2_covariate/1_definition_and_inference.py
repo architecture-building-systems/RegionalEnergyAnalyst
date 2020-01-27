@@ -92,7 +92,7 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
 
     with hierarchical_model:
         #hierarchical_trace = pm.fit(50000, callbacks=[pm.callbacks.CheckParametersConvergence(tolerance=1e-4)])
-        hierarchical_trace = pm.sample(draws=samples, tune=1000, cores=2, nuts_kwargs=dict(target_accept=0.98))
+        hierarchical_trace = pm.sample(draws=samples, tune=1000, cores=2, nuts_kwargs=dict(target_accept=0.97))
         #
         #
         # save to disc
@@ -108,7 +108,7 @@ if __name__ == "__main__":
     scaler = "standard"  # "minmax"  # o standard for standard scaler to use in both sides of the data
     log_transform = "log_log"  # log_log or none
     type_log = "all_2var"  # "all" when the covariates and the response have log conversion, Floor if only floor is log (this behavior is modified manually)
-    samples = 5000  # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
+    samples = 1000  # number of shamples per chain. Normally 2 chains are run so for 10.000 samples the sampler will do 20.0000 and compare convergence
     cities = []  # or leave empty to have all cities.
     response_variable = "LOG_SITE_ENERGY_kWh_yr"
     predictor_variables = ["LOG_THERMAL_ENERGY_kWh_yr", "CLUSTER_LOG_SITE_EUI_kWh_m2yr"]

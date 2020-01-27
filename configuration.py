@@ -57,6 +57,8 @@ DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER = os.path.join(os.path.abspath(os.pat
 DATA_POST_FUTURE_ENERGY_CONSUMPTION_FILE = os.path.join(DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, "future_consumption.csv")
 DATA_POST_FUTURE_ENERGY_CONSUMPTION_FILE_WITH_EFFICIENCY = os.path.join(DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER, "future_consumption_efficiency.csv")
 
+DATA_CLUSTERING_TABLE_FOLDER  = os.path.join(os.path.abspath(os.path.dirname(__file__)), "analysis", "tables", "clustering")
+
 ZONE_NAMES = {"Hot-humid":["1A", "2A", "3A"] ,
                "Hot-dry": ["2B", "3B"],
                "Hot-marine": ["3C"] ,
