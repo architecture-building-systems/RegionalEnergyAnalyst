@@ -107,7 +107,7 @@ def input_data(Xy_testing_path, Xy_training_path, fields_to_scale, scaler):
     return Xy_testing, Xy_training
 
 
-def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main_cities):
+def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path):
     # loading data
     with open(output_trace_path, 'rb') as buff:
         data = pickle.load(buff)
@@ -141,9 +141,9 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
         buildig_city = Xy_training.loc[building, "CITY"]
         index = degree_index[
             (degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
-        alpha_training.append(data['degree_state_county_b__' + str(index)].mean())
-        beta_training.append(data['degree_state_county_m__' + str(index)].mean())
-        gamma_training.append(data['degree_state_county_g__' + str(index)].mean())
+        alpha_training.append(data['building_sector_alfa_mean__' + str(index)].mean())
+        beta_training.append(data['building_sector_beta_mean__' + str(index)].mean())
+        gamma_training.append(data['building_sector_gamma_mean__' + str(index)].mean())
 
     alpha_testing = []
     beta_testing = []
@@ -153,9 +153,9 @@ def main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main
         building_class = Xy_testing.loc[building, "BUILDING_CLASS"]
         buildig_city = Xy_testing.loc[building, "CITY"]
         index = degree_index[(degree_index["CITY"] == buildig_city) & (degree_index["BUILDING_CLASS"] == building_class)].index.values[0]
-        alpha_testing.append(data['degree_state_county_b__' + str(index)].mean())
-        beta_testing.append(data['degree_state_county_m__' + str(index)].mean())
-        gamma_testing.append(data['degree_state_county_g__' + str(index)].mean())
+        alpha_testing.append(data['building_sector_alfa_mean__' + str(index)].mean())
+        beta_testing.append(data['building_sector_beta_mean__' + str(index)].mean())
+        gamma_testing.append(data['building_sector_gamma_mean__' + str(index)].mean())
 
     # do for the training data set
     Xy_training["prediction"], Xy_training["observed"], _, _ = do_prediction(Xy_training, alpha_training, beta_training,
@@ -215,4 +215,4 @@ if __name__ == "__main__":
     Xy_testing_path = DATA_TESTING_FILE
     main_cities = pd.read_excel(CONFIG_FILE, sheet_name='test_cities')['City'].values
 
-    main(output_trace_path, Xy_training_path, Xy_testing_path, output_path, main_cities)
+    main(output_trace_path, Xy_training_path, Xy_testing_path, output_path)

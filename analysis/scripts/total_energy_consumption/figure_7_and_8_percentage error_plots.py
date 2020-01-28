@@ -30,6 +30,8 @@ def main(hierarchical_model_performance, neural_network_model_performance):
                            color="DATASET",
                            marginal="box",
                            color_discrete_sequence=["rgb(66,165,245)", "rgb(13,71,161)"])
+        fig['layout'].update(plot_bgcolor="rgb(236,243,247)",
+                             font=dict(family='Helvetica, monospace', size=24, color='black'))
         fig.show()
         fig = px.histogram(data_neural_network_clean,
                            x="MAPE_%",
@@ -37,6 +39,8 @@ def main(hierarchical_model_performance, neural_network_model_performance):
                            color="DATASET",
                            marginal="box",
                            color_discrete_sequence = ["rgb(66,165,245)", "rgb(13,71,161)"])
+        fig['layout'].update(plot_bgcolor="rgb(236,243,247)",
+                             font=dict(family='Helvetica, monospace', size=24, color='black'))
         fig.show()
 
     for building_class in building_classes:
@@ -49,6 +53,8 @@ def main(hierarchical_model_performance, neural_network_model_performance):
                            color="DATASET",
                            marginal="box",
                            color_discrete_sequence=["rgb(66,165,245)", "rgb(13,71,161)"])
+        fig['layout'].update(plot_bgcolor="rgb(236,243,247)",
+                             font=dict(family='Helvetica, monospace', size=24, color='black'))
         fig.show()
         fig = px.histogram(data_neural_network_clean,
                            x="PE_%",
@@ -56,6 +62,8 @@ def main(hierarchical_model_performance, neural_network_model_performance):
                            color="DATASET",
                            marginal="box",
                            color_discrete_sequence = ["rgb(66,165,245)", "rgb(13,71,161)"])
+        fig['layout'].update(plot_bgcolor="rgb(236,243,247)",
+                             font=dict(family='Helvetica, monospace', size=24, color='black'))
         fig.show()
 
 if __name__ == "__main__":

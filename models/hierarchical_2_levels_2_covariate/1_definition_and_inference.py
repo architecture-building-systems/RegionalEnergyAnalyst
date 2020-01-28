@@ -50,7 +50,7 @@ def main(Xy_training_path, output_trace_path, response_variable, predictor_varia
 
     with pm.Model() as hierarchical_model:
 
-        # log(y) = b + m*log(GFA*HDD) + g*log(GFA*CDD) + eps
+        # log(y) = alfa + beta*x1+ gamma*x2 + eps
         country_beta_mean = pm.Normal('country_beta_mean', mu=0, sd=100**2)
         country_beta_sd = pm.HalfCauchy('country_beta_sd', 5)
         country_alfa_mean = pm.Normal('country_alfa_mean', mu=0, sd=100**2)

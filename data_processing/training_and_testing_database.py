@@ -35,6 +35,7 @@ def prepare_input_database(cities, data_energy_folder, data_ipcc_folder, scenari
         df_hdd_cdd = pd.read_csv(os.path.join(DATA_RAW_BUILDING_TODAY_HDD_FOLDER, city + ".csv"))
         df_hdd_cdd["site_year"] = df_hdd_cdd["site_year"].round(0)
         data = pd.merge(df_hdd_cdd, data_measured, on="site_year")
+        data["BUILDING_ID"] = [city + str(ix) for ix in data.index]
 
         # get enthalpy
         weather_file_location = os.path.join(data_ipcc_folder, scenario, name_file)
@@ -56,7 +57,7 @@ def prepare_input_database(cities, data_energy_folder, data_ipcc_folder, scenari
                                                                               humidity_ratio_base_C_kgperkg)
 
         # Quantities of every building
-        data["BUILDING_ID"] = [city + str(ix) for ix in data.index]
+
         data['CITY'] = city
         data['CLIMATE_ZONE'] = climate
         data['SCENARIO'] = scenario

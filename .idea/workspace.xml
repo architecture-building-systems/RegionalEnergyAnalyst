@@ -2,77 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9e0e9efc-17c8-4026-aa9b-aa01df16e4be" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/analysis/scripts/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/Table_clusters_ratings.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_7_percentage error_plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_10_city_evolution.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_9_climate_zone_evolution.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/coefficients_hierarchical_model_plots.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/data_pair_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/data_pair_plot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/extensive_OLS.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_1.1_enthalpy_vs_perc_growth.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_1.1_enthalpy_vs_perc_growth.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_1_cities_across_U.S.A.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/figure_1_cities_across_U.S.A.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_1_histogram_per_climate_zone.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_1_histogram_per_climate_zone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_2.1_enthalpy_evolution_lines.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_2.1_enthalpy_evolution_lines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_2_enthalpy_evolution_lines.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_2_enthalpy_evolution_lines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_3_histogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_3_histogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_3_scatter.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_3_scatter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_4_diagram_error.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_4_histogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_4_histogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_5_energy_evolution_lines.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/figure_5_energy_evolution_lines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_6_energy_boxplot_per_climate_zone.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/figure_6_energy_boxplot_per_climate_zone.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_7_percentage error_plots.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_cities_across_U.S.A.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/figure_cities_across_U.S.A.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_enthalpy_evolution_lines.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_enthalpy_evolution_lines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_hdd_cdd_evolution_lines.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_hdd_cdd_evolution_lines_percentage.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_hdd_cdd_evolution_lines_percentage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/figure_number_clusters.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_2_number_clusters.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/plots_predictions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/analysis/simple_OLS.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/configuration.py" beforeDir="false" afterPath="$PROJECT_DIR$/configuration.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-postprocessing/future_energy_intensity.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-postprocessing/test.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/data-postprocessing/today_energy_intensity.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumption.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumption1990_2010.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2010.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2020.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2030.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2040.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2050.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2060.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2070.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2080.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2090.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA1B_2100.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2010.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2020.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2030.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2040.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2050.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2060.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2070.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2080.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2090.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionA2_2100.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2010.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2020.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2030.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2040.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2050.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2060.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2070.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2080.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2090.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumptionB1_2100.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/databases/future_energy_consumption/future_consumption_efficiency.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/plots/clustering/boxplot_clusters_criteria_.html" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/plots/clustering/boxplot_clusters_criteria_.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/plots/clustering/clusters_example_one_city_and_class_.html" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/plots/clustering/clusters_example_one_city_and_class_.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/scripts/data_pair_plot.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/data_pair_plot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/scripts/figure_6_energy_boxplot_per_climate_zone.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_2_number_clusters.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_2_number_clusters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_7_percentage error_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_7_and_8_percentage error_plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_processing/prediction_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/prediction_database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_processing/training_and_testing_database.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_processing/training_and_testing_database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/inference/log_log_all_2var_standard_5000.pkl" beforeDir="false" afterPath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/inference/log_log_all_2var_standard_5000.pkl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/performance/log_log_all_2var_standard_2500.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/performance/log_log_all_2var_standard_2500.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/results/neural_network/performance/log_nn_wd_4L_2var.csv" beforeDir="false" afterPath="$PROJECT_DIR$/results/neural_network/performance/log_nn_wd_4L_2var.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" beforeDir="false" afterPath="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/inference/log_log_all_2var_standard_1000.pkl" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Albuquerque, NM.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Austin, TX.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Boston, MA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Chicago, IL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Los Angeles, CA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Miami, FL.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/New York, NY.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/San Francisco, CA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Seattle, WA.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Washington, DC.csv" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -108,14 +62,92 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="92" column="51" lean-forward="true" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
+            <state relative-caret-position="173">
+              <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/scripts/data_pair_plot.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="37" selection-start-line="37" selection-end-line="37" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-103">
+              <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_processing/enthalpy_calculation.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="811">
+              <caret line="161" column="14" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="588">
+              <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="317">
+              <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="44" />
+              <folding>
+                <element signature="e#0#9#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_9_climate_zone_evolution.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="529">
+              <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_10_city_evolution.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
             </state>
           </provider>
         </entry>
@@ -147,6 +179,7 @@
       <find>&amp;</find>
       <find>tables</find>
       <find>test_cities</find>
+      <find>DATA_POST_FUTURE_ENERGY_CONSUMPTION_FOLDER</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -170,30 +203,38 @@
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/2_performance_check_city.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_city.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_climate_zone.py" />
-        <option value="$PROJECT_DIR$/data_processing/training_and_testing_database.py" />
-        <option value="$PROJECT_DIR$/data_processing/prediction_database.py" />
         <option value="$PROJECT_DIR$/models/neural_network_2_variables/definition_and_inference.py" />
         <option value="$PROJECT_DIR$/analysis/data_pair_plot.py" />
         <option value="$PROJECT_DIR$/analysis/figure_number_clusters.py" />
-        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference_centered.py" />
         <option value="$PROJECT_DIR$/models/neural_network_2_covariate/definition_and_inference.py" />
         <option value="$PROJECT_DIR$/models/neural_network_2_covariate/2_performance_check.py" />
         <option value="$PROJECT_DIR$/analysis/figure_7_percentage error_plots.py" />
         <option value="$PROJECT_DIR$/configuration.py" />
         <option value="$PROJECT_DIR$/analysis/Table_clusters_ratings.py" />
-        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" />
         <option value="$PROJECT_DIR$/analysis/plots_predictions.py" />
         <option value="$PROJECT_DIR$/analysis/figure_6_energy_boxplot_per_climate_zone.py" />
         <option value="$PROJECT_DIR$/data-postprocessing/future_energy_intensity.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" />
+        <option value="$PROJECT_DIR$/analysis/scripts/figure_6_energy_boxplot_per_climate_zone.py" />
+        <option value="$PROJECT_DIR$/analysis/scripts/figure_climate_zone_evolution.py" />
+        <option value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_2_number_clusters.py" />
+        <option value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_7_percentage error_plots.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/prediction_all_buildings.py" />
+        <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py" />
+        <option value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_9_climate_zone_evolution.py" />
+        <option value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_10_city_evolution.py" />
         <option value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py" />
+        <option value="$PROJECT_DIR$/data_processing/training_and_testing_database.py" />
+        <option value="$PROJECT_DIR$/data_processing/prediction_database.py" />
+        <option value="$PROJECT_DIR$/analysis/scripts/data_pair_plot.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="494" />
-    <option name="width" value="1440" />
-    <option name="height" value="780" />
+    <option name="x" value="106" />
+    <option name="width" value="1822" />
+    <option name="height" value="1031" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -211,12 +252,7 @@
             <path>
               <item name="RegionalEnergyAnalyst" type="b2602c69:ProjectViewProjectNode" />
               <item name="RegionalEnergyAnalyst" type="462c0819:PsiDirectoryNode" />
-              <item name="analysis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RegionalEnergyAnalyst" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RegionalEnergyAnalyst" type="462c0819:PsiDirectoryNode" />
-              <item name="data_processing" type="462c0819:PsiDirectoryNode" />
+              <item name="databases" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -227,7 +263,7 @@
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/results/old" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="PyConsoleOptionsProvider">
@@ -246,11 +282,11 @@
       <recent name="E:\GitHub\RegionalEnergyAnalyst\analysis\total_energy_consumption" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\GitHub\RegionalEnergyAnalyst\models\hierarchical_2_levels_2_covariate" />
+      <recent name="E:\GitHub\RegionalEnergyAnalyst\analysis\scripts\total_energy_consumption" />
       <recent name="E:\GitHub\RegionalEnergyAnalyst\results\old" />
       <recent name="E:\GitHub\RegionalEnergyAnalyst\models\old" />
-      <recent name="E:\GitHub\RegionalEnergyAnalyst\models\hierarchical_2_levels_2_covariate" />
       <recent name="E:\GitHub\great-american-cities\models" />
-      <recent name="E:\GitHub\great-american-cities\analysis" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -265,29 +301,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.4_prediction">
-    <configuration name="1_definition_and_inference" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="great-american-cities" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Python.prediction_database">
     <configuration name="4_prediction" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -310,7 +324,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Table_clusters_ratings" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="data_pair_plot" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -318,12 +332,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis/scripts" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\GitHub\RegionalEnergyAnalyst\analysis\total_energy_consumption\Table_clusters_ratings.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/scripts/data_pair_plot.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -332,7 +346,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="figure_7_percentage error_plots" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="figure_10_city_evolution" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -340,12 +354,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="E:\GitHub\RegionalEnergyAnalyst\analysis\scripts\total_energy_consumption\figure_7_percentage error_plots.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_10_city_evolution.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -354,7 +368,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="today_energy_intensity" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="figure_9_climate_zone_evolution" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="great-american-cities" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -362,12 +376,34 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data-postprocessing" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data-postprocessing/today_energy_intensity.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_9_climate_zone_evolution.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="prediction_database" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="great-american-cities" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/data_processing" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/data_processing/prediction_database.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -377,19 +413,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.1_definition_and_inference" />
-      <item itemvalue="Python.figure_7_percentage error_plots" />
-      <item itemvalue="Python.Table_clusters_ratings" />
+      <item itemvalue="Python.figure_10_city_evolution" />
+      <item itemvalue="Python.figure_9_climate_zone_evolution" />
       <item itemvalue="Python.4_prediction" />
-      <item itemvalue="Python.today_energy_intensity" />
+      <item itemvalue="Python.data_pair_plot" />
+      <item itemvalue="Python.prediction_database" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.prediction_database" />
+        <item itemvalue="Python.data_pair_plot" />
         <item itemvalue="Python.4_prediction" />
-        <item itemvalue="Python.today_energy_intensity" />
-        <item itemvalue="Python.Table_clusters_ratings" />
-        <item itemvalue="Python.figure_7_percentage error_plots" />
-        <item itemvalue="Python.1_definition_and_inference" />
+        <item itemvalue="Python.figure_9_climate_zone_evolution" />
+        <item itemvalue="Python.figure_10_city_evolution" />
       </list>
     </recent_temporary>
   </component>
@@ -414,12 +450,12 @@
       <workItem from="1579069494835" duration="272000" />
       <workItem from="1579069808080" duration="132000" />
       <workItem from="1579069987060" duration="67272000" />
-      <workItem from="1579742969151" duration="30587000" />
+      <workItem from="1579742969151" duration="56429000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="157484000" />
+    <option name="totallyTimeSpent" value="183326000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -433,13 +469,13 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20522387" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20575693" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8443497" weight="0.26435536" />
-      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" visible="true" weight="0.3434453" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.8443497" visible="true" weight="0.3618635" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49840087" weight="0.23185265" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32827735" />
@@ -452,11 +488,11 @@
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="SciView" order="3" sideWeight="0.9471947" visible="true" weight="0.03837953" />
+      <window_info anchor="right" id="SciView" order="3" sideWeight="0.94736844" visible="true" weight="0.1977612" />
       <window_info anchor="right" id="Database" order="4" weight="0.21375267" />
-      <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="5" sideWeight="0.052805282" side_tool="true" visible="true" weight="0.03837953" />
-      <window_info anchor="right" id="R Graphics" order="6" weight="0.32995737" />
-      <window_info anchor="right" id="R Packages" order="7" weight="0.32995737" />
+      <window_info anchor="right" id="R Graphics" order="5" weight="0.32995737" />
+      <window_info anchor="right" id="R Packages" order="6" weight="0.32995737" />
+      <window_info anchor="right" x="0" y="0" width="283" height="852" id="Documentation" order="7" sideWeight="0.05263158" side_tool="true" visible="true" weight="0.1977612" />
     </layout>
     <layout-to-restore>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20309168" />
@@ -527,19 +563,34 @@
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/data_processing/prediction_database.py</url>
-          <line>76</line>
-          <option name="timeStamp" value="148" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py</url>
           <line>130</line>
           <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_9_climate_zone_evolution.py</url>
+          <line>18</line>
+          <option name="timeStamp" value="228" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py</url>
-          <line>94</line>
-          <option name="timeStamp" value="187" />
+          <line>124</line>
+          <option name="timeStamp" value="247" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py</url>
+          <line>125</line>
+          <option name="timeStamp" value="248" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/analysis/scripts/data_pair_plot.py</url>
+          <line>37</line>
+          <option name="timeStamp" value="249" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/data_processing/prediction_database.py</url>
+          <line>54</line>
+          <option name="timeStamp" value="255" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -553,138 +604,89 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$Table_clusters_ratings.coverage" NAME="Table_clusters_ratings Coverage Results" MODIFIED="1579860420198" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_10_city_evolution.coverage" NAME="figure_10_city_evolution Coverage Results" MODIFIED="1580117945879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/scripts/total_energy_consumption" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$definition_and_inference.coverage" NAME="definition_and_inference Coverage Results" MODIFIED="1579763224191" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/neural_network_2_covariate" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$data_pair_plot.coverage" NAME="data_pair_plot Coverage Results" MODIFIED="1579141717880" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$data_pair_plot.coverage" NAME="data_pair_plot Coverage Results" MODIFIED="1580119448475" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/scripts" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$performance_check_climate_zone.coverage" NAME="performance_check_climate_zone Coverage Results" MODIFIED="1579512563376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$1_definition_and_inference_centered.coverage" NAME="1_definition_and_inference_centered Coverage Results" MODIFIED="1579586685879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$performance_check.coverage" NAME="performance_check Coverage Results" MODIFIED="1579741728811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$performance_check.coverage" NAME="performance_check Coverage Results" MODIFIED="1580094501124" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_number_clusters.coverage" NAME="figure_number_clusters Coverage Results" MODIFIED="1579685020992" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$training_and_testing_database.coverage" NAME="training_and_testing_database Coverage Results" MODIFIED="1579515599072" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check_city.coverage" NAME="2_performance_check_city Coverage Results" MODIFIED="1578903636058" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$prediction_database.coverage" NAME="prediction_database Coverage Results" MODIFIED="1579569898114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$4_prediction.coverage" NAME="4_prediction Coverage Results" MODIFIED="1580094127624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_6_energy_boxplot_per_climate_zone.coverage" NAME="figure_6_energy_boxplot_per_climate_zone Coverage Results" MODIFIED="1578893584335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$prediction_database.coverage" NAME="prediction_database Coverage Results" MODIFIED="1580119603440" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data_processing" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_2_number_clusters.coverage" NAME="figure_2_number_clusters Coverage Results" MODIFIED="1580110538333" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/scripts/total_energy_consumption" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$4_prediction.coverage" NAME="4_prediction Coverage Results" MODIFIED="1580118746285" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_6_energy_boxplot_per_climate_zone.coverage" NAME="figure_6_energy_boxplot_per_climate_zone Coverage Results" MODIFIED="1580102393924" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/scripts" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$today_energy_intensity.coverage" NAME="today_energy_intensity Coverage Results" MODIFIED="1580093165603" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/data-postprocessing" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check_climate_zone.coverage" NAME="2_performance_check_climate_zone Coverage Results" MODIFIED="1578906592852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_climate_zone_evolution.coverage" NAME="figure_climate_zone_evolution Coverage Results" MODIFIED="1580110430044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/scripts" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$2_performance_check.coverage" NAME="2_performance_check Coverage Results" MODIFIED="1579749652320" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/neural_network_2_covariate" />
-    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_7_percentage_error_plots.coverage" NAME="figure_7_percentage error_plots Coverage Results" MODIFIED="1579837171372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_7_percentage_error_plots.coverage" NAME="figure_7_percentage error_plots Coverage Results" MODIFIED="1580111401916" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/scripts/total_energy_consumption" />
+    <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$figure_9_climate_zone_evolution.coverage" NAME="figure_9_climate_zone_evolution Coverage Results" MODIFIED="1580118126303" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/analysis/scripts/total_energy_consumption" />
     <SUITE FILE_PATH="coverage/RegionalEnergyAnalyst$1_definition_and_inference.coverage" NAME="1_definition_and_inference Coverage Results" MODIFIED="1579773352649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate" />
   </component>
   <component name="debuggerHistoryManager">
+    <expressions id="evaluateCodeFragment">
+      <expression>
+        <expression-string>result['CLIMATE_ZONE']['mean']</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>result['ci95_lo'].count()</expression-string>
+        <language-id>Python</language-id>
+        <evaluation-mode>CODE_FRAGMENT</evaluation-mode>
+      </expression>
+    </expressions>
     <expressions id="evaluateExpression">
       <expression>
-        <expression-string>pd.DataFrame(result)</expression-string>
+        <expression-string>data</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.to_DataFrame()</expression-string>
+        <expression-string>df2</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.to_dataframe()</expression-string>
+        <expression-string>data_train_test_city</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.to_dataframe</expression-string>
+        <expression-string>data_energy_city</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result</expression-string>
+        <expression-string>city</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.get_levels(0)</expression-string>
+        <expression-string>X_prediction</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.get_levels()</expression-string>
+        <expression-string>x_prediction_final</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.get_level()</expression-string>
+        <expression-string>data_class</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
       <expression>
-        <expression-string>result.get_level</expression-string>
-        <language-id>Python</language-id>
-        <evaluation-mode>EXPRESSION</evaluation-mode>
-      </expression>
-      <expression>
-        <expression-string>result.levels</expression-string>
+        <expression-string>X_prediction.BUILDING_CLASS.</expression-string>
         <language-id>Python</language-id>
         <evaluation-mode>EXPRESSION</evaluation-mode>
       </expression>
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Charleston, WV.csv">
-      <provider selected="true" editor-type-id="csv-text-editor" />
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Cheyenne, WY..csv" />
-    <entry file="file://$PROJECT_DIR$/data_raw/building_performance/data_300k/Cheyenne, WY.csv">
-      <provider selected="true" editor-type-id="csv-text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="101" lean-forward="true" selection-start-line="16" selection-start-column="101" selection-end-line="16" selection-end-column="101" />
-        </state>
-      </provider>
-      <provider editor-type-id="csv-table-editor">
-        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_city.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="99" column="48" selection-start-line="99" selection-start-column="18" selection-end-line="99" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check_climate_zone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="424">
-          <caret line="102" column="48" selection-start-line="102" selection-start-column="48" selection-end-line="102" selection-end-column="48" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/__init__.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels/4_prediction.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="34" column="46" selection-start-line="34" selection-start-column="33" selection-end-line="34" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/databases/prediction_today_efficiency/Miami, FL.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -713,13 +715,6 @@
         <state relative-caret-position="-2397" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/databases/prediction_today_efficiency/Chula Vista, CA.csv">
-      <provider selected="true" editor-type-id="LargeFileEditor">
-        <state relative-caret-position="-357">
-          <caret line="3" column="97" selection-start-line="2" selection-end-line="3" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/databases/training_and_testing/all_database.csv">
       <provider selected="true" editor-type-id="LargeFileEditor">
         <state relative-caret-position="51">
@@ -734,28 +729,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2336">
-          <caret line="208" lean-forward="true" selection-start-line="208" selection-end-line="208" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/old/hierarchical_2_levels_2_covariate/__init__.py">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/scripts/data_pair_plot.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="90" column="66" selection-start-line="90" selection-start-column="38" selection-end-line="90" selection-end-column="66" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/Anaconda3/envs/tensorflow/Lib/site-packages/absl/app.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -813,26 +788,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/Table_clusters_ratings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="119" column="11" lean-forward="true" selection-start-line="119" selection-start-column="11" selection-end-line="119" selection-end-column="12" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/databases/training_and_testing/temperature_optimal.csv">
       <provider selected="true" editor-type-id="csv-text-editor">
         <state relative-caret-position="17">
@@ -857,23 +812,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="952">
           <caret line="56" column="70" selection-start-line="56" selection-start-column="70" selection-end-line="56" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="45" lean-forward="true" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/scripts/figure_6_energy_boxplot_per_climate_zone.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="899">
-          <caret line="150" column="51" selection-start-line="150" selection-start-column="51" selection-end-line="150" selection-end-column="51" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -919,44 +857,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_7_percentage error_plots.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-188">
-          <caret line="19" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="19" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/scripts/figure_5_energy_evolution_lines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2075">
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_2_number_clusters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-765">
-          <caret selection-end-line="18" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_3_scatter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-511">
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/analysis/scripts/thermal_energy_consumption/figure_4_histogram.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-510">
@@ -971,16 +871,6 @@
         <state relative-caret-position="-2143">
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="647">
-          <caret line="250" column="75" selection-start-line="250" selection-start-column="52" selection-end-line="250" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1014,10 +904,186 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Albuquerque, NM.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/1_definition_and_inference.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="352">
+          <caret line="78" column="72" selection-start-line="78" selection-start-column="47" selection-end-line="78" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Carlsbad, CA.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Albany, NY.csv">
+      <provider selected="true" editor-type-id="csv-text-editor">
+        <state relative-caret-position="-55434">
+          <caret column="36" lean-forward="true" selection-start-column="36" selection-end-column="36" />
+        </state>
+      </provider>
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/Ann Arbor, MI.csv">
+      <provider selected="true" editor-type-id="csv-text-editor" />
+      <provider editor-type-id="csv-table-editor">
+        <state showInfoPanel="true" fixedHeaders="false" rowLines="3" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/databases/prediction_today_efficiency/Chula Vista, CA.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state>
+          <caret column="83" lean-forward="true" selection-start-column="83" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/figure_6_energy_boxplot_per_climate_zone.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="46" lean-forward="true" selection-start-line="46" selection-end-line="46" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/figure_5_energy_evolution_lines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="106" column="52" selection-start-line="106" selection-start-column="26" selection-end-line="106" selection-end-column="52" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_3_scatter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-357">
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/Table_clusters_ratings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="101">
+          <caret line="25" column="46" selection-start-line="25" selection-start-column="46" selection-end-line="25" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_2_number_clusters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="407">
+          <caret line="72" selection-start-line="72" selection-end-line="73" selection-end-column="86" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_7_and_8_percentage error_plots.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="26" column="51" lean-forward="true" selection-start-line="26" selection-start-column="51" selection-end-line="26" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/prediction_all_buildings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="74" column="52" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/results/hierarchical_2_levels_2_covariate/predictions/log_log_all_2var_standard_2500/predictions_data.csv">
+      <provider selected="true" editor-type-id="LargeFileEditor">
+        <state relative-caret-position="-8531">
+          <caret column="54" selection-start-column="40" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/performance_check.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="317">
+          <caret line="128" column="4" selection-start-line="128" selection-start-column="4" selection-end-line="128" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_10_city_evolution.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="38" column="57" selection-start-line="38" selection-start-column="57" selection-end-line="38" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/total_energy_consumption/figure_9_climate_zone_evolution.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="529">
+          <caret line="37" column="17" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/analysis/scripts/data_pair_plot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="37" selection-start-line="37" selection-end-line="37" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/hierarchical_2_levels_2_covariate/4_prediction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="92" column="51" lean-forward="true" selection-start-line="92" selection-start-column="51" selection-end-line="92" selection-end-column="51" />
+        <state relative-caret-position="173">
+          <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processing/training_and_testing_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="131" column="4" selection-start-line="131" selection-start-column="4" selection-end-line="131" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processing/enthalpy_calculation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="811">
+          <caret line="161" column="14" selection-start-line="161" selection-start-column="14" selection-end-line="161" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data_processing/prediction_database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-103">
+          <caret line="71" column="70" selection-start-line="71" selection-start-column="70" selection-end-line="71" selection-end-column="70" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>

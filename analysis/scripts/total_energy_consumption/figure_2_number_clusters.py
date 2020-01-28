@@ -66,12 +66,12 @@ trace = go.Scattergl(x=xs, y=ys,
                                  colorscale='blues', showscale=True, opacity=0.8))
 data = [trace]
 layout = go.Layout(xaxis=dict(title=titlex),
-                   font=dict(family='Helvetica, monospace', size=18),
+                   font=dict(family='Helvetica, monospace', size=24, color='black'),
                    yaxis=dict(title=titley))
 
 fig = go.Figure(data=data, layout=layout)
 fig['layout'].update(plot_bgcolor="rgb(236,243,247)",
-                     font=dict(family='Helvetica, monospace', size=18),
+                     font=dict(family='Helvetica, monospace', size=24, color='black'),
                      annotations=[
         go.layout.Annotation(
             x=1.05,
@@ -92,11 +92,11 @@ trace2 = go.Box(y=aic_list,
 data = [trace2]
 layout = go.Layout(plot_bgcolor="rgb(236,243,247)",
                    legend=dict(x=0.90, y=0.95),
-                   font=dict(family='Helvetica, monospace', size=18),
+                   font=dict(family='Helvetica, monospace', size=24, color='black'),
                    xaxis=dict(title="Clustering Criterion", categoryorder="array", categoryarray=['AIC']),
                    yaxis=dict(title="Number of Clusters [-]", zeroline=False))
 fig['layout'].update(plot_bgcolor="rgb(236,243,247)",
-                     font=dict(family='Helvetica, monospace', size=18)
+                     font=dict(family='Helvetica, monospace', size=24, color='black')
                      )
 fig = go.Figure(data=data, layout=layout)
 

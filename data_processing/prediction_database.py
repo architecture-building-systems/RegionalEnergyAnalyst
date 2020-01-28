@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 from configuration import DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY, DATA_PREDICTION_FOLDER_FUTURE_EFFICIENCY, ZONE_NAMES, \
-    CONFIG_FILE, DATA_RAW_BUILDING_PERFORMANCE_FOLDER, \
+    CONFIG_FILE, DATA_RAW_BUILDING_PERFORMANCE_FOLDER, DATA_RAW_BUILDING_TODAY_HDD_FOLDER,\
     DATA_FUTURE_EFFICIENCY_FILE, DATA_ALLDATA_FILE,DATA_RAW_BUILDING_IPCC_SCENARIOS_FOLDER
 from data_processing.enthalpy_calculation import convert_rh_to_moisture_content, calc_yearly_enthalpy
 from data_processing.training_and_testing_database import calc_massflow_building, calc_total_energy
@@ -30,43 +30,26 @@ def main(cities, climate, scenarios, data_energy_folder, data_ipcc_folder, outpu
     for name_file, city, climate in zip(name_of_data_file, cities, new_clima):
         final_df = pd.DataFrame()
         for scenario in scenarios:
-            if flag_use_efficiency == True:
-                output_path = DATA_PREDICTION_FOLDER_FUTURE_EFFICIENCY
-                year_scenario = scenario.split("data_")[1]
-                if year_scenario == "1990_2010":  # aka today
-                    today_efficiency = data_efficiency.loc[2010]
-                    temperatures_base_H_C = today_efficiency["Tb_H_A1B"]
-                    temperatures_base_C_C = today_efficiency["Tb_C_A1B"]
-                    relative_humidity_base_HUM_C = today_efficiency["RH_HUM_A1B"]
-                    relative_humidity_base_DEHUM_C = today_efficiency["RH_DEHUM_A1B"]
-                    COP_H = today_efficiency["COP_H_A1B"]
-                    COP_C = today_efficiency["COP_C_A1B"]
-                else:
-                    year_real_scenario = scenario.split("_")[-1]
-                    today_efficiency = data_efficiency.loc[int(year_real_scenario)]
-                    scenario_type = scenario.split("_")[1]
-                    temperatures_base_H_C = today_efficiency["Tb_H_" + scenario_type]
-                    temperatures_base_C_C = today_efficiency["Tb_C_" + scenario_type]
-                    relative_humidity_base_HUM_C = today_efficiency["RH_HUM_" + scenario_type]
-                    relative_humidity_base_DEHUM_C = today_efficiency["RH_DEHUM_" + scenario_type]
-                    COP_H = today_efficiency["COP_H_" + scenario_type]
-                    COP_C = today_efficiency["COP_C_" + scenario_type]
-            else:
-                output_path = DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY
-                today_efficiency = data_efficiency.loc[2010]
-                temperatures_base_H_C = today_efficiency["Tb_H_A1B"]
-                temperatures_base_C_C = today_efficiency["Tb_C_A1B"]
-                relative_humidity_base_HUM_C = today_efficiency["RH_HUM_A1B"]
-                relative_humidity_base_DEHUM_C = today_efficiency["RH_DEHUM_A1B"]
-                COP_H = today_efficiency["COP_H_A1B"]
-                COP_C = today_efficiency["COP_C_A1B"]
+            output_path = DATA_PREDICTION_FOLDER_TODAY_EFFICIENCY
+            today_efficiency = data_efficiency.loc[2010]
+            temperatures_base_H_C = today_efficiency["Tb_H_A1B"]
+            temperatures_base_C_C = today_efficiency["Tb_C_A1B"]
+            relative_humidity_base_HUM_C = today_efficiency["RH_HUM_A1B"]
+            relative_humidity_base_DEHUM_C = today_efficiency["RH_DEHUM_A1B"]
+            COP_H = today_efficiency["COP_H_A1B"]
+            COP_C = today_efficiency["COP_C_A1B"]
 
-            # get data for city
-            data_energy_city = pd.read_csv(os.path.join(data_energy_folder, city + ".csv"))
-            data_energy_city["BUILDING_ID"] = [city + str(ix) for ix in data_energy_city.index]
+            # get data for city NEEDED TO KEEP THE INDEX!!! DO NOT ERASE
+            data_measured = pd.read_csv(os.path.join(data_energy_folder, city + ".csv"))
+            data_measured["site_year"] = data_measured["site_year"].round(0)
+            df_hdd_cdd = pd.read_csv(os.path.join(DATA_RAW_BUILDING_TODAY_HDD_FOLDER, city + ".csv"))
+            df_hdd_cdd["site_year"] = df_hdd_cdd["site_year"].round(0)
+            data = pd.merge(df_hdd_cdd, data_measured, on="site_year")
+            data["BUILDING_ID"] = [city + str(ix) for ix in data.index]
+
             # merge to data about the cluster type
             data_train_test_city = data_train_test_all[['BUILDING_ID', 'CLUSTER_LOG_SITE_EUI_kWh_m2yr']]
-            data = pd.merge(data_energy_city, data_train_test_city, on="BUILDING_ID")
+            data = pd.merge(data, data_train_test_city, on="BUILDING_ID")
 
             # get other quantities
             data['CITY'] = city

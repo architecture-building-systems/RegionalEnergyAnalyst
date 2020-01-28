@@ -34,6 +34,7 @@ data_path = DATA_ALLDATA_FILE
 cities_path = CONFIG_FILE
 
 df2 = pd.read_csv(data_path)
+df2 = df2[df2['CITY'] == 'Chula Vista, CA']
 n_components = 5
 
 #
